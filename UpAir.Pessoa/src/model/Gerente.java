@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class Gerente extends Funcionario {
+public class Gerente extends Funcionario implements Login{
 	private String email;
 	private String senha;
 	
@@ -22,6 +22,10 @@ public class Gerente extends Funcionario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	@Override
+	public void fazerLogin() {
 	}
 	
 	

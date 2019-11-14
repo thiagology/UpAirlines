@@ -21,6 +21,11 @@ public abstract class Pessoa {
 		this.nascimento = nascimento;
 	}
 	
+	private Pessoa() {
+		super();
+	}
+
+
 	public String getNome() {
 		return nome;
 	}
