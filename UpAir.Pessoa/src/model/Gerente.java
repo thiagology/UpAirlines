@@ -6,8 +6,8 @@ public class Gerente extends Funcionario {
 	private String email;
 	private String senha;
 	
-	public Gerente(int id, LocalDate contratacao, String funcao, String email, String senha) {
-		super(id, contratacao, funcao);
+	private Gerente(String email, String senha) {
+		super();
 		this.email = email;
 		this.senha = senha;
 	}
