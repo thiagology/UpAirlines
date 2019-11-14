@@ -5,7 +5,6 @@ package projetoUp.model;
 public class Aeroporto {
     private String nome;
     private String sigla;
-    private int fuso;
     private Cidade cidade;
     
 	public String getNome() {
@@ -20,12 +19,7 @@ public class Aeroporto {
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
-	public int getFuso() {
-		return fuso;
-	}
-	public void setFuso(int fuso) {
-		this.fuso = fuso;
-	}
+	
 	public Cidade getCidade() {
 		return cidade;
 	}
