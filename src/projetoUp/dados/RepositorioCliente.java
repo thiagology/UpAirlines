@@ -12,7 +12,7 @@ public class RepositorioCliente {
 		this.clientes = clientes;
 	}
 	
-	//adiciona uma conta de cliente ao repostorio
+	//adiciona uma conta de cliente ao repositorio
 	public boolean criarConta(Cliente c) {		
 		 if (emailExiste(c.getEmail()) != true) {
 			 this.clientes.add(c);
@@ -21,7 +21,7 @@ public class RepositorioCliente {
 		return false;
 	}
 	
-	//remove uma conta de cliente ao repositoria
+	//remove uma conta do repositorio
 	public boolean excluirConta(Cliente c) {	
 	    if (emailExiste(c.getEmail()) == true) {
 		   this.clientes.remove(c);
@@ -41,7 +41,8 @@ public class RepositorioCliente {
 			if(c.getEmail() == email) {
 				return c;
 			}
-		}	
+		}
+		
 		return null;
 	}
 }
