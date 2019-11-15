@@ -70,11 +70,12 @@ public class Cliente extends Pessoa implements Login {
 
 	@Override
 	public void fazerLogin() {
-		//logar
+		//funcao de login
 	}
 
-	public float calcularLimite(renda r)(){	
-            //pagamento
+	public float calcularLimite(float renda){
+		return 0;
+		//fazer logica de calcular limite
 	}
 	
 
