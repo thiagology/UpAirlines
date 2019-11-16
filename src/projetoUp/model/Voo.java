@@ -13,10 +13,11 @@ public class Voo {
 	private LocalDateTime horarioDeChegada;
 	List <Passageiro> passageiros;
 	private Aviao aviao;
+        private String codigoVoo;
 	
 	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto,
 			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
-			List<Passageiro> passageiros, Aviao aviao) {
+			List<Passageiro> passageiros, Aviao aviao, String codigoVoo) {
 		super();
 		this.aeroportoDeOrigem = aeroportoDeOrigem;
 		this.aeroportoDeDestino = aeroportoDeDestino;
@@ -27,6 +28,7 @@ public class Voo {
 		this.horarioDeChegada = horarioDeChegada;
 		this.passageiros = passageiros;
 		this.aviao = aviao;
+                this.codigoVoo = codigoVoo;
 	}
 
 	public Aeroporto getAeroportoDeOrigem() {
@@ -101,7 +103,15 @@ public class Voo {
 		this.aviao = aviao;
 	}
 	
-	
+	public String getcodigoVoo()
+        {
+            return codigoVoo;
+        }
+        
+        public void setcodigoVoo (String codigoVoo)
+        {
+            this.codigoVoo = codigoVoo;
+        }
 	
 	
 }

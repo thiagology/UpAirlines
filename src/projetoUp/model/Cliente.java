@@ -74,8 +74,8 @@ public class Cliente extends Pessoa implements Login {
 	}
 
 	public float calcularLimite(float renda){
-		return 0;
-		//fazer logica de calcular limite
+            limite = 2*(renda/3);
+            return 0;
 	}
 	
 
