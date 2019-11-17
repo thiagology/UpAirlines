@@ -1,11 +1,13 @@
 
 package projetoUp.model;
 
+import java.util.ArrayList;
 
 public class Aeroporto {
     private String nome;
     private String sigla;
-    private Cidade cidade;
+    private ArrayList<Aeroporto> adijacentes = new ArrayList();
+    
     
 	public String getNome() {
 		return nome;
@@ -20,12 +22,12 @@ public class Aeroporto {
 		this.sigla = sigla;
 	}
 	
-	public Cidade getCidade() {
-		return cidade;
+	public void addAeroportoAdj(Aeroporto aeroporto)
+	{
+		this.adijacentes.add(aeroporto);
 	}
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
-	}
+	
+	
    
     
     
