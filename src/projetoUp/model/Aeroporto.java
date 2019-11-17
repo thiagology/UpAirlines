@@ -1,34 +1,43 @@
 
 package projetoUp.model;
 
-import java.util.ArrayList;
-
 public class Aeroporto {
     private String nome;
     private String sigla;
-    private ArrayList<Aeroporto> adijacentes = new ArrayList();
+    private String cidade;
     
-    
-	public String getNome() {
+    public Aeroporto(String nome, String sigla)
+    {
+    	this.setNome(nome);
+    	this.setSigla(sigla);
+    }
+	
+    public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public String getSigla() {
 		return sigla;
 	}
+	
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
 	
-	public void addAeroportoAdj(Aeroporto aeroporto)
+	public void setCidade(String cidade)
 	{
-		this.adijacentes.add(aeroporto);
+		this.cidade = cidade;
 	}
 	
+	public String getCidade()
+	{
+		return this.cidade;
+	}
 	
-   
     
     
 }

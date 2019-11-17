@@ -11,9 +11,12 @@ public class Voo {
 	private Funcionario comissario;
 	private LocalDateTime horarioDeSaida;
 	private LocalDateTime horarioDeChegada;
+	private Assento[][] assentos;
 	List <Passageiro> passageiros;
 	private Aviao aviao;
         private String codigoVoo;
+        
+        
 	
 	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto,
 			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
@@ -28,7 +31,11 @@ public class Voo {
 		this.horarioDeChegada = horarioDeChegada;
 		this.passageiros = passageiros;
 		this.aviao = aviao;
-                this.codigoVoo = codigoVoo;
+		this.assentos = new Assento[this.aviao.getLin()][this.aviao.getCol()];
+		this.codigoVoo = codigoVoo;
+		
+		this.mapearAssentos();
+		
 	}
 
 	public Aeroporto getAeroportoDeOrigem() {
@@ -103,6 +110,11 @@ public class Voo {
 		this.aviao = aviao;
 	}
 	
+	public Assento[][] getAssentos() {
+		return assentos;
+	}
+	
+	
 	public String getcodigoVoo()
         {
             return codigoVoo;
@@ -112,6 +124,65 @@ public class Voo {
         {
             this.codigoVoo = codigoVoo;
         }
+      
+    public void mapearAssentos()
+    {
+    	int qA = 1;
+		for(int i = 0; i < this.aviao.getLin(); i++)
+		{
+			for(int j = 0; j < this.aviao.getCol(); j++)
+			{
+				switch (j) {
+				case 0:
+					
+					this.getAssentos()[i][j].setId("A" + "-" + qA);
+					break;
+				case 1:
+					this.getAssentos()[i][j].setId("B" + "-" + qA);
+					break;
+				case 2:
+					this.getAssentos()[i][j].setId("C" + "-" + qA);
+					break;
+				case 3:
+					this.getAssentos()[i][j].setId("D" + "-" + qA);
+					break;
+
+				default:
+					break;
+				}
+				qA++;
+			}
+		}
+
+    }
+        
+    public void reservarAssento(int linha, int coluna)
+    	{
+    		this.assentos[linha][coluna].reservar();
+    	}
+    
 	
+    public char[][] mapaAssentos()
+	{
+		
+		char[][] mapAssentos = new char[this.aviao.getLin()][this.aviao.getCol()];
+		
+		for(int i = 0; i < this.aviao.getLin(); i++)
+		{
+			for(int j = 0; j < this.aviao.getCol(); j++)
+			{
+				if(this.assentos[i][j].getOcupado())
+				{
+					mapAssentos[i][j] = 'O';
+				}
+				else
+				{
+					mapAssentos[i][j] = 'V';
+				}
+			}
+	    }
 	
+		return mapAssentos;	
+	}
+
 }
