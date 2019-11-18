@@ -1,17 +1,23 @@
 package projetoUp.model;
 
 public enum Cidades {
-	RECIFE(1), JAOAO_PESSOA(2), MACEIO(3), NATAL(4), TERERESINA(5), SAO_LUIS(6),
-	ARACAJU(7), FORTALEZA(8), SALVADOR(9), BELEM(10), PORTO_VELHO(11), MANAUS(12),
-	MACAPA(13), BOA_VISTA(14), PALMAS(15), GOIANIA(16), CUIABA(17), CAMPO_GRANDE(18),
-	BRASILIA(19), VITORIA(20), BELO_HORIZONTE(21), RIO_DE_JANEIRO(22), SAO_PAULO(23), 
-	CURITIBA(24), FLORIANOPOLIS(25), RIO_BRANCO(26), RIO_GRANDE_DO_SUL(27);
+	RECIFE(1, "Recife"), JAOAO_PESSOA(2, "João Pessoa"), MACEIO(3, "Maceió"),
+	NATAL(4, "Natal"), TERERESINA(5, "Teresina"), SAO_LUIS(6, "São Luis"),
+	ARACAJU(7, "Aracaju"), FORTALEZA(8, "Fortaleza"), SALVADOR(9, "Salvador"),
+	BELEM(10, "Belem"), PORTO_VELHO(11, "Porto Velho"), MANAUS(12, "Manaus"),
+	MACAPA(13, "Macapa"), BOA_VISTA(14, "Boa Vista"), PALMAS(15, "Palmas"),
+	GOIANIA(16, "Goiania"), CUIABA(17, "Cauiabá"), CAMPO_GRANDE(18, "Campo Grande"),
+	BRASILIA(19, "Brasilia"), VITORIA(20, "Vitoria"), BELO_HORIZONTE(21, "Belo Horizonte"),
+	RIO_DE_JANEIRO(22, "Rio de Janeiro"), SAO_PAULO(23, "São Paulo"), CURITIBA(24, "Curitiba"),
+	FLORIANOPOLIS(25, "Florianópolis"), RIO_BRANCO(26, "Rio Branco"), RIO_GRANDE_DO_SUL(27, "Rio Grande do Sul");
 	
 	private int ordem;
+	private String nome;
 	
-	Cidades(int ordem)
+	Cidades(int ordem, String nome)
 	{
 		this.ordem = ordem;
+		this.nome = nome;
 	}
 	
 	
