@@ -24,8 +24,6 @@ public class Aviao {
 	{
 		return this.modelo;
 	}
-
-
 	
 	public int getLin()
 	{
@@ -36,8 +34,6 @@ public class Aviao {
 	{
 		return this.lin;
 	}
-	
-	
 	
 	public boolean isNoAeroporto()
 	{
