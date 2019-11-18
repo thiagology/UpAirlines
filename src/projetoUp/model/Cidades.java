@@ -1,15 +1,14 @@
 package projetoUp.model;
 
 public enum Cidades {
-	RECIFE(1, "Recife"), JAOAO_PESSOA(2, "João Pessoa"), MACEIO(3, "Maceió"),
-	NATAL(4, "Natal"), TERERESINA(5, "Teresina"), SAO_LUIS(6, "São Luis"),
-	ARACAJU(7, "Aracaju"), FORTALEZA(8, "Fortaleza"), SALVADOR(9, "Salvador"),
-	BELEM(10, "Belem"), PORTO_VELHO(11, "Porto Velho"), MANAUS(12, "Manaus"),
-	MACAPA(13, "Macapa"), BOA_VISTA(14, "Boa Vista"), PALMAS(15, "Palmas"),
-	GOIANIA(16, "Goiania"), CUIABA(17, "Cauiabá"), CAMPO_GRANDE(18, "Campo Grande"),
-	BRASILIA(19, "Brasilia"), VITORIA(20, "Vitoria"), BELO_HORIZONTE(21, "Belo Horizonte"),
-	RIO_DE_JANEIRO(22, "Rio de Janeiro"), SAO_PAULO(23, "São Paulo"), CURITIBA(24, "Curitiba"),
-	FLORIANOPOLIS(25, "Florianópolis"), RIO_BRANCO(26, "Rio Branco"), RIO_GRANDE_DO_SUL(27, "Rio Grande do Sul");
+	ARACAJU(1, "Aracaju"), BELEM(2, "Belem"), BELO_HORIZONTE(3, "Belo Horizonte"), BOA_VISTA(4, "Boa Vista"), 
+	BRASILIA(5, "Brasilia"), CAMPO_GRANDE(6, "Campo Grande"), CUIABA(7, "Cauiabá"), 
+	CURITIBA(8, "Curitiba"), FLORIANOPOLIS(9, "Florianópolis"), FORTALEZA(10, "Fortaleza"), GOIANIA(11, "Goiania"),
+	JAOAO_PESSOA(12, "João Pessoa"), MACAPA(13, "Macapa"), MACEIO(14, "Maceió"), MANAUS(15, "Manaus"),
+	NATAL(16, "Natal"), PALMAS(17, "Palmas"), PORTO_ALEGRE(18, "Porto Alegre"),
+	PORTO_VELHO(19, "Porto Velho"), RECIFE(20, "Recife"), RIO_BRANCO(21, "Rio Branco"), RIO_DE_JANEIRO(22, "Rio de Janeiro"),
+	SAO_LUIS(23, "São Luis"), SAO_PAULO(24, "São Paulo"), SALVADOR(25, "Salvador"), 
+	TERERESINA(26, "Teresina"), VITORIA(27, "Vitoria");
 	
 	private int ordem;
 	private String nome;

@@ -32,7 +32,7 @@ public class Aviao {
 	
 	public int getCol()
 	{
-		return this.lin;
+		return this.col;
 	}
 	
 	public boolean isNoAeroporto()
