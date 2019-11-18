@@ -1,5 +1,5 @@
 package projetoUp.negocio;
 
-public class Controller {
+public class CadastroVoos {
 
 }
