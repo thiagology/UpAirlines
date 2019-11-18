@@ -19,5 +19,14 @@ public enum Cidades {
 		this.nome = nome;
 	}
 	
+	public String getNome()
+	{
+		return this.nome;
+	}
+	
+	public int getOrdem()
+	{
+		return this.ordem;
+	}
 	
 }

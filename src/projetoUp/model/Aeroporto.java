@@ -4,12 +4,13 @@ package projetoUp.model;
 public class Aeroporto {
     private String nome;
     private String sigla;
-    private String cidade;
+    private Cidades cidade;
     
-    public Aeroporto(String nome, String sigla)
+    public Aeroporto(String nome, String sigla, Cidades cidade)
     {
     	this.setNome(nome);
     	this.setSigla(sigla);
+    	this.setCidade(cidade);
     }
 	
     public String getNome() {
@@ -28,15 +29,43 @@ public class Aeroporto {
 		this.sigla = sigla;
 	}
 	
-	public void setCidade(String cidade)
+	public void setCidade(Cidades cidade)
 	{
 		this.cidade = cidade;
 	}
 	
-	public String getCidade()
+	public Cidades getCidade()
 	{
 		return this.cidade;
 	}
+
+
+	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aeroporto other = (Aeroporto) obj;
+		if (cidade != other.cidade)
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (sigla == null) {
+			if (other.sigla != null)
+				return false;
+		} else if (!sigla.equals(other.sigla))
+			return false;
+		return true;
+	}
+	
 	
     
     
