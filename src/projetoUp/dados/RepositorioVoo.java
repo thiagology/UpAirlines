@@ -46,6 +46,15 @@ public class RepositorioVoo {
   			return null;
   		}
   		
-  		//public boolean alterarVoo()
+  		public boolean alterarVoo(Voo v) {
+  			if(voos.contains(v)) {
+  				int indice = this.voos.indexOf(v);
+  				this.voos.set(indice, v);
+  				//verificar logica
+  			}
+  			
+  			
+  			return false;
+  		}
     
 }
