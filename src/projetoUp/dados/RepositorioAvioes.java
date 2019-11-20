@@ -31,5 +31,22 @@ public class RepositorioAvioes {
 		return temp;
 	}
 	
+	public void excluirAviao(Aviao aviao)
+	{
+		this.avioes.remove(aviao);
+	}
+	
+	public Aviao getAviao()
+	{
+		for (Aviao aviao : avioes) {
+			
+			if(aviao.isNoAeroporto())
+			{
+				return aviao;
+			}
+		}
+		
+		return null;
+	}
 	
 }

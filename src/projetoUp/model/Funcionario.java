@@ -15,7 +15,9 @@ public class Funcionario extends Pessoa {
 		this.funcao = funcao;
 	}
 	
-	public Funcionario() {
+	public Funcionario()
+	{
+		
 	}
 	
 	public int getId() {
