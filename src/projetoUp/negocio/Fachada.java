@@ -8,11 +8,22 @@ public class Fachada {
 	private ControladorCliente controladorCliente;
 	private ControladorAeroporto controladorAeroporto;
 	
+	private Fachada() {
+		this.controladorVoo = ControladorVoo.getInstance();
+		this.controladorCliente = ControladorCliente.getInstance();
+		this.controladorPassagem = ControladorPassagem.getInstance();
+		this.controladorAeroporto = ControladorAeroporto.getInstance();
+	}
 	
-	private static Fachada getInstance() {
+	public static Fachada getInstance() {
 		if(instance == null) {
 			instance = new Fachada();
 		}
 		return instance;
 	}
+	
+
+	//gerente
+	
+	//cliente
 }

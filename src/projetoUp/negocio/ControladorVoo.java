@@ -4,8 +4,16 @@ import projetoUp.dados.RepositorioVoo;
 import projetoUp.model.Voo;
 
 public class ControladorVoo {
+	 private static ControladorVoo instance;
 	 private RepositorioVoo repositorioVoo;
-
+	 
+	
+	public static ControladorVoo getInstance() {
+		if(instance == null) {
+			instance = new ControladorVoo();
+		}
+		return instance;
+	}
 	 
 	public void criarVoo(Voo v) {
 		if(v != null) {
