@@ -6,13 +6,13 @@ public class Gerente extends Funcionario implements Login{
 	private String email;
 	private String senha;
 	
-	private Gerente(String email, String senha) {
+	public Gerente(String email, String senha) {
 		super();
 		this.email = email;
 		this.senha = senha;
 	}
 	
-	private Gerente(String email, String senha, String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento,
+	public Gerente(String email, String senha, String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento,
 			int id, LocalDate contratacao, String funcao) {
 		super(nome, cpf, rg, telefone, endereco, nascimento, id, contratacao, funcao);
 		
