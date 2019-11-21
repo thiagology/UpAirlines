@@ -7,7 +7,7 @@ public class Funcionario extends Pessoa {
 	private LocalDate contratacao;
 	private String funcao;
 
-	private Funcionario(String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento,
+	public Funcionario(String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento,
 			int id, LocalDate contratacao, String funcao) {
 		super(nome, cpf, rg, telefone, endereco, nascimento);
 		this.id = id;

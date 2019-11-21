@@ -1,10 +1,13 @@
 
 package projetoUp.model;
 
+import java.util.ArrayList;
+
 public class Aeroporto {
     private String nome;
     private String sigla;
     private Cidades cidade;
+    private ArrayList<Aviao> avioes = new ArrayList<>();
     
     public Aeroporto(String nome, String sigla, Cidades cidade)
     {
@@ -37,6 +40,44 @@ public class Aeroporto {
 	public Cidades getCidade()
 	{
 		return this.cidade;
+	}
+	
+	public void addAviao()
+	{
+		this.avioes.add(new Aviao());
+	}
+	
+	public ArrayList<Aviao> listAvioesDisponiveis()
+	{
+		ArrayList<Aviao> temp = new ArrayList<Aviao>();
+		for (Aviao aviao : this.avioes) {
+			
+			if(aviao.isNoAeroporto())
+			{
+				temp.add(aviao);
+			}
+		}
+		
+		return temp;
+	}
+	
+	public void excluirAviao(Aviao aviao)
+	{
+		this.avioes.remove(aviao);
+	}
+	
+	public Aviao getAviao()
+	{
+		for (Aviao aviao : avioes) {
+			
+			if(aviao.isNoAeroporto())
+			{
+				return aviao;
+			}
+		}
+		
+		this.addAviao();
+		return getAviao();
 	}
 
 

@@ -22,7 +22,7 @@ public class Voo {
 	
 	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto,
 			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
-			List<Passageiro> passageiros, Aviao aviao, String codigoVoo, int distancia) {
+			List<Passageiro> passageiros, String codigoVoo, int distancia) {
 		super();
 		this.aeroportoDeOrigem = aeroportoDeOrigem;
 		this.aeroportoDeDestino = aeroportoDeDestino;
@@ -32,7 +32,7 @@ public class Voo {
 		this.horarioDeSaida = horarioDeSaida;
 		this.horarioDeChegada = horarioDeChegada;
 		this.passageiros = passageiros;
-		this.aviao = aviao;
+		this.aviao = this.aeroportoDeOrigem.getAviao();
 		this.assentos = new Assento[this.aviao.getLin()][this.aviao.getCol()];
 		this.codigoVoo = codigoVoo;
 		this.mapearAssentos();
