@@ -22,7 +22,7 @@ public class Voo {
 	
 	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto,
 			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
-			List<Passageiro> passageiros, Aviao aviao, String codigoVoo) {
+			List<Passageiro> passageiros, Aviao aviao, String codigoVoo, int distancia) {
 		super();
 		this.aeroportoDeOrigem = aeroportoDeOrigem;
 		this.aeroportoDeDestino = aeroportoDeDestino;
@@ -35,9 +35,8 @@ public class Voo {
 		this.aviao = aviao;
 		this.assentos = new Assento[this.aviao.getLin()][this.aviao.getCol()];
 		this.codigoVoo = codigoVoo;
-		
 		this.mapearAssentos();
-		this.setDistancia();
+		this.setDistancia(conexao.getDistancia(this.aeroportoDeOrigem.getCidade(), this.aeroportoDeDestino.getCidade()));
 		
 	}
 
@@ -188,13 +187,9 @@ public class Voo {
 		return mapAssentos;	
 	}
     
-    public void setDistancia()
+    public void setDistancia(int distancia)
     {
-    	this.distancia = this.conexao.getDistancia(this.aeroportoDeOrigem.getCidade(), this.aeroportoDeDestino.getCidade());
-    	if(this.distancia <= 0)
-    	{
-    		System.out.println("Não existem voos entre essas cidades");
-    	}
+    	this.distancia = distancia;
     }
 
 }

@@ -70,7 +70,8 @@ public class Conexoes {
 		this.inserirDistancia( Cidades.TERERESINA , Cidades.SAO_PAULO , 2655);
 		this.inserirDistancia( Cidades.TERERESINA , Cidades.BRASILIA , 1313);
 		
-							
+		this.espelhar();
+									
 	}
 	
 	public void inserirDistancia(Cidades cidade1, Cidades cidade2, double distancia)
@@ -89,6 +90,28 @@ public class Conexoes {
 		{
 			return 0;
 		}
+	}
+	
+	public void espelhar()
+	{
+		for(int i = 0; i < nCidades; i++)
+		{
+			for(int j = 0; j < this.nCidades; j++)
+			{
+				if(this.conexoes[i][j] != 0 || this.conexoes[j][i] != 0)
+				{
+					if(this.conexoes[i][j] > 0)
+					{
+						this.conexoes[j][i] = this.conexoes[i][j];
+					}
+					else
+					{
+						this.conexoes[i][j] = this.conexoes[j][i];
+					}
+				}
+			}
+		}
+
 	}
 	
 	
