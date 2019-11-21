@@ -2,6 +2,7 @@ package projetoUp.negocio;
 
 import java.util.List;
 
+import projetoUp.model.Cliente;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 import projetoUp.model.Voo;
@@ -49,16 +50,24 @@ public class Fachada {
 	public void buscarVoo(String codigo) {
 		controladorVoo.buscarVoo(codigo);
 	}
-
-	public void buscarPassagem(String c) {
-		controladorPassagem.buscarPassagem(c);
-	}
-	
-	
 	
 	
 	
 	//cliente
+	
+	public void criarConta(Cliente c) {
+		controladorCliente.criarConta(c);
+	}
+
+	public void excluirConta(Cliente c) {
+		controladorCliente.excluirConta(c);
+	}
+
+	public void buscarConta(String email) {
+		controladorCliente.buscarConta(email);
+	}
+
+	
 	
 	public void criarPassagem(Passagem p) {
 		controladorPassagem.criarPassagem(p);
@@ -70,6 +79,10 @@ public class Fachada {
 
 	public void alterarPassagem(Passagem p) {
 		controladorPassagem.alterarPassagem(p);
+	}
+	
+	public void buscarPassagem(String c) {
+		controladorPassagem.buscarPassagem(c);
 	}
 
 	public List<Passagem> listarPorPassageiro(Passageiro pa) {
