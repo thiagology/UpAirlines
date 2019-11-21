@@ -1,6 +1,8 @@
 package projetoUp.dados;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import projetoUp.model.Voo;
 
 public class RepositorioVoo {
@@ -13,21 +15,17 @@ public class RepositorioVoo {
     }
     
     	//adiciona um voo ao repositorio
-  		public boolean criarVoo(Voo v) {		
+  		public void criarVoo(Voo v) {		
   			 if (codigoExiste(v.getcodigoVoo()) != true) {
   				 this.voos.add(v);
-  				 return true;
   			 }
-  			return false;
   		}
   		
   		//remove um voo do repositorio
-  		public boolean removerVoo(Voo v) {	
+  		public void removerVoo(Voo v) {	
   		    if (codigoExiste(v.getcodigoVoo()) == true) {
   			   this.voos.remove(v);
-  			   return true;
   			}
-  		   return false;
   		}
   		
   		//retorna se um voo ja existe
@@ -46,15 +44,15 @@ public class RepositorioVoo {
   			return null;
   		}
   		
-  		public boolean alterarVoo(Voo v) {
+  		public void alterarVoo(Voo v) {
   			if(voos.contains(v)) {
   				int indice = this.voos.indexOf(v);
   				this.voos.set(indice, v);
-  				//verificar logica
   			}
-  			
-  			
-  			return false;
+  		}
+  		
+  		public List<Voo> listar(){
+  			return this.voos;
   		}
     
 }

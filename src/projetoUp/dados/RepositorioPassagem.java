@@ -1,6 +1,9 @@
 package projetoUp.dados;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 
 public class RepositorioPassagem {
@@ -12,21 +15,17 @@ public class RepositorioPassagem {
 	}
 	
 		//adiciona uma passagem ao repositorio
-		public boolean criarPassagem(Passagem p) {		
+		public void criarPassagem(Passagem p) {		
 			 if (codigoExiste(p.getCodigo()) != true) {
 				 this.passagens.add(p);
-				 return true;
 			 }
-			return false;
 		}
 		
 		//remove uma passagem do repositorio
-		public boolean excluirPassagem(Passagem p) {	
+		public void excluirPassagem(Passagem p) {	
 		    if (codigoExiste(p.getCodigo()) == true) {
 			   this.passagens.remove(p);
-			   return true;
 			}
-		   return false;
 		}
 		
 		//retorna se uma passagem ja existe
@@ -45,5 +44,20 @@ public class RepositorioPassagem {
 			return null;
 		}
 		
-		//public boolean alterarPassagem
+		public void alterarPassagem(Passagem p) {
+			if(passagens.contains(p)) {
+				int i = this.passagens.indexOf(p);
+				this.passagens.set(i, p);
+			}
+		}
+		
+		public List <Passagem> listarPorPassageiro(Passageiro pa){
+			List <Passagem> lista = new ArrayList<Passagem>();
+			for(Passagem p : passagens) {
+				if(p.getPassageiro().equals(pa)) {
+					lista.add(p);
+				}
+			}
+			return lista;
+		}
 }
