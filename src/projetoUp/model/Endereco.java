@@ -3,7 +3,7 @@ package projetoUp.model;
 
 /**
  *
- * @author edson
+ *
  */
 public class Endereco {
     private String cidade;
