@@ -48,7 +48,9 @@ public class RepositorioFuncionarios {
 	
 	public void removerFuncionario(Funcionario funcionario)
 	{
-		this.funcionarios.remove(funcionario);
+		if(this.funcionarioExiste(funcionario) == true) {
+			this.funcionarios.remove(funcionario);
+		}
 	}
 	
 	

@@ -16,8 +16,7 @@ public class Fachada {
 	private ControladorPassagem controladorPassagem;
 	private ControladorCliente controladorCliente;
 	private ControladorAeroporto controladorAeroporto;
-	
-	private RepositorioFuncionarios teste;
+	private ControladorFuncionario controladorFuncionario;
 	
 	private Fachada() {
 		this.controladorVoo = ControladorVoo.getInstance();
@@ -34,7 +33,8 @@ public class Fachada {
 	}
 	
 
-	//gerente
+	//GERENTE
+	
 	public void criarVoo(Voo v) {
 		controladorVoo.criarVoo(v);
 	}
@@ -57,7 +57,20 @@ public class Fachada {
 	
 	
 	
-	//cliente
+	
+	public void adicionarFuncionario(Funcionario f) {
+		controladorFuncionario.adicionarFuncionario(f);
+	}
+
+	public void removerFuncionario(Funcionario f) {
+		controladorFuncionario.removerFuncionario(f);
+	}
+
+	public void buscarFuncionario(Funcionario f) {
+		controladorFuncionario.buscarFuncionario(f);
+	}
+
+	//CLIENTE
 	
 	public void criarConta(Cliente c) {
 		controladorCliente.criarConta(c);
@@ -93,10 +106,7 @@ public class Fachada {
 		return controladorPassagem.listarPorPassageiro(pa);
 	}
 	
-	public void addFuncionario(Funcionario fun){
-		if(fun != null) {
-			teste.addFuncionario(fun);
-		}
-	}
+
+	
 	
 }
