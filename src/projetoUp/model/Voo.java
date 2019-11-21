@@ -15,6 +15,8 @@ public class Voo {
 	List <Passageiro> passageiros;
 	private Aviao aviao;
         private String codigoVoo;
+        private Conexoes conexao;
+        private int distancia;
         
         
 	
@@ -35,6 +37,7 @@ public class Voo {
 		this.codigoVoo = codigoVoo;
 		
 		this.mapearAssentos();
+		this.setDistancia();
 		
 	}
 
@@ -184,5 +187,14 @@ public class Voo {
 	
 		return mapAssentos;	
 	}
+    
+    public void setDistancia()
+    {
+    	this.distancia = this.conexao.getDistancia(this.aeroportoDeOrigem.getCidade(), this.aeroportoDeDestino.getCidade());
+    	if(this.distancia <= 0)
+    	{
+    		System.out.println("Não existem voos entre essas cidades");
+    	}
+    }
 
 }
