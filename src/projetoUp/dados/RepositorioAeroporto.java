@@ -23,12 +23,6 @@ public class RepositorioAeroporto {
 		}
 	}
 	
-	public void novoAeroporto(String nome, String sigla, Cidades cidade)
-	{
-		Aeroporto aeroporto = new Aeroporto(nome, sigla, cidade);
-		this.addAeroporto(aeroporto);
-	}
-	
 	public boolean aeroportoExiste(Aeroporto aeroporto)
 	{
 		if(this.buscarAeroporto(aeroporto.getCidade()) != null)

@@ -191,5 +191,10 @@ public class Voo {
     {
     	this.distancia = distancia;
     }
+    
+    public int getDistancia()
+    {
+    	return this.distancia;
+    }
 
 }
