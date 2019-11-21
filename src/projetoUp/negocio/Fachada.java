@@ -2,7 +2,7 @@ package projetoUp.negocio;
 
 import java.util.List;
 
-import projetoUp.dados.RepositorioFuncionarios;
+import projetoUp.model.Aeroporto;
 import projetoUp.model.Cliente;
 import projetoUp.model.Funcionario;
 import projetoUp.model.Passageiro;
@@ -68,6 +68,21 @@ public class Fachada {
 
 	public void buscarFuncionario(Funcionario f) {
 		controladorFuncionario.buscarFuncionario(f);
+	}
+	
+	
+	
+
+	public void adicionarAeroporto(Aeroporto a) {
+		controladorAeroporto.adicionarAeroporto(a);
+	}
+
+	public void removerAeroporto(Aeroporto a) {
+		controladorAeroporto.removerAeroporto(a);
+	}
+
+	public void buscarAeroporto(Aeroporto a) {
+		controladorAeroporto.buscarAeroporto(a);
 	}
 
 	//CLIENTE

@@ -48,7 +48,7 @@ public class RepositorioAeroporto {
 	public void apagarAeroporto(Aeroporto a) 
 	{
 		if(this.aeroportoExiste(a) == true) {
-			this.aeroportos.remove(a);
+			this.aeroportos.remove(a.getCidade());
 		}
 	}
 }
