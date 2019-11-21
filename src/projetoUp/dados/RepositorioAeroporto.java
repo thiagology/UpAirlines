@@ -45,8 +45,10 @@ public class RepositorioAeroporto {
 		return this.aeroportos;
 	}
 	
-	public void apagarAeroporto(Cidades cidade) 
+	public void apagarAeroporto(Aeroporto a) 
 	{
-		this.aeroportos.remove(cidade);
+		if(this.aeroportoExiste(a) == true) {
+			this.aeroportos.remove(a);
+		}
 	}
 }

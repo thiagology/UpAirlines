@@ -17,7 +17,7 @@ public class ClasseTesteDados {
 								"09855022231", "8777444", 86525252, endereco,								
 								LocalDate.of(1992, 5, 10), 2233, LocalDate.of(2019, 3, 15), "Gerente");	
 		
-		fachada.addFuncionario(g);
+		fachada.adicionarFuncionario(g);
 	}
 
 }
