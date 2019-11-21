@@ -2,7 +2,9 @@ package projetoUp.negocio;
 
 import java.util.List;
 
+import projetoUp.dados.RepositorioFuncionarios;
 import projetoUp.model.Cliente;
+import projetoUp.model.Funcionario;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 import projetoUp.model.Voo;
@@ -14,6 +16,8 @@ public class Fachada {
 	private ControladorPassagem controladorPassagem;
 	private ControladorCliente controladorCliente;
 	private ControladorAeroporto controladorAeroporto;
+	
+	private RepositorioFuncionarios teste;
 	
 	private Fachada() {
 		this.controladorVoo = ControladorVoo.getInstance();
@@ -88,4 +92,11 @@ public class Fachada {
 	public List<Passagem> listarPorPassageiro(Passageiro pa) {
 		return controladorPassagem.listarPorPassageiro(pa);
 	}
+	
+	public void addFuncionario(Funcionario fun){
+		if(fun != null) {
+			teste.addFuncionario(fun);
+		}
+	}
+	
 }
