@@ -102,7 +102,7 @@ public class Fachada {
 	
 	
 	public void criarPassagem(Passagem p) {
-		controladorPassagem.criarPassagem(p);
+		//controladorPassagem.criarPassagem(p); mudar argumentos
 	}
 
 	public void excluirPassagem(Passagem p) {

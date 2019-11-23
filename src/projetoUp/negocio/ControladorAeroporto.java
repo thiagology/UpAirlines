@@ -25,6 +25,7 @@ public class ControladorAeroporto {
 	
 	public void removerAeroporto(Aeroporto a) {
 		if(a != null) {
+			//se nao tiver voos pra esse aeroporto
 			this.repositorioAeroporto.apagarAeroporto(a);
 			}
 		}

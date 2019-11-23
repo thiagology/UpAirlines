@@ -19,7 +19,7 @@ public class ControladorVoo {
 	 
 	public void criarVoo(Voo v) {
 		if(v != null && this.rota.getDistancia(v.getAeroportoDeOrigem().getCidade(), v.getAeroportoDeDestino().getCidade()) > 0) {
-			if(v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) {
+			if(v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) { //hora de saida nao pode ser antes da de chegada
 				if(!(v.getAeroportoDeDestino().equals(v.getAeroportoDeOrigem()))){
 					repositorioVoo.criarVoo(v);
 				}
@@ -30,6 +30,7 @@ public class ControladorVoo {
 	public void removerVoo(Voo v) {
 		if(v != null) {
 			if(v.getPassageiros() == null) {
+				//se nao houver passagens vendidas
 				repositorioVoo.removerVoo(v);
 			}
 		}
@@ -38,6 +39,7 @@ public class ControladorVoo {
 	
 	public void alterarVoo(Voo v) {
 		if(v != null) {
+			//atualiza só a hora de chegada e só se ela for depois da de saida
 			repositorioVoo.alterarVoo(v);
 		}
 	}

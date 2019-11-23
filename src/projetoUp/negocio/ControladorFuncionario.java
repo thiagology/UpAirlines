@@ -16,7 +16,9 @@ public class ControladorFuncionario {
 	
 	public void adicionarFuncionario(Funcionario f) {
 		if(f != null) {
-			if(f.getCpf() != null) {
+			if(f.getCpf() != null) { 
+				//se os atributos nao forem nulos
+				//se a contratacao for depois da data atual
 				repositorioFuncionario.addFuncionario(f);
 			}
 		}
@@ -24,6 +26,7 @@ public class ControladorFuncionario {
 	
 	public void removerFuncionario (Funcionario f) {
 		if(f != null) {
+			//se ele nao esta em nenhum voo
 			repositorioFuncionario.removerFuncionario(f);
 		}
 	}
