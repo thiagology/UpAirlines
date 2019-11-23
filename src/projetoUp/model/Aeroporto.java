@@ -5,7 +5,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Aeroporto implements Serializable {
-    private String nome;
+  
+	
+
+	private static final long serialVersionUID = 1L;
+	private String nome;
     private String sigla;
     private Cidades cidade;
     private ArrayList<Aviao> avioes = new ArrayList<>();
