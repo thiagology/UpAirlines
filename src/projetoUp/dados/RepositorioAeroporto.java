@@ -4,9 +4,14 @@ import java.util.Map;
 
 import projetoUp.model.Aeroporto;
 import projetoUp.model.Cidades;
+import java.io.File;
+import java.io.Serializable;
+import java.util.Scanner;
 
-public class RepositorioAeroporto {
 
+public class RepositorioAeroporto implements Serializable{
+
+	
 	private Map<Cidades, Aeroporto> aeroportos;
 	
 	public RepositorioAeroporto( Map<Cidades, Aeroporto> aeroportos)
@@ -50,5 +55,10 @@ public class RepositorioAeroporto {
 		if(this.aeroportoExiste(a) == true) {
 			this.aeroportos.remove(a.getCidade());
 		}
+	}
+	
+	public void abrirArquivo()
+	{
+		
 	}
 }
