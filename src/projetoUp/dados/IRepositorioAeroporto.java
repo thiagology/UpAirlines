@@ -9,7 +9,7 @@ public interface IRepositorioAeroporto {
 
 	void salvarArquivo();
 	
-	void addAeroporto(Aeroporto aeroporto);
+	boolean addAeroporto(Aeroporto aeroporto);
 	
 	boolean aeroportoExiste(Aeroporto aeroporto);
 	

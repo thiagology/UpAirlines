@@ -2,14 +2,27 @@ package projetoUp.model;
 
 import java.time.LocalDate;
 
-public class Passageiro extends Pessoa {
+public class Passageiro extends Cliente {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5857614249938529733L;
 	private Assento assento;
 	private boolean checkIn = false;
 	private String codigoVoo;
 
-	public Passageiro(String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento) {
-		super(nome, cpf, rg, telefone, endereco, nascimento, false);
+	public Passageiro(String nome,
+			String cpf,
+			String rg,
+			int telefone,
+			Endereco endereco,
+			LocalDate nascimento,
+			float renda, float limite,Passagem passagens,
+			String login, String senha) {
+		super(nome,cpf,
+				rg, telefone, endereco, nascimento,passagens,
+				login, senha);
 		// TODO Auto-generated constructor stub
 	}
 

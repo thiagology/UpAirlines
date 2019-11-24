@@ -96,12 +96,14 @@ public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable
 	  }
 
 	
-	public void addAeroporto(Aeroporto aeroporto) {
+	public boolean addAeroporto(Aeroporto aeroporto) {
 		
 		if(this.aeroportoExiste(aeroporto) != true)
 		{
 			this.aeroportos.put(aeroporto.getCidade(), aeroporto);
+			return true;
 		}
+		return false;
 	}
 	
 	public boolean aeroportoExiste(Aeroporto aeroporto)

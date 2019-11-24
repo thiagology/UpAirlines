@@ -16,13 +16,28 @@ public class ControladorAeroporto {
 		return instance;
 	}
 	
-	public void adicionarAeroporto(Aeroporto a) {
+	public void novoAeroporto(String nome, String sigla, Cidades cidade)
+	{
+		try {
+			
+			this.adicionarAeroporto(new Aeroporto(nome, sigla, cidade));
+			
+		} catch (Exception e) {
+			System.out.println("Aeroporto já existe");
+		}
+		
+	}
+	
+	public boolean adicionarAeroporto(Aeroporto a) {
 		if(a != null) {
 			if( a.getCidade() != null) {
 				this.repositorioAeroporto.addAeroporto(a);
 				this.repositorioAeroporto.salvarArquivo();
+				return true;
 			}
+			return false;
 		}
+		return false;
 	}
 	
 	public void removerAeroporto(Aeroporto a) {

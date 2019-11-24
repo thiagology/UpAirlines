@@ -123,5 +123,10 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 		
 		return null;
 	}
+	
+	public boolean fazerCheckIn()
+	{
+	
+	}
 }
 
