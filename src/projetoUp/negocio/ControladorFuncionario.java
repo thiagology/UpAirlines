@@ -1,6 +1,9 @@
 package projetoUp.negocio;
 
+import java.time.LocalDate;
+
 import projetoUp.dados.RepositorioFuncionarios;
+import projetoUp.model.Endereco;
 import projetoUp.model.Funcionario;
 
 public class ControladorFuncionario {
@@ -14,19 +17,21 @@ public class ControladorFuncionario {
 		return instance;
 	}
 	
-	public void adicionarFuncionario(Funcionario f) {
-		if(f != null) {
-			if(f.getCpf() != null) { 
-				//se os atributos nao forem nulos
-				//se a contratacao for depois da data atual
-				repositorioFuncionario.addFuncionario(f);
+	public void adicionarFuncionario(String nome, String cpf, String rg,
+									 int telefone, Endereco endereco,
+									 LocalDate nascimento, int id, 
+									 LocalDate contratacao, String funcao) {
+		if(cpf != null || rg != null) { //alguma identificacao nao nula
+			if(contratacao.isBefore(LocalDate.now())) { //contratacao antes da data atual
+				Funcionario novo = new Funcionario(nome, cpf, rg, telefone, endereco,
+												nascimento, id, contratacao, funcao);
+				repositorioFuncionario.addFuncionario(novo);
 			}
 		}
 	}
 	
 	public void removerFuncionario (Funcionario f) {
 		if(f != null) {
-			//se ele nao esta em nenhum voo
 			repositorioFuncionario.removerFuncionario(f);
 		}
 	}
