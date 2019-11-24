@@ -8,6 +8,7 @@ import projetoUp.model.Passageiro;
 import projetoUp.model.Voo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -77,6 +78,12 @@ public class ControladorVoo {
 		if(codigo != null) {
 			repositorioVoo.buscarVoo(codigo);
 		}
+	}
+	
+	public Voo buscarVoo(Cidades origem, Cidades destino, LocalDate data) 
+	{
+		return this.repositorioVoo.buscarVoo(origem, destino, data);
+		
 	}
 	 
 	 

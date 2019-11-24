@@ -8,9 +8,12 @@ public interface IRepositorioCliente {
 	
 	boolean excluirConta(Cliente c);
 	
-	boolean emailExiste(String email);
+	boolean loginExiste(String login, String senha);
 	
-	Cliente buscarCliente(String email);
+	Cliente buscarCliente(String login, String senha);
+	
+	Cliente buscarCliente(Cliente c);
+	
 	
 	void salvarArquivo();
 	

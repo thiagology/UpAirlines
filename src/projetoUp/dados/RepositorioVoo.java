@@ -7,10 +7,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import projetoUp.model.Cidades;
 import projetoUp.model.Voo;
 
 public class RepositorioVoo implements IRepositorioVoo, Serializable {
@@ -107,6 +108,17 @@ public class RepositorioVoo implements IRepositorioVoo, Serializable {
   		//retorna se um voo ja existe
   		public boolean codigoExiste(String codigo) {
   			return buscarVoo(codigo) != null;
+  		}
+  		
+  		public Voo buscarVoo(Cidades origem, Cidades destino, LocalDate data)
+  		{
+  			for (Voo voo : voos) {
+				if(voo.getAeroportoDeOrigem().getCidade() == origem && voo.getAeroportoDeDestino().getCidade() == destino && voo.getDia() == data)
+				{
+					return voo;
+				}
+			}
+  			return null;
   		}
   		
   		//busca um voo pelo codigo

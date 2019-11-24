@@ -1,8 +1,11 @@
 package projetoUp.dados;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import projetoUp.model.Cidades;
 import projetoUp.model.Voo;
 
 public interface IRepositorioVoo {
@@ -24,6 +27,8 @@ public interface IRepositorioVoo {
   		public void alterarVoo(Voo v);
   		
   		public List<Voo> listar();
+  		
+  		public Voo buscarVoo(Cidades origem, Cidades destino, LocalDate data);
     
 
 }

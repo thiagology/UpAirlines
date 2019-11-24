@@ -109,14 +109,14 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 	}
 	
 	//retorna se um email existe
-	public boolean emailExiste(String email) {
-		return buscarCliente(email) != null;
+	public boolean loginExiste(String login, String senha) {
+		return buscarCliente(login, senha) != null;
 	}
 	
 	//busca um cliente pelo email
-	public Cliente buscarCliente(String email) {
+	public Cliente buscarCliente(String login, String senha) {
 		for(Cliente c: this.clientes) {
-			if(c.getEmail() == email) {
+			if(c.getEmail().equals(login) && c.getSenha().equals(senha)) {
 				return c;
 			}
 		}
@@ -124,9 +124,14 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 		return null;
 	}
 	
-	public boolean fazerCheckIn()
-	{
-	
+	public Cliente buscarCliente(Cliente cliente) {
+		for(Cliente c: this.clientes) {
+			if(c.equals(cliente)) {
+				return c;
+			}
+		}
+		
+		return null;
 	}
 }
 

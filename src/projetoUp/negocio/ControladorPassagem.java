@@ -22,12 +22,11 @@ public class ControladorPassagem {
 		return instance;
 	}
 	
-	public void criarPassagem(String codigo, Passageiro p, Voo v, int AssentoLinha, int AssentoColuna, String idA) {
-		if(p != null && codigo != null && v != null && AssentoColuna != 0 && AssentoLinha != 0 ) {
+	public void criarPassagem(String codigo, Passageiro p, Voo v) {
+		if(p != null) {
 			if(v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) {
 				if(p.getCpf() != null || p.getRg() != null) {
 					Passagem pas = new Passagem(codigo, p, v);
-					p.setAssento(pas.getVoo().reservarAssento(idA));
 					p.setCodigoVoo(pas.getCodigo());
 					v.setPassageiro(p);
 					repositorioPassagem.criarPassagem(pas);
