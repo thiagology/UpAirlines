@@ -1,9 +1,11 @@
 package projetoUp.negocio;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import projetoUp.model.Aeroporto;
 import projetoUp.model.Cliente;
+import projetoUp.model.Endereco;
 import projetoUp.model.Funcionario;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
@@ -57,9 +59,13 @@ public class Fachada {
 	
 	
 	
+
 	
-	public void adicionarFuncionario(Funcionario f) {
-		controladorFuncionario.adicionarFuncionario(f);
+	public void adicionarFuncionario(String nome, String cpf, String rg,
+			 int telefone, Endereco endereco,
+			 LocalDate nascimento, int id, 
+			 LocalDate contratacao, String funcao) {
+		controladorFuncionario.adicionarFuncionario(nome, cpf, rg, telefone, endereco, nascimento, id, contratacao, funcao);;
 	}
 
 	public void removerFuncionario(Funcionario f) {
@@ -109,8 +115,8 @@ public class Fachada {
 		controladorPassagem.excluirPassagem(p);
 	}
 
-	public void alterarPassagem(Passagem p) {
-		controladorPassagem.alterarPassagem(p);
+	public void alterarPassagem(Passagem p, int IdAssento) {
+		controladorPassagem.alterarPassagem(p, IdAssento);
 	}
 	
 	public void buscarPassagem(String c) {
