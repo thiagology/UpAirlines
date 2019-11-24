@@ -18,14 +18,16 @@ public class ControladorCliente {
 	public void criarConta(Cliente c) {
 		if(c != null) {
 			if(c.getCpf() != null ) {
-				repositorioCliente.criarConta(c);
+				this.repositorioCliente.criarConta(c);
+				this.repositorioCliente.salvarArquivo();
 			}
 		}
 	}
 	
 	public void excluirConta(Cliente c) {
 		if(c != null) {
-			repositorioCliente.excluirConta(c);
+			this.repositorioCliente.excluirConta(c);
+			this.repositorioCliente.salvarArquivo();
 		}
 	}
 	

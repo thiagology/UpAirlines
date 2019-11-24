@@ -25,14 +25,16 @@ public class ControladorFuncionario {
 			if(contratacao.isBefore(LocalDate.now())) { //contratacao antes da data atual
 				Funcionario novo = new Funcionario(nome, cpf, rg, telefone, endereco,
 												nascimento, id, contratacao, funcao);
-				repositorioFuncionario.addFuncionario(novo);
+				this.repositorioFuncionario.addFuncionario(novo);
+				this.repositorioFuncionario.salvarArquivo();
 			}
 		}
 	}
 	
 	public void removerFuncionario (Funcionario f) {
 		if(f != null) {
-			repositorioFuncionario.removerFuncionario(f);
+			this.repositorioFuncionario.removerFuncionario(f);
+			this.repositorioFuncionario.salvarArquivo();
 		}
 	}
 	

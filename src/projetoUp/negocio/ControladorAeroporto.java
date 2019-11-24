@@ -19,6 +19,7 @@ public class ControladorAeroporto {
 		if(a != null) {
 			if( a.getCidade() != null) {
 				this.repositorioAeroporto.addAeroporto(a);
+				this.repositorioAeroporto.salvarArquivo();
 			}
 		}
 	}
@@ -27,6 +28,7 @@ public class ControladorAeroporto {
 		if(a != null) {
 			//se nao tiver voos pra esse aeroporto
 			this.repositorioAeroporto.apagarAeroporto(a);
+			this.repositorioAeroporto.salvarArquivo();
 			}
 		}
 	
