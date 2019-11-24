@@ -3,6 +3,10 @@ package projetoUp.model;
 import java.time.LocalDate;
 
 public class Gerente extends Funcionario implements Login{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6080475143461416360L;
 	private String email;
 	private String senha;
 	
