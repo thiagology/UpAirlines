@@ -44,7 +44,7 @@ public class ControladorPassagem {
 		}
 	}
 	
-	public void alterarPassagem(Passagem p, int idAssento) {
+	public void alterarPassagem(Passagem p) {
 		if(p != null) {
 			//verificar disponibilidade do assento
 			repositorioPassagem.alterarPassagem(p);			
