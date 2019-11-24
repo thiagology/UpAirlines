@@ -106,8 +106,8 @@ public class Fachada {
 		controladorCliente.excluirConta(c);
 	}
 
-	public void buscarConta(String email) {
-		controladorCliente.buscarConta(email);
+	public void buscarConta(String usuario, String senha) {
+		controladorCliente.buscarConta(usuario, senha);
 	}
 
 	

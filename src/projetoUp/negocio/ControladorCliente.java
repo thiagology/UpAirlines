@@ -5,7 +5,9 @@ import java.time.LocalDate;
 import projetoUp.dados.RepositorioCliente;
 import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
+import projetoUp.model.Endereco;
 import projetoUp.model.Passageiro;
+import projetoUp.model.Passagem;
 
 public class ControladorCliente {
 	private RepositorioCliente repositorioCliente;
@@ -32,14 +34,29 @@ public class ControladorCliente {
 		return false;
 	}
 	
-	public void criarConta(Cliente c) {
+	public boolean criarConta(Cliente c) {
 		if(c != null) {
 			if(c.getCpf() != null ) {
 				this.repositorioCliente.criarConta(c);
 				this.repositorioCliente.salvarArquivo();
 				this.clienteLog = c;
+				return true;
 			}
+			return false;
 		}
+		return false;
+	}
+	
+	public boolean cadastrarConta(String nome,
+			String cpf,
+			String rg,
+			int telefone,
+			Endereco endereco,
+			LocalDate nascimento, Passagem passagens,
+			String login, String senha)
+	{
+		Cliente conta = new Cliente(nome, cpf, rg, telefone, endereco, nascimento, passagens, login, senha);
+		return this.criarConta(conta);
 	}
 	
 	public void excluirConta(Cliente c) {
