@@ -162,17 +162,44 @@ public class Voo implements Serializable{
 		}
 
     }
-        
-    public void reservarAssento(int linha, int coluna)
+    
+    public Assento buscarAssento(String id)
+    {
+    	for(int i = 0; i < this.aviao.getLin(); i++)
     	{
-    		this.assentos[linha][coluna].reservar();
+    		for(int j = 0; j < this.aviao.getCol(); j++)
+    		{
+    			if(this.assentos[i][j].getId() == id)
+    			{
+    				return assentos[i][j];
+    			}
+    		}
     	}
+    	
+    	return null;
+    }
+        
+    public Assento reservarAssento(String id){
+    	
+    	
+    	if(this.buscarAssento(id) != null)
+    	{
+    		this.buscarAssento(id).reservar();
+    		
+    		return this.buscarAssento(id);
+    	}
+    return null;	
+    }
+    
+    public void liberarAssento(String id){
+    	this.buscarAssento(id).cancelarReserva();
+    }
     
 	
-    public char[][] mapaAssentos()
+    public String[][] mapaAssentos()
 	{
 		
-		char[][] mapAssentos = new char[this.aviao.getLin()][this.aviao.getCol()];
+		String[][] mapAssentos = new String[this.aviao.getLin()][this.aviao.getCol()];
 		
 		for(int i = 0; i < this.aviao.getLin(); i++)
 		{
@@ -180,11 +207,11 @@ public class Voo implements Serializable{
 			{
 				if(this.assentos[i][j].getOcupado())
 				{
-					mapAssentos[i][j] = 'O';
+					mapAssentos[i][j] = assentos[i][j].getId() + " O  ";
 				}
 				else
 				{
-					mapAssentos[i][j] = 'V';
+					mapAssentos[i][j] =  assentos[i][j].getId() + " V  ";
 				}
 			}
 	    }

@@ -49,27 +49,27 @@ public class Passagem {
 		
 		else if(this.voo.getDistancia() > 200 && this.voo.getDistancia() <= 500)
 		{
-			tPreco = 450f;
+			tPreco = 450.00f;
 		}
 		
 		else if(this.voo.getDistancia() > 500 && this.voo.getDistancia() <= 800)
 		{
-			tPreco = 650f;
+			tPreco = 650.00f;
 		}
 		
 		else if(this.voo.getDistancia() > 800 && this.voo.getDistancia() <= 1500)
 		{
-			tPreco = 900f;
+			tPreco = 900.00f;
 		}
 		
 		else if(this.voo.getDistancia() > 1500 && this.voo.getDistancia() <= 2500)
 		{
-			tPreco = 1300f;
+			tPreco = 1300.00f;
 		}
 		
 		else if(this.voo.getDistancia() > 2500 && this.voo.getDistancia() <= 4000)
 		{
-			tPreco = 1500f;
+			tPreco = 1500.00f;
 		}
 		
 		else

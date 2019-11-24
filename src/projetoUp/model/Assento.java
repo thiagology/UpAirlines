@@ -1,10 +1,8 @@
 
 package projetoUp.model;
 
-/**
- *
- * @author edson
- */
+
+
 public class Assento{
     private String id;
     private boolean ocupado;
@@ -38,4 +36,6 @@ public class Assento{
     {
     	return this.ocupado;
     }
+    
+    
 }
