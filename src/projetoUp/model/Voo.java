@@ -1,6 +1,7 @@
 package projetoUp.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Voo implements Serializable{
 	private Funcionario comissario;
 	private LocalDateTime horarioDeSaida;
 	private LocalDateTime horarioDeChegada;
+	private LocalDate data;
 	private Assento[][] assentos;
 	List <Passageiro> passageiros;
 	private Aviao aviao;
@@ -27,7 +29,7 @@ public class Voo implements Serializable{
 	
 	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto,
 			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
-			List<Passageiro> passageiros, String codigoVoo, int distancia) {
+			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
 		super();
 		this.aeroportoDeOrigem = aeroportoDeOrigem;
 		this.aeroportoDeDestino = aeroportoDeDestino;
@@ -42,6 +44,7 @@ public class Voo implements Serializable{
 		this.codigoVoo = codigoVoo;
 		this.mapearAssentos();
 		this.setDistancia(conexao.getDistancia(this.aeroportoDeOrigem.getCidade(), this.aeroportoDeDestino.getCidade()));
+		this.setDia(data);
 		
 	}
 
@@ -233,6 +236,14 @@ public class Voo implements Serializable{
     {
     	return this.distancia;
     }
+
+	public LocalDate getDia() {
+		return data;
+	}
+
+	public void setDia(LocalDate dia) {
+		this.data = dia;
+	}
     
     
 

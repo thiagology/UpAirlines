@@ -1,9 +1,11 @@
 package projetoUp.negocio;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import projetoUp.model.Aeroporto;
+import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
 import projetoUp.model.Endereco;
 import projetoUp.model.Funcionario;
@@ -37,8 +39,11 @@ public class Fachada {
 
 	//GERENTE
 	
-	public void criarVoo(Voo v) {
-		controladorVoo.criarVoo(v);
+	public void criarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
+			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
+			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
+		
+		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida, horarioDeChegada, passageiros, codigoVoo, distancia, data);
 	}
 
 	public void removerVoo(Voo v) {
@@ -87,8 +92,8 @@ public class Fachada {
 		controladorAeroporto.removerAeroporto(a);
 	}
 
-	public void buscarAeroporto(Aeroporto a) {
-		controladorAeroporto.buscarAeroporto(a);
+	public void buscarAeroporto(Cidades cidade) {
+		controladorAeroporto.buscarAeroporto(cidade);
 	}
 
 	//CLIENTE

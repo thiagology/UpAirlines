@@ -2,6 +2,7 @@ package projetoUp.negocio;
 
 import projetoUp.dados.RepositorioAeroporto;
 import projetoUp.model.Aeroporto;
+import projetoUp.model.Cidades;
 
 public class ControladorAeroporto {
 	private RepositorioAeroporto repositorioAeroporto;
@@ -32,10 +33,11 @@ public class ControladorAeroporto {
 			}
 		}
 	
-	public void buscarAeroporto(Aeroporto a) {
-		if(a != null) {
-			this.repositorioAeroporto.buscarAeroporto(a.getCidade());
+	public Aeroporto buscarAeroporto(Cidades cidade) {
+		if(cidade != null) {
+			return this.repositorioAeroporto.buscarAeroporto(cidade);
 			}
+		return null;
 		}
 	
 	
