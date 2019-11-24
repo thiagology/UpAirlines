@@ -115,8 +115,8 @@ public class Fachada {
 		controladorPassagem.excluirPassagem(p);
 	}
 
-	public void alterarPassagem(Passagem p, int IdAssento) {
-		controladorPassagem.alterarPassagem(p, IdAssento);
+	public void alterarPassagem(Passagem p) {
+		controladorPassagem.alterarPassagem(p);
 	}
 	
 	public void buscarPassagem(String c) {

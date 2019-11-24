@@ -9,8 +9,9 @@ public abstract class Pessoa {
 	private int telefone;
 	private Endereco endereco;
 	private LocalDate nascimento;
+	private boolean adm = false;
 
-	public Pessoa(String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento) {
+	public Pessoa(String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento, boolean adm) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
@@ -18,6 +19,7 @@ public abstract class Pessoa {
 		this.telefone = telefone;
 		this.endereco = endereco;
 		this.nascimento = nascimento;
+		this.adm = adm;
 	}
 	
 	public Pessoa() {
@@ -59,6 +61,14 @@ public abstract class Pessoa {
 	}
 	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
+	}
+
+	public boolean isAdm() {
+		return this.adm;
+	}
+
+	public void setAdm(boolean adm) {
+		this.adm = adm;
 	}
 	
 	

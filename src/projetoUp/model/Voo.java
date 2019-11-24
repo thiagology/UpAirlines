@@ -131,6 +131,11 @@ public class Voo implements Serializable{
         {
             this.codigoVoo = codigoVoo;
         }
+        
+    public boolean setPassageiro(Passageiro passageiro)
+    {
+    	return this.passageiros.add(passageiro);
+    }
       
     public void mapearAssentos()
     {
@@ -228,5 +233,7 @@ public class Voo implements Serializable{
     {
     	return this.distancia;
     }
+    
+    
 
 }

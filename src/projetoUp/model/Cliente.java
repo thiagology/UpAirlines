@@ -25,7 +25,7 @@ public class Cliente extends Pessoa implements Login, Serializable {
 					List<Passagem> passagens,
 					String email, String senha) {
 		
-		super(nome, cpf, rg, telefone, endereco, nascimento);
+		super(nome, cpf, rg, telefone, endereco, nascimento, false);
 		this.renda = renda;
 		this.limite = limite;
 		this.passagens = passagens;
