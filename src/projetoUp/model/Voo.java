@@ -1,9 +1,14 @@
 package projetoUp.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Voo {
+public class Voo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -31560859852008073L;
 	private Aeroporto aeroportoDeOrigem;
 	private Aeroporto aeroportoDeDestino;
 	private Funcionario piloto;

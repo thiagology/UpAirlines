@@ -1,12 +1,88 @@
 package projetoUp.dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import projetoUp.model.Voo;
 
-public class RepositorioVoo {
-    ArrayList <Voo> voos;
+public class RepositorioVoo implements IRepositorioVoo, Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8004505274795423L;
+	ArrayList <Voo> voos;
+	
+	
+	private static RepositorioVoo instance;
+	
+	
+	 public static IRepositorioVoo getInstance() {
+		    if (instance == null) {
+		      instance = lerDoArquivo();
+		    }
+		    return instance;
+		  }
+
+   
+	private static RepositorioVoo lerDoArquivo() {
+	 RepositorioVoo instanciaLocal = null;
+
+	    File in = new File("voos.dat");
+	    FileInputStream fis = null;
+	    ObjectInputStream ois = null;
+	    ArrayList<Voo> v = new ArrayList<>();
+	    try {
+	      fis = new FileInputStream(in);
+	      ois = new ObjectInputStream(fis);
+	      Object o = ois.readObject();
+	      instanciaLocal = (RepositorioVoo) o;
+	    } catch (Exception e) {
+	      instanciaLocal = new RepositorioVoo(v);
+	    } finally {
+	      if (ois != null) {
+	        try {
+	          ois.close();
+	        } catch (IOException e) {/* Silent exception */
+	        }
+	      }
+	    }
+	    
+	    return instanciaLocal;
+	    
+ }
+    
+    public void salvarArquivo() {
+		if (instance == null) {
+		      return;
+		    }
+		    File out = new File("voos.dat");
+		    FileOutputStream fos = null;
+		    ObjectOutputStream oos = null;
+
+		    try {
+		      fos = new FileOutputStream(out);
+		      oos = new ObjectOutputStream(fos);
+		      oos.writeObject(instance);
+		    } catch (Exception e) {
+		      e.printStackTrace();
+		    } finally {
+		      if (oos != null) {
+		        try {
+		          oos.close();
+		        } catch (IOException e) {
+		          /* Silent */}
+		      }
+		    }
+		
+	}
     
     public RepositorioVoo(ArrayList <Voo> voos)
     {
@@ -29,7 +105,7 @@ public class RepositorioVoo {
   		}
   		
   		//retorna se um voo ja existe
-  		private boolean codigoExiste(String codigo) {
+  		public boolean codigoExiste(String codigo) {
   			return buscarVoo(codigo) != null;
   		}
   		

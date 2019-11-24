@@ -14,6 +14,5 @@ public interface IRepositorioCliente {
 	
 	void salvarArquivo();
 	
-	
 
 }

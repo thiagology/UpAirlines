@@ -12,10 +12,14 @@ import java.io.Serializable;
 import projetoUp.model.Cliente;
 
 public class RepositorioCliente implements IRepositorioCliente, Serializable {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 523021474381236478L;
+
+
+	
 	ArrayList <Cliente> clientes;
 	
 	private static RepositorioCliente instance;

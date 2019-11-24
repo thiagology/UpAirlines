@@ -1,9 +1,14 @@
 package projetoUp.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Cliente extends Pessoa implements Login {
+public class Cliente extends Pessoa implements Login, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6542277849222379451L;
 	private float renda;
 	private float limite;
 	private List<Passagem> passagens;

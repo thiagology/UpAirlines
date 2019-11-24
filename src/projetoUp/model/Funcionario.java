@@ -1,8 +1,13 @@
 package projetoUp.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2762605090549207325L;
 	private int id;
 	private LocalDate contratacao;
 	private String funcao;

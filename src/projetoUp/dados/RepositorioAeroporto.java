@@ -15,7 +15,12 @@ import java.io.Serializable;
 
 public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable{
 
-	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5343691457407554092L;
+
 	private Map<Cidades, Aeroporto> aeroportos;
 	
 	private static RepositorioAeroporto instance;

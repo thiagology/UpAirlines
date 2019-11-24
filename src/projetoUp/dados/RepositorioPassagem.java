@@ -1,14 +1,65 @@
 package projetoUp.dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 
-public class RepositorioPassagem {
+public class RepositorioPassagem implements IRepositorioPassagem, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2454901913668053290L;
 	ArrayList <Passagem> passagens;
 
+	private static RepositorioPassagem instance;
+	
+	
+	 public static IRepositorioPassagem getInstance() {
+		    if (instance == null) {
+		      instance = lerDoArquivo();
+		    }
+		    return instance;
+		  }
+	 
+	 private static RepositorioPassagem lerDoArquivo() {
+		 RepositorioPassagem instanciaLocal = null;
+
+		    File in = new File("passagens.dat");
+		    FileInputStream fis = null;
+		    ObjectInputStream ois = null;
+		    ArrayList<Passagem> pass = new ArrayList<>();
+		    try {
+		      fis = new FileInputStream(in);
+		      ois = new ObjectInputStream(fis);
+		      Object o = ois.readObject();
+		      instanciaLocal = (RepositorioPassagem) o;
+		    } catch (Exception e) {
+		      instanciaLocal = new RepositorioPassagem(pass);
+		    } finally {
+		      if (ois != null) {
+		        try {
+		          ois.close();
+		        } catch (IOException e) {/* Silent exception */
+		        }
+		      }
+		    }
+		    
+		    return instanciaLocal;
+		    
+	 }
+	 
+		    
+		   
+	
 	public RepositorioPassagem(ArrayList<Passagem> passagens) {
 		super();
 		this.passagens = passagens;
@@ -29,7 +80,7 @@ public class RepositorioPassagem {
 		}
 		
 		//retorna se uma passagem ja existe
-		private boolean codigoExiste(String codigo) {
+		public boolean codigoExiste(String codigo) {
 			return buscarPassagem(codigo) != null;
 		}
 		
@@ -59,5 +110,32 @@ public class RepositorioPassagem {
 				}
 			}
 			return lista;
+		}
+
+
+		@Override
+		public void salvarArquivo() {
+			if (instance == null) {
+			      return;
+			    }
+			    File out = new File("passagens.dat");
+			    FileOutputStream fos = null;
+			    ObjectOutputStream oos = null;
+
+			    try {
+			      fos = new FileOutputStream(out);
+			      oos = new ObjectOutputStream(fos);
+			      oos.writeObject(instance);
+			    } catch (Exception e) {
+			      e.printStackTrace();
+			    } finally {
+			      if (oos != null) {
+			        try {
+			          oos.close();
+			        } catch (IOException e) {
+			          /* Silent */}
+			      }
+			    }
+			
 		}
 }
