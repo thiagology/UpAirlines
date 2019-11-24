@@ -1,5 +1,7 @@
 package projetoUp.negocio;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import projetoUp.dados.RepositorioPassagem;
@@ -19,12 +21,12 @@ public class ControladorPassagem {
 		return instance;
 	}
 	
-	public void criarPassagem(String codigo, Passageiro p, Voo v) {
-		if(p != null && codigo != null && v != null) {
+	public void criarPassagem(String codigo, Passageiro p, Voo v, int AssentoLinha, int AssentoColuna) {
+		if(p != null && codigo != null && v != null && AssentoColuna != 0 && AssentoLinha != 0 ) {
 			if(v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) {
 				if(p.getCpf() != null || p.getRg() != null) {
-					//marcar assento
-					Passagem pas = null;
+					v.reservarAssento(AssentoLinha, AssentoColuna);
+					Passagem pas = new Passagem(codigo, p, v);
 					repositorioPassagem.criarPassagem(pas);
 				}
 			}
@@ -33,16 +35,15 @@ public class ControladorPassagem {
 	
 	public void excluirPassagem(Passagem p) {
 		if(p!= null) {
-			//se o voo ainda nao partiu
+			if(p.getVoo().getHorarioDeSaida().isAfter(LocalDateTime.now())); //se o voo já partiu
 			//libera o assento de volta no voo
 			repositorioPassagem.excluirPassagem(p);
 		}
 	}
 	
-	public void alterarPassagem(Passagem p) {
+	public void alterarPassagem(Passagem p, int idAssento) {
 		if(p != null) {
-			//só o assentopode ser alterado
-			//verificar disponibilidade
+			//verificar disponibilidade do assento
 			repositorioPassagem.alterarPassagem(p);			
 		}
 	}
