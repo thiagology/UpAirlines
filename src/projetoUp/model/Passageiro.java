@@ -50,9 +50,10 @@ public class Passageiro extends Cliente {
 		this.codigoVoo = codigoVoo;
 	}
 	
-	public void checkIn()
+	public void checkIn(Assento assento)
 	{
 		this.setCheckIn(true);
+		this.setAssento(assento);
 	}
 	
 }

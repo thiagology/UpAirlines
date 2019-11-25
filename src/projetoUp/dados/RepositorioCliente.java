@@ -92,7 +92,7 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 	
 	//adiciona uma conta de cliente ao repositorio
 	public boolean criarConta(Cliente c) {		
-		 if (emailExiste(c.getEmail()) != true) {
+		 if (this.loginExiste(c.getEmail(), c.getSenha()) != true) {
 			 this.clientes.add(c);
 			 return true;
 		 }
@@ -101,7 +101,7 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 	
 	//remove uma conta do repositorio
 	public boolean excluirConta(Cliente c) {	
-	    if (emailExiste(c.getEmail()) == true) {
+	    if (this.loginExiste(c.getEmail(), c.getSenha()) == true) {
 		   this.clientes.remove(c);
 		   return true;
 		}

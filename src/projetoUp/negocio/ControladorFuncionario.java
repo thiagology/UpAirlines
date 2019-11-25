@@ -32,7 +32,7 @@ public class ControladorFuncionario {
 	}
 	
 	public void removerFuncionario (Funcionario f) {
-		if(f != null) {
+		if(!f.isAdm()) {
 			this.repositorioFuncionario.removerFuncionario(f);
 			this.repositorioFuncionario.salvarArquivo();
 		}

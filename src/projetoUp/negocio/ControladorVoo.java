@@ -73,10 +73,11 @@ public class ControladorVoo {
 		repositorioVoo.listar();
 	}
 	
-	public void buscarVoo(String codigo) {
+	public Voo buscarVoo(String codigo) {
 		if(codigo != null) {
-			repositorioVoo.buscarVoo(codigo);
+			return repositorioVoo.buscarVoo(codigo);
 		}
+		return null;
 	}
 	
 	public Voo buscarVoo(Cidades origem, Cidades destino, LocalDate data) 

@@ -124,6 +124,16 @@ public class Voo implements Serializable{
 		return assentos;
 	}
 	
+	public Passageiro buscarPassageiro(Passageiro p)
+	{
+		for (Passageiro passageiro : passageiros) {
+			if (passageiro.equals(p))
+			{
+				return passageiro;
+			}
+		}
+		return null;
+	}
 	
 	public String getcodigoVoo()
         {
