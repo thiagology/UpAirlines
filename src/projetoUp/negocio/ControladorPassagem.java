@@ -50,8 +50,8 @@ public class ControladorPassagem {
 		if(p != null) {
 			//verificar disponibilidade do assento
 			if(p.getVoo().buscarAssento(idAssento).getOcupado() == false)
-				p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());
-				//inserir logica pra mudar o assento da passagem
+				p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());//libera o assento antigo
+				p.getPassageiro().setAssento(p.getVoo().reservarAssento(idAssento));//muda assento	
 				repositorioPassagem.alterarPassagem(p);
 				repositorioPassagem.salvarArquivo();
 		}
