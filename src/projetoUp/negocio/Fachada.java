@@ -63,9 +63,17 @@ public class Fachada {
 	}
 	
 	
+	public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
+			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
+			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
+		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida,
+				horarioDeChegada, passageiros, codigoVoo, distancia, data);
+	}
+	
+	
+	
 	
 
-	
 	public void adicionarFuncionario(String nome, String cpf, String rg,
 			 int telefone, Endereco endereco,
 			 LocalDate nascimento, int id, 
@@ -83,6 +91,11 @@ public class Fachada {
 	
 	
 	
+	
+
+	public void novoAeroporto(String nome, String sigla, Cidades cidade) {
+		controladorAeroporto.novoAeroporto(nome, sigla, cidade);
+	}
 
 	public void adicionarAeroporto(Aeroporto a) {
 		controladorAeroporto.adicionarAeroporto(a);
@@ -98,30 +111,50 @@ public class Fachada {
 
 	//CLIENTE
 	
-	public void criarConta(Cliente c) {
-		controladorCliente.criarConta(c);
+
+	public boolean fazerLogin(String usuario, String senha) {
+		return controladorCliente.fazerLogin(usuario, senha);
+	}
+
+	public boolean criarConta(Cliente c) {
+		return controladorCliente.criarConta(c);
+	}
+
+	public boolean cadastrarConta(String nome, String cpf, String rg, int telefone, Endereco endereco,
+			LocalDate nascimento, Passagem passagens, String login, String senha) {
+		return controladorCliente.cadastrarConta(nome, cpf, rg, telefone, endereco, nascimento, passagens, login,
+				senha);
 	}
 
 	public void excluirConta(Cliente c) {
 		controladorCliente.excluirConta(c);
 	}
 
-	public void buscarConta(String usuario, String senha) {
-		controladorCliente.buscarConta(usuario, senha);
+	public boolean checkIn(String codigoVoo, String id) {
+		return controladorCliente.checkIn(codigoVoo, id);
+	}
+
+	public Cliente buscarConta(String login, String senha) {
+		return controladorCliente.buscarConta(login, senha);
+	}
+
+	public void comprarPassagem(Cidades origem, Cidades destino, LocalDate data) {
+		controladorCliente.comprarPassagem(origem, destino, data);
 	}
 
 	
 	
-	public void criarPassagem(Passagem p) {
-		//controladorPassagem.criarPassagem(p); mudar argumentos
+	
+	public void criarPassagem(String codigo, Passageiro p, Voo v) {
+		controladorPassagem.criarPassagem(codigo, p, v);
 	}
-
+	
 	public void excluirPassagem(Passagem p) {
 		controladorPassagem.excluirPassagem(p);
 	}
 
-	public void alterarPassagem(Passagem p) {
-		controladorPassagem.alterarPassagem(p);
+	public void alterarPassagem(Passagem p, String idAssento){
+		controladorPassagem.alterarPassagem(p, idAssento);
 	}
 	
 	public void buscarPassagem(String c) {
@@ -131,6 +164,7 @@ public class Fachada {
 	public List<Passagem> listarPorPassageiro(Passageiro pa) {
 		return controladorPassagem.listarPorPassageiro(pa);
 	}
+
 	
 
 	

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import projetoUp.dados.RepositorioPassagem;
+import projetoUp.model.Assento;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 import projetoUp.model.Voo;
@@ -39,21 +40,20 @@ public class ControladorPassagem {
 	public void excluirPassagem(Passagem p) {
 		if(p!= null) {
 			if(p.getVoo().getHorarioDeSaida().isAfter(LocalDateTime.now())); //se o voo já partiu
-			//libera o assento de volta no voo
-			
-			
-			p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());
-		
-			repositorioPassagem.excluirPassagem(p);
-			repositorioPassagem.salvarArquivo();
+				p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());//libera o assento de volta no voo
+				repositorioPassagem.excluirPassagem(p);
+				repositorioPassagem.salvarArquivo();
 		}
 	}
 	
-	public void alterarPassagem(Passagem p) {
+	public void alterarPassagem(Passagem p, String idAssento) {
 		if(p != null) {
 			//verificar disponibilidade do assento
-			repositorioPassagem.alterarPassagem(p);
-			repositorioPassagem.salvarArquivo();
+			if(p.getVoo().buscarAssento(idAssento).getOcupado() == false)
+				p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());
+				//inserir logica pra mudar o assento da passagem
+				repositorioPassagem.alterarPassagem(p);
+				repositorioPassagem.salvarArquivo();
 		}
 	}
 	
