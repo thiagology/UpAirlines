@@ -113,10 +113,10 @@ public class Conexoes {
 		
 	}
 	
-	public LocalTime tempoViagem(Cidades origem, Cidades destino,Aviao aviao)
+	public long tempoViagem(Cidades origem, Cidades destino,Aviao aviao)
 	{
 		int tempo = (this.conexoes[origem.getOrdem()][destino.getOrdem()]/aviao.getVelM());
-		return LocalTime.of(tempo, 0);
+		return (long)tempo;
 	}
 }
 	

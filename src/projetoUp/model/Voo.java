@@ -38,8 +38,8 @@ public class Voo implements Serializable{
 		this.coPiloto = coPiloto;
 		this.comissario = comissario;
 		this.horarioDeSaida = horarioDeSaida;
-		this.horarioDeChegada = this.conexao.tempoViagem(this.aeroportoDeOrigem.getCidade(), 
-				this.aeroportoDeDestino.getCidade(), this.aviao);
+		this.horarioDeChegada = this.horarioDeSaida.plusHours(this.conexao.tempoViagem(this.aeroportoDeOrigem.getCidade(), 
+				this.aeroportoDeDestino.getCidade(), this.aviao));
 		this.passageiros = passageiros;
 		this.aviao = this.aeroportoDeOrigem.getAviao();
 		this.assentos = new Assento[this.aviao.getLin()][this.aviao.getCol()];
