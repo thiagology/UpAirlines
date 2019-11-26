@@ -7,7 +7,6 @@ import projetoUp.model.Funcionario;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Voo;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
