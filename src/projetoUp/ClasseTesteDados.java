@@ -1,6 +1,5 @@
 package projetoUp;
 
-import java.time.LocalDate;
 
 import projetoUp.model.Endereco;
 import projetoUp.negocio.Fachada;
@@ -14,7 +13,7 @@ public class ClasseTesteDados {
 		//Novo Gerente
 		Endereco endereco = new Endereco("Recife", "Pernambuco", "Brasil", 54500000);
 		
-	
+	  System.out.println("Hello World!");
 		
 		
 		

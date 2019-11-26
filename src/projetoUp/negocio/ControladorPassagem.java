@@ -1,11 +1,10 @@
 package projetoUp.negocio;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import projetoUp.dados.RepositorioPassagem;
-import projetoUp.model.Assento;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 import projetoUp.model.Voo;
@@ -39,7 +38,7 @@ public class ControladorPassagem {
 	
 	public void excluirPassagem(Passagem p) {
 		if(p!= null) {
-			if(p.getVoo().getHorarioDeSaida().isAfter(LocalDateTime.now())); //se o voo já partiu
+			if(p.getVoo().getHorarioDeSaida().isAfter(LocalTime.now())); //se o voo já partiu
 				p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());//libera o assento de volta no voo
 				repositorioPassagem.excluirPassagem(p);
 				repositorioPassagem.salvarArquivo();

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="396.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutX="14.0" layoutY="62.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="568.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tbVoos" text="Voos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="317.0" fitWidth="555.0" layoutX="14.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/capagit.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btBuscarVoo" layoutX="23.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Buscar Voo" />
+                        <Button fx:id="btAlterarVoo" layoutX="23.0" layoutY="139.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Alterar Voo" />
+                        <Button fx:id="btRemoverVoo" layoutX="23.0" layoutY="83.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Remover Voo" />
+                        <Button fx:id="btInserirVoo" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Inserir Voo" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tbFunc" text="Funcionários">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="317.0" fitWidth="555.0" layoutX="14.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/capagit.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btInserirFunc" layoutX="23.0" layoutY="54.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="Inserir Funcionário" />
+                        <Button fx:id="btBuscarFunc" layoutX="23.0" layoutY="179.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="Buscar Funcionário" />
+                        <Button fx:id="btRemoverFunc" layoutX="23.0" layoutY="119.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="Remover Funcionário" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Text layoutX="132.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo Gerenciador!" wrappingWidth="369.25">
+         <font>
+            <Font name="Franklin Gothic Medium" size="32.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
