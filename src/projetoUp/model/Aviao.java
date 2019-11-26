@@ -7,6 +7,7 @@ public class Aviao {
 	private String modelo;
 	private int lin;
 	private int col;
+	private int velM;
 	private boolean noAeroporto;
 	
 	
@@ -15,6 +16,7 @@ public class Aviao {
 		this.lin = 15;
 		this.col = 4;
 		this.modelo = "ERJ-145";
+		this.setVelM(830);
 		
 		this.noAeroporto = true;
 			}
@@ -48,6 +50,16 @@ public class Aviao {
 	public void estacionar()
 	{
 		this.noAeroporto = true;
+	}
+
+
+	public int getVelM() {
+		return velM;
+	}
+
+
+	public void setVelM(int velM) {
+		this.velM = velM;
 	}
 	
 		

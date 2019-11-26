@@ -91,6 +91,7 @@ public class ControladorCliente {
 			this.passagens.criarPassagem(this.voo.buscarVoo(origem, destino, data).getcodigoVoo() + "3366",
 					(Passageiro) this.clienteLog,
 					this.voo.buscarVoo(origem, destino, data));
+			
 		}
 	}
 	

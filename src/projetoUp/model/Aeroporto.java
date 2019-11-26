@@ -52,6 +52,15 @@ public class Aeroporto implements Serializable {
 		this.avioes.add(new Aviao());
 	}
 	
+	public boolean addAviao(Aviao aviao)
+	{
+		if (aviao != null)
+		{
+			return this.avioes.add(aviao);
+		}
+		return false;
+	}
+	
 	public ArrayList<Aviao> listAvioesDisponiveis()
 	{
 		ArrayList<Aviao> temp = new ArrayList<Aviao>();
@@ -66,9 +75,9 @@ public class Aeroporto implements Serializable {
 		return temp;
 	}
 	
-	public void excluirAviao(Aviao aviao)
+	public boolean excluirAviao(Aviao aviao)
 	{
-		this.avioes.remove(aviao);
+		return this.avioes.remove(aviao);
 	}
 	
 	public Aviao getAviao()

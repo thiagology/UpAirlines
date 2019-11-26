@@ -3,6 +3,7 @@ package projetoUp.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class Voo implements Serializable{
@@ -15,11 +16,11 @@ public class Voo implements Serializable{
 	private Funcionario piloto;
 	private Funcionario coPiloto;
 	private Funcionario comissario;
-	private LocalDateTime horarioDeSaida;
-	private LocalDateTime horarioDeChegada;
+	private LocalTime horarioDeSaida;
+	private LocalTime horarioDeChegada;
 	private LocalDate data;
 	private Assento[][] assentos;
-	List <Passageiro> passageiros;
+	private List <Passageiro> passageiros;
 	private Aviao aviao;
         private String codigoVoo;
         private Conexoes conexao;
@@ -28,7 +29,7 @@ public class Voo implements Serializable{
         
 	
 	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
+			Funcionario comissario, LocalTime horarioDeSaida,
 			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
 		super();
 		this.aeroportoDeOrigem = aeroportoDeOrigem;
@@ -37,7 +38,8 @@ public class Voo implements Serializable{
 		this.coPiloto = coPiloto;
 		this.comissario = comissario;
 		this.horarioDeSaida = horarioDeSaida;
-		this.horarioDeChegada = horarioDeChegada;
+		this.horarioDeChegada = this.conexao.tempoViagem(this.aeroportoDeOrigem.getCidade(), 
+				this.aeroportoDeDestino.getCidade(), this.aviao);
 		this.passageiros = passageiros;
 		this.aviao = this.aeroportoDeOrigem.getAviao();
 		this.assentos = new Assento[this.aviao.getLin()][this.aviao.getCol()];
@@ -45,6 +47,7 @@ public class Voo implements Serializable{
 		this.mapearAssentos();
 		this.setDistancia(conexao.getDistancia(this.aeroportoDeOrigem.getCidade(), this.aeroportoDeDestino.getCidade()));
 		this.setDia(data);
+		
 		
 	}
 
@@ -88,19 +91,19 @@ public class Voo implements Serializable{
 		this.comissario = comissario;
 	}
 
-	public LocalDateTime getHorarioDeSaida() {
+	public LocalTime getHorarioDeSaida() {
 		return horarioDeSaida;
 	}
 
-	public void setHorarioDeSaida(LocalDateTime horarioDeSaida) {
+	public void setHorarioDeSaida(LocalTime horarioDeSaida) {
 		this.horarioDeSaida = horarioDeSaida;
 	}
 
-	public LocalDateTime getHorarioDeChegada() {
+	public LocalTime getHorarioDeChegada() {
 		return horarioDeChegada;
 	}
 
-	public void setHorarioDeChegada(LocalDateTime horarioDeChegada) {
+	public void setHorarioDeChegada(LocalTime horarioDeChegada) {
 		this.horarioDeChegada = horarioDeChegada;
 	}
 

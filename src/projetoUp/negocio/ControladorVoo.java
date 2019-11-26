@@ -8,6 +8,7 @@ import projetoUp.model.Passageiro;
 import projetoUp.model.Voo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 
@@ -27,13 +28,13 @@ public class ControladorVoo {
 	}
 	
 	public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
+			Funcionario comissario, LocalTime horarioDeSaida,
 			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data)
 	{
 		if(rota.getDistancia(cidadeOrigem, cidadeDestino) > 0)
 		{
 			Voo voo = new Voo(aeroportos.buscarAeroporto(cidadeOrigem), aeroportos.buscarAeroporto(cidadeDestino),
-					piloto, coPiloto, comissario, horarioDeSaida, horarioDeChegada, passageiros,
+					piloto, coPiloto, comissario, horarioDeSaida, passageiros,
 					codigoVoo, distancia, data);
 			this.criarVoo(voo);
 		}
@@ -84,6 +85,15 @@ public class ControladorVoo {
 	{
 		return this.repositorioVoo.buscarVoo(origem, destino, data);
 		
+	}
+	
+	public boolean tranferirAviao(Voo voo)
+	{
+		if(voo.getHorarioDeSaida().isBefore(LocalTime.now()))
+		{
+			return voo.getAeroportoDeDestino().addAviao(voo.getAeroportoDeOrigem().getAviao());
+		}
+		return false;
 	}
 	 
 	 

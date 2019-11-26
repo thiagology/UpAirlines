@@ -2,6 +2,7 @@ package projetoUp.negocio;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import projetoUp.model.Aeroporto;
@@ -27,6 +28,7 @@ public class Fachada {
 		this.controladorCliente = ControladorCliente.getInstance();
 		this.controladorPassagem = ControladorPassagem.getInstance();
 		this.controladorAeroporto = ControladorAeroporto.getInstance();
+		this.controladorFuncionario = ControladorFuncionario.getInstance();
 	}
 	
 	public static Fachada getInstance() {
@@ -40,10 +42,10 @@ public class Fachada {
 	//GERENTE
 	
 	public void criarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
+			Funcionario comissario, LocalTime horarioDeSaida,
 			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
 		
-		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida, horarioDeChegada, passageiros, codigoVoo, distancia, data);
+		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida, passageiros, codigoVoo, distancia, data);
 	}
 
 	public void removerVoo(Voo v) {
@@ -64,10 +66,9 @@ public class Fachada {
 	
 	
 	public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalDateTime horarioDeSaida, LocalDateTime horarioDeChegada,
+			Funcionario comissario, LocalTime horarioDeSaida,
 			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
-		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida,
-				horarioDeChegada, passageiros, codigoVoo, distancia, data);
+		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida, passageiros, codigoVoo, distancia, data);
 	}
 	
 	
