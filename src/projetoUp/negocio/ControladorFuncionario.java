@@ -56,4 +56,9 @@ public class ControladorFuncionario {
 			}
 		}
 	}
+	
+	public boolean tornarGerente(Funcionario funcionario, String login, String senha)
+	{
+		return this.repositorioFuncionario.addGerente(funcionario, login, senha);
+	}
 }

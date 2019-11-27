@@ -49,7 +49,7 @@ public class ControladorVoo {
 						this.repositorioVoo.criarVoo(v);
 						this.repositorioVoo.salvarArquivo();
 					} catch (JaExisteException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}

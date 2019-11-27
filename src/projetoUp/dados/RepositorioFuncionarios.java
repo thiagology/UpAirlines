@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Funcionario;
+import projetoUp.model.Gerente;
 
 public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serializable {
 	
@@ -107,13 +108,24 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 	
 	public boolean addFuncionario(Funcionario fun)
 	{
-		if(this.funcionarioExiste(fun) != true)
-		{
-			this.funcionarios.add(fun);
-			return true;
+		try {
+			if(this.funcionarioExiste(fun) != true)
+			{
+				this.funcionarios.add(fun);
+				return true;
+			}
+		} catch (NaoExisteException e) {
+			e.printStackTrace();
 		}
 		
 		return false;	
+	}
+	
+	public boolean addGerente(Funcionario funcionario, String login, String senha)
+	{
+		Gerente gerente = new Gerente(login, senha, funcionario.getNome(), funcionario.getCpf(), funcionario.getRg(), funcionario.getTelefone(),
+				funcionario.getEndereco(), funcionario.getNascimento(), funcionario.getId(), funcionario.getContratacao(), "Gerente");
+		return this.addFuncionario(gerente);
 	}
 	
 	public void removerFuncionario(Funcionario funcionario) throws NaoExisteException
