@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Funcionario;
 
 public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serializable {
@@ -81,7 +83,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		
 	}
 	
-	public Funcionario buscarFuncionario(Funcionario funcionario)
+	public Funcionario buscarFuncionario(Funcionario funcionario) throws NaoExisteException
 	{
 		for (Funcionario f : funcionarios) {
 			if(f.equals(funcionario))
@@ -93,7 +95,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		return null;
 	}
 	
-	public boolean funcionarioExiste(Funcionario funcionario)
+	public boolean funcionarioExiste(Funcionario funcionario) throws NaoExisteException
 	{
 		if(this.buscarFuncionario(funcionario) != null)
 		{
@@ -114,7 +116,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		return false;	
 	}
 	
-	public void removerFuncionario(Funcionario funcionario)
+	public void removerFuncionario(Funcionario funcionario) throws NaoExisteException
 	{
 		if(this.funcionarioExiste(funcionario) == true) {
 			this.funcionarios.remove(funcionario);

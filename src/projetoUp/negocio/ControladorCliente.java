@@ -3,6 +3,7 @@ package projetoUp.negocio;
 import java.time.LocalDate;
 
 import projetoUp.dados.RepositorioCliente;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
 import projetoUp.model.Endereco;
@@ -61,8 +62,14 @@ public class ControladorCliente {
 	
 	public void excluirConta(Cliente c) {
 		if(c != null) {
-			this.repositorioCliente.excluirConta(c);
-			this.repositorioCliente.salvarArquivo();
+			try {
+				this.repositorioCliente.excluirConta(c);
+				this.repositorioCliente.salvarArquivo();
+			} catch (NaoExisteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 	
@@ -79,7 +86,12 @@ public class ControladorCliente {
 	
 	public Cliente buscarConta(String login, String senha) {
 		if(login != null && senha != null) {
-			return repositorioCliente.buscarCliente(login, senha);
+			try {
+				return repositorioCliente.buscarCliente(login, senha);
+			} catch (NaoExisteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}

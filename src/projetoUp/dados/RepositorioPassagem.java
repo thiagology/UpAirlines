@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 
@@ -66,7 +68,7 @@ public class RepositorioPassagem implements IRepositorioPassagem, Serializable {
 	}
 	
 		//adiciona uma passagem ao repositorio
-		public void criarPassagem(Passagem p) {		
+		public void criarPassagem(Passagem p) throws JaExisteException {		
 			 if (codigoExiste(p.getCodigo()) != true) {
 				 this.passagens.add(p);
 			 }
@@ -95,7 +97,7 @@ public class RepositorioPassagem implements IRepositorioPassagem, Serializable {
 			return null;
 		}
 		
-		public void alterarPassagem(Passagem p) {
+		public void alterarPassagem(Passagem p) throws NaoExisteException{
 			if(passagens.contains(p)) {
 				int i = this.passagens.indexOf(p);
 				this.passagens.set(i, p);

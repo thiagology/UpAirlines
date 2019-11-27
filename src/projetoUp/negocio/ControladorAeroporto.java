@@ -1,6 +1,8 @@
 package projetoUp.negocio;
 
 import projetoUp.dados.RepositorioAeroporto;
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Aeroporto;
 import projetoUp.model.Cidades;
 
@@ -31,9 +33,13 @@ public class ControladorAeroporto {
 	public boolean adicionarAeroporto(Aeroporto a) {
 		if(a != null) {
 			if( a.getCidade() != null) {
-				this.repositorioAeroporto.addAeroporto(a);
-				this.repositorioAeroporto.salvarArquivo();
-				return true;
+				try {
+					this.repositorioAeroporto.addAeroporto(a);
+					this.repositorioAeroporto.salvarArquivo();
+					return true;
+				} catch (JaExisteException e) {
+					e.printStackTrace();
+				}
 			}
 			return false;
 		}
@@ -43,14 +49,22 @@ public class ControladorAeroporto {
 	public void removerAeroporto(Aeroporto a) {
 		if(a != null) {
 			//se nao tiver voos pra esse aeroporto
-			this.repositorioAeroporto.apagarAeroporto(a);
+			try {
+				this.repositorioAeroporto.apagarAeroporto(a);
+			} catch (NaoExisteException e) {
+				e.printStackTrace();
+			}
 			this.repositorioAeroporto.salvarArquivo();
 			}
 		}
 	
 	public Aeroporto buscarAeroporto(Cidades cidade) {
 		if(cidade != null) {
-			return this.repositorioAeroporto.buscarAeroporto(cidade);
+			try {
+				return this.repositorioAeroporto.buscarAeroporto(cidade);
+			} catch (NaoExisteException e) {
+				e.printStackTrace();
+			}
 			}
 		return null;
 		}

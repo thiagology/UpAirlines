@@ -3,6 +3,7 @@ package projetoUp.negocio;
 import java.time.LocalDate;
 
 import projetoUp.dados.RepositorioFuncionarios;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Endereco;
 import projetoUp.model.Funcionario;
 
@@ -33,14 +34,25 @@ public class ControladorFuncionario {
 	
 	public void removerFuncionario (Funcionario f) {
 		if(!f.isAdm()) {
-			this.repositorioFuncionario.removerFuncionario(f);
-			this.repositorioFuncionario.salvarArquivo();
+			try {
+				this.repositorioFuncionario.removerFuncionario(f);
+				this.repositorioFuncionario.salvarArquivo();
+			} catch (NaoExisteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 	
 	public void buscarFuncionario(Funcionario f) {
 		if(f != null) {
-			repositorioFuncionario.buscarFuncionario(f);
+			try {
+				repositorioFuncionario.buscarFuncionario(f);
+			} catch (NaoExisteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }
