@@ -12,7 +12,8 @@ public class ControladorFuncionario {
 
     private RepositorioFuncionarios repositorioFuncionario;
     private static ControladorFuncionario instance;
-    private Gerente usuario;
+    @SuppressWarnings("unused")
+	private Gerente usuario;
 
     public static ControladorFuncionario getInstance() {
         if (instance == null) {
