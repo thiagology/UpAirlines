@@ -169,6 +169,7 @@ public class Fachada {
 	public void promoverFuncionario(Funcionario funcionario)
 	{
 		this.controladorFuncionario.tornarGerente(funcionario);
+                
 	}
 
 	
