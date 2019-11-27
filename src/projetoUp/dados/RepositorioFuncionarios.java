@@ -123,8 +123,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 	
 	public boolean addGerente(Funcionario funcionario, String login, String senha)
 	{
-		Gerente gerente = new Gerente(login, senha, funcionario.getNome(), funcionario.getCpf(), funcionario.getRg(), funcionario.getTelefone(),
-				funcionario.getEndereco(), funcionario.getNascimento(), funcionario.getId(), funcionario.getContratacao(), "Gerente");
+		Gerente gerente = (Gerente) funcionario;
 		return this.addFuncionario(gerente);
 	}
 	
@@ -133,6 +132,18 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		if(this.funcionarioExiste(funcionario) == true) {
 			this.funcionarios.remove(funcionario);
 		}
+	}
+	
+	public Gerente logIn(String login, String senha)throws NaoExisteException
+	{
+		for (Funcionario funcionario : funcionarios) {
+			if(funcionario.isAdm() && funcionario.getUsuario().equals(login)  && funcionario.getSenha().equals(senha))
+			{
+				return (Gerente)funcionario;
+			}
+		}
+		
+		return null;
 	}
 	
 	

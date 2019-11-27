@@ -6,10 +6,12 @@ import projetoUp.dados.RepositorioFuncionarios;
 import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Endereco;
 import projetoUp.model.Funcionario;
+import projetoUp.model.Gerente;
 
 public class ControladorFuncionario {
 	private RepositorioFuncionarios repositorioFuncionario;
 	private static ControladorFuncionario instance;
+	private Gerente usuario;
 	
 	public static ControladorFuncionario getInstance() {
 		if(instance == null) {
@@ -21,11 +23,11 @@ public class ControladorFuncionario {
 	public void adicionarFuncionario(String nome, String cpf, String rg,
 									 int telefone, Endereco endereco,
 									 LocalDate nascimento, int id, 
-									 LocalDate contratacao, String funcao) {
+									 LocalDate contratacao, String funcao, String login, String senha) {
 		if(cpf != null || rg != null) { //alguma identificacao nao nula
 			if(contratacao.isBefore(LocalDate.now())) { //contratacao antes da data atual
 				Funcionario novo = new Funcionario(nome, cpf, rg, telefone, endereco,
-												nascimento, id, contratacao, funcao);
+												nascimento, id, contratacao, funcao, login, senha);
 				this.repositorioFuncionario.addFuncionario(novo);
 				this.repositorioFuncionario.salvarArquivo();
 			}
@@ -57,8 +59,19 @@ public class ControladorFuncionario {
 		}
 	}
 	
-	public boolean tornarGerente(Funcionario funcionario, String login, String senha)
+	public boolean tornarGerente(Funcionario funcionario)
 	{
-		return this.repositorioFuncionario.addGerente(funcionario, login, senha);
+		return this.repositorioFuncionario.addGerente(funcionario);
+	}
+	
+	public boolean logInGerente(String login, String senha)
+	{
+		try {
+			this.usuario = this.repositorioFuncionario.logIn(login, senha);
+			return true;
+		} catch (NaoExisteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

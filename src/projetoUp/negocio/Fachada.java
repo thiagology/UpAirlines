@@ -78,8 +78,8 @@ public class Fachada {
 	public void adicionarFuncionario(String nome, String cpf, String rg,
 			 int telefone, Endereco endereco,
 			 LocalDate nascimento, int id, 
-			 LocalDate contratacao, String funcao) {
-		controladorFuncionario.adicionarFuncionario(nome, cpf, rg, telefone, endereco, nascimento, id, contratacao, funcao);;
+			 LocalDate contratacao, String funcao, String login, String senha) {
+		controladorFuncionario.adicionarFuncionario(nome, cpf, rg, telefone, endereco, nascimento, id, contratacao, funcao, login, senha);
 	}
 
 	public void removerFuncionario(Funcionario f) {
@@ -164,6 +164,11 @@ public class Fachada {
 
 	public List<Passagem> listarPorPassageiro(Passageiro pa) {
 		return controladorPassagem.listarPorPassageiro(pa);
+	}
+	
+	public void promoverFuncionario(Funcionario funcionario)
+	{
+		this.controladorFuncionario.tornarGerente(funcionario);
 	}
 
 	

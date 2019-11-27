@@ -99,10 +99,14 @@ public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable
 	
 	public boolean addAeroporto(Aeroporto aeroporto)throws JaExisteException {
 		
-		if(this.aeroportoExiste(aeroporto) != true)
-		{
-			this.aeroportos.put(aeroporto.getCidade(), aeroporto);
-			return true;
+		try {
+			if(this.aeroportoExiste(aeroporto) != true)
+			{
+				this.aeroportos.put(aeroporto.getCidade(), aeroporto);
+				return true;
+			}
+		} catch (NaoExisteException e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
