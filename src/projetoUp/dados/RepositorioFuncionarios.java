@@ -54,6 +54,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		    return instanciaLocal;
 		  }
 	
+        @Override
 	public void salvarArquivo() {
 	    if (instance == null) {
 	      return;
@@ -115,18 +116,18 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 				return true;
 			}
 		} catch (NaoExisteException e) {
-			e.printStackTrace();
 		}
 		
 		return false;	
 	}
 	
-	public boolean addGerente(Funcionario funcionario, String login, String senha)
+	public boolean addGerente(Funcionario funcionario)
 	{
 		Gerente gerente = (Gerente) funcionario;
 		return this.addFuncionario(gerente);
 	}
 	
+        @Override
 	public void removerFuncionario(Funcionario funcionario) throws NaoExisteException
 	{
 		if(this.funcionarioExiste(funcionario) == true) {
@@ -134,6 +135,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		}
 	}
 	
+        @Override
 	public Gerente logIn(String login, String senha)throws NaoExisteException
 	{
 		for (Funcionario funcionario : funcionarios) {
