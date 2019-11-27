@@ -32,6 +32,7 @@ public class ControladorFuncionario {
 		}
 	}
 	
+	
 	public void removerFuncionario (Funcionario f) {
 		if(!f.isAdm()) {
 			try {
