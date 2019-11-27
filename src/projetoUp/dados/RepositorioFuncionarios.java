@@ -8,7 +8,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Funcionario;
+import projetoUp.model.Gerente;
 
 public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serializable {
 	
@@ -81,7 +84,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		
 	}
 	
-	public Funcionario buscarFuncionario(Funcionario funcionario)
+	public Funcionario buscarFuncionario(Funcionario funcionario) throws NaoExisteException
 	{
 		for (Funcionario f : funcionarios) {
 			if(f.equals(funcionario))
@@ -93,7 +96,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		return null;
 	}
 	
-	public boolean funcionarioExiste(Funcionario funcionario)
+	public boolean funcionarioExiste(Funcionario funcionario) throws NaoExisteException
 	{
 		if(this.buscarFuncionario(funcionario) != null)
 		{
@@ -105,20 +108,42 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 	
 	public boolean addFuncionario(Funcionario fun)
 	{
-		if(this.funcionarioExiste(fun) != true)
-		{
-			this.funcionarios.add(fun);
-			return true;
+		try {
+			if(this.funcionarioExiste(fun) != true)
+			{
+				this.funcionarios.add(fun);
+				return true;
+			}
+		} catch (NaoExisteException e) {
+			e.printStackTrace();
 		}
 		
 		return false;	
 	}
 	
-	public void removerFuncionario(Funcionario funcionario)
+	public boolean addGerente(Funcionario funcionario, String login, String senha)
+	{
+		Gerente gerente = (Gerente) funcionario;
+		return this.addFuncionario(gerente);
+	}
+	
+	public void removerFuncionario(Funcionario funcionario) throws NaoExisteException
 	{
 		if(this.funcionarioExiste(funcionario) == true) {
 			this.funcionarios.remove(funcionario);
 		}
+	}
+	
+	public Gerente logIn(String login, String senha)throws NaoExisteException
+	{
+		for (Funcionario funcionario : funcionarios) {
+			if(funcionario.isAdm() && funcionario.getUsuario().equals(login)  && funcionario.getSenha().equals(senha))
+			{
+				return (Gerente)funcionario;
+			}
+		}
+		
+		return null;
 	}
 	
 	

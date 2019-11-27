@@ -1,6 +1,8 @@
 package projetoUp.negocio;
 
 import projetoUp.dados.RepositorioVoo;
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Conexoes;
 import projetoUp.model.Funcionario;
@@ -43,8 +45,13 @@ public class ControladorVoo {
 		if(v != null && this.rota.getDistancia(v.getAeroportoDeOrigem().getCidade(), v.getAeroportoDeDestino().getCidade()) > 0) {
 			if(v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) { //hora de saida nao pode ser antes da de chegada
 				if(!(v.getAeroportoDeDestino().equals(v.getAeroportoDeOrigem()))){
-					this.repositorioVoo.criarVoo(v);
-					this.repositorioVoo.salvarArquivo();
+					try {
+						this.repositorioVoo.criarVoo(v);
+						this.repositorioVoo.salvarArquivo();
+					} catch (JaExisteException e) {
+						
+						e.printStackTrace();
+					}
 				}
 			}
 		}
@@ -64,8 +71,13 @@ public class ControladorVoo {
 	public void alterarVoo(Voo v) {
 		if(v != null) {
 			//atualiza só a hora de chegada e só se ela for depois da de saida
-			this.repositorioVoo.alterarVoo(v);
-			this.repositorioVoo.salvarArquivo();
+			try {
+				this.repositorioVoo.alterarVoo(v);
+				this.repositorioVoo.salvarArquivo();
+			} catch (NaoExisteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	

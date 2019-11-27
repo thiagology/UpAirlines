@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import java.util.List;
 
 import projetoUp.dados.RepositorioPassagem;
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 import projetoUp.model.Voo;
@@ -29,8 +31,13 @@ public class ControladorPassagem {
 					Passagem pas = new Passagem(codigo, p, v);
 					p.setCodigoVoo(pas.getCodigo());
 					v.setPassageiro(p);
-					repositorioPassagem.criarPassagem(pas);
-					repositorioPassagem.salvarArquivo();
+					try {
+						repositorioPassagem.criarPassagem(pas);
+						repositorioPassagem.salvarArquivo();
+					} catch (JaExisteException e) {
+						e.printStackTrace();
+					}
+					
 				}
 			}
 		}
@@ -51,8 +58,13 @@ public class ControladorPassagem {
 			if(p.getVoo().buscarAssento(idAssento).getOcupado() == false)
 				p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());//libera o assento antigo
 				p.getPassageiro().setAssento(p.getVoo().reservarAssento(idAssento));//muda assento	
-				repositorioPassagem.alterarPassagem(p);
-				repositorioPassagem.salvarArquivo();
+				try {
+					repositorioPassagem.alterarPassagem(p);
+					repositorioPassagem.salvarArquivo();
+				} catch (NaoExisteException e) {
+					e.printStackTrace();
+				}
+				
 		}
 	}
 	

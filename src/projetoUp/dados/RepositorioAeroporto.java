@@ -1,7 +1,8 @@
 package projetoUp.dados;
 import java.util.Map;
 
-
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Aeroporto;
 import projetoUp.model.Cidades;
 import java.io.File;
@@ -96,17 +97,21 @@ public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable
 	  }
 
 	
-	public boolean addAeroporto(Aeroporto aeroporto) {
+	public boolean addAeroporto(Aeroporto aeroporto)throws JaExisteException {
 		
-		if(this.aeroportoExiste(aeroporto) != true)
-		{
-			this.aeroportos.put(aeroporto.getCidade(), aeroporto);
-			return true;
+		try {
+			if(this.aeroportoExiste(aeroporto) != true)
+			{
+				this.aeroportos.put(aeroporto.getCidade(), aeroporto);
+				return true;
+			}
+		} catch (NaoExisteException e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
 	
-	public boolean aeroportoExiste(Aeroporto aeroporto)
+	public boolean aeroportoExiste(Aeroporto aeroporto)throws NaoExisteException
 	{
 		if(this.buscarAeroporto(aeroporto.getCidade()) != null)
 		{
@@ -118,7 +123,7 @@ public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable
 		}
 	}
 	
-	public Aeroporto buscarAeroporto(Cidades cidade)
+	public Aeroporto buscarAeroporto(Cidades cidade) throws NaoExisteException
 	{
 		return this.aeroportos.get(cidade);
 	}
@@ -128,7 +133,7 @@ public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable
 		return this.aeroportos;
 	}
 	
-	public void apagarAeroporto(Aeroporto a) 
+	public void apagarAeroporto(Aeroporto a) throws NaoExisteException
 	{
 		if(this.aeroportoExiste(a) == true) {
 			this.aeroportos.remove(a.getCidade());

@@ -11,9 +11,11 @@ public class Funcionario extends Pessoa implements Serializable {
 	private int id;
 	private LocalDate contratacao;
 	private String funcao;
+	private String usuario;
+	private String senha;
 
 	public Funcionario(String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento,
-			int id, LocalDate contratacao, String funcao) {
+			int id, LocalDate contratacao, String funcao, String login, String senha) {
 		super(nome, cpf, rg, telefone, endereco, nascimento, false);
 		this.id = id;
 		this.contratacao = contratacao;
@@ -42,6 +44,19 @@ public class Funcionario extends Pessoa implements Serializable {
 	}
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
+	}
+	
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	

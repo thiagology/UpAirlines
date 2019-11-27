@@ -9,6 +9,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cliente;
 
 public class RepositorioCliente implements IRepositorioCliente, Serializable {
@@ -91,8 +93,8 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 
 	
 	//adiciona uma conta de cliente ao repositorio
-	public boolean criarConta(Cliente c) {		
-		 if (this.loginExiste(c.getEmail(), c.getSenha()) != true) {
+	public boolean criarConta(Cliente c) throws JaExisteException, NaoExisteException {		
+		 if (this.loginExiste(c.getEmail(), c.getSenha()) != true)  {
 			 this.clientes.add(c);
 			 return true;
 		 }
@@ -100,7 +102,7 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 	}
 	
 	//remove uma conta do repositorio
-	public boolean excluirConta(Cliente c) {	
+	public boolean excluirConta(Cliente c) throws NaoExisteException {	
 	    if (this.loginExiste(c.getEmail(), c.getSenha()) == true) {
 		   this.clientes.remove(c);
 		   return true;
@@ -109,12 +111,12 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 	}
 	
 	//retorna se um email existe
-	public boolean loginExiste(String login, String senha) {
+	public boolean loginExiste(String login, String senha) throws NaoExisteException {
 		return buscarCliente(login, senha) != null;
 	}
 	
 	//busca um cliente pelo email
-	public Cliente buscarCliente(String login, String senha) {
+	public Cliente buscarCliente(String login, String senha) throws NaoExisteException{
 		for(Cliente c: this.clientes) {
 			if(c.getEmail().equals(login) && c.getSenha().equals(senha)) {
 				return c;

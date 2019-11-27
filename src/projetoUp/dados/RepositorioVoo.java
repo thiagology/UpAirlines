@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Voo;
 
@@ -92,7 +94,7 @@ public class RepositorioVoo implements IRepositorioVoo, Serializable {
     }
     
     	//adiciona um voo ao repositorio
-  		public void criarVoo(Voo v) {		
+  		public void criarVoo(Voo v) throws JaExisteException{		
   			 if (codigoExiste(v.getcodigoVoo()) != true) {
   				 this.voos.add(v);
   			 }
@@ -132,7 +134,7 @@ public class RepositorioVoo implements IRepositorioVoo, Serializable {
   			return null;
   		}
   		
-  		public void alterarVoo(Voo v) {
+  		public void alterarVoo(Voo v) throws NaoExisteException {
   			if(voos.contains(v)) {
   				int indice = this.voos.indexOf(v);
   				this.voos.set(indice, v);

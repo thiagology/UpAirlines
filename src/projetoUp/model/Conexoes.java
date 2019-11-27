@@ -1,6 +1,6 @@
 package projetoUp.model;
 
-import java.time.LocalTime;
+
 
 public class Conexoes {
 	
