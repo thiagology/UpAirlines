@@ -6,7 +6,7 @@ public class JaExisteException extends Exception {
 	private Object objeto;
     
     public JaExisteException(Object obj) {
-        super("Elemento j· existe");
+        super("Elemento j√° existe");
         this.objeto = obj;        
     }
 

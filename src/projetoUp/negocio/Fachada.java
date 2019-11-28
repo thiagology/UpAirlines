@@ -15,165 +15,141 @@ import projetoUp.model.Passagem;
 import projetoUp.model.Voo;
 
 public class Fachada {
-	private static Fachada instance;
-	
-	private ControladorVoo controladorVoo;
-	private ControladorPassagem controladorPassagem;
-	private ControladorCliente controladorCliente;
-	private ControladorAeroporto controladorAeroporto;
-	private ControladorFuncionario controladorFuncionario;
-	
-	private Fachada() {
-		this.controladorVoo = ControladorVoo.getInstance();
-		this.controladorCliente = ControladorCliente.getInstance();
-		this.controladorPassagem = ControladorPassagem.getInstance();
-		this.controladorAeroporto = ControladorAeroporto.getInstance();
-		this.controladorFuncionario = ControladorFuncionario.getInstance();
-	}
-	
-	public static Fachada getInstance() {
-		if(instance == null) {
-			instance = new Fachada();
-		}
-		return instance;
-	}
-	
 
-	//GERENTE
-	
-	public void criarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalTime horarioDeSaida,
-			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
-		
-		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida, passageiros, codigoVoo, distancia, data);
-	}
+    private static Fachada instance;
 
-	public void removerVoo(Voo v) {
-		controladorVoo.removerVoo(v);
-	}
+    private ControladorVoo controladorVoo;
+    private ControladorPassagem controladorPassagem;
+    private ControladorCliente controladorCliente;
+    private ControladorAeroporto controladorAeroporto;
+    private ControladorFuncionario controladorFuncionario;
 
-	public void alterarVoo(Voo v) {
-		controladorVoo.alterarVoo(v);
-	}
+    private Fachada() {
+        this.controladorVoo = ControladorVoo.getInstance();
+        this.controladorCliente = ControladorCliente.getInstance();
+        this.controladorPassagem = ControladorPassagem.getInstance();
+        this.controladorAeroporto = ControladorAeroporto.getInstance();
+        this.controladorFuncionario = ControladorFuncionario.getInstance();
+    }
 
-	public void listar() {
-		controladorVoo.listar();
-	}
+    public static Fachada getInstance() {
+        if (instance == null) {
+            instance = new Fachada();
+        }
+        return instance;
+    }
 
-	public void buscarVoo(String codigo) {
-		controladorVoo.buscarVoo(codigo);
-	}
-	
-	
-	public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalTime horarioDeSaida,
-			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
-		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida, passageiros, codigoVoo, distancia, data);
-	}
-	
-	
-	
-	
+    //GERENTE	
+    public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto,
+            Funcionario coPiloto,
+            Funcionario comissario, LocalTime horarioDeSaida,
+            List<Passageiro> passageiros, String codigoVoo, LocalDate data) {
+        controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, horarioDeSaida,
+                passageiros, codigoVoo, data);
+    }
 
-	public void adicionarFuncionario(String nome, String cpf, String rg,
-			 int telefone, Endereco endereco,
-			 LocalDate nascimento, int id, 
-			 LocalDate contratacao, String funcao, String login, String senha) {
-		controladorFuncionario.adicionarFuncionario(nome, cpf, rg, telefone, endereco, nascimento, id, contratacao, funcao, login, senha);
-	}
+    public void removerVoo(Voo v) {
+        controladorVoo.removerVoo(v);
+    }
 
-	public void removerFuncionario(Funcionario f) {
-		controladorFuncionario.removerFuncionario(f);
-	}
+    public void alterarVoo(Voo v) {
+        controladorVoo.alterarVoo(v);
+    }
 
-	public void buscarFuncionario(Funcionario f) {
-		controladorFuncionario.buscarFuncionario(f);
-	}
-	
-	
-	
-	
+    public void listar() {
+        controladorVoo.listar();
+    }
 
-	public void novoAeroporto(String nome, String sigla, Cidades cidade) {
-		controladorAeroporto.novoAeroporto(nome, sigla, cidade);
-	}
+    public void buscarVoo(String codigo) {
+        controladorVoo.buscarVoo(codigo);
+    }
 
-	public void adicionarAeroporto(Aeroporto a) {
-		controladorAeroporto.adicionarAeroporto(a);
-	}
+    public void adicionarFuncionario(String nome, String cpf, String rg,
+            int telefone, Endereco endereco,
+            LocalDate nascimento, int id,
+            LocalDate contratacao, String funcao, String login, String senha) {
+        controladorFuncionario.adicionarFuncionario(nome, cpf, rg, telefone, endereco,
+                nascimento, id, contratacao, funcao, login, senha);
+    }
 
-	public void removerAeroporto(Aeroporto a) {
-		controladorAeroporto.removerAeroporto(a);
-	}
+    public void removerFuncionario(Funcionario f) {
+        controladorFuncionario.removerFuncionario(f);
+    }
 
-	public void buscarAeroporto(Cidades cidade) {
-		controladorAeroporto.buscarAeroporto(cidade);
-	}
+    public void buscarFuncionario(Funcionario f) {
+        controladorFuncionario.buscarFuncionario(f);
+    }
 
-	//CLIENTE
-	
+    public void novoAeroporto(String nome, String sigla, Cidades cidade) {
+        controladorAeroporto.novoAeroporto(nome, sigla, cidade);
+    }
 
-	public boolean fazerLogin(String usuario, String senha) {
-		return controladorCliente.fazerLogin(usuario, senha);
-	}
+    public void adicionarAeroporto(Aeroporto a) {
+        controladorAeroporto.adicionarAeroporto(a);
+    }
 
-	public boolean criarConta(Cliente c) {
-		return controladorCliente.criarConta(c);
-	}
+    public void removerAeroporto(Aeroporto a) {
+        controladorAeroporto.removerAeroporto(a);
+    }
 
-	public boolean cadastrarConta(String nome, String cpf, String rg, int telefone, Endereco endereco,
-			LocalDate nascimento, Passagem passagens, String login, String senha) {
-		return controladorCliente.cadastrarConta(nome, cpf, rg, telefone, endereco, nascimento, passagens, login,
-				senha);
-	}
+    public void buscarAeroporto(Cidades cidade) {
+        controladorAeroporto.buscarAeroporto(cidade);
+    }
 
-	public void excluirConta(Cliente c) {
-		controladorCliente.excluirConta(c);
-	}
+    //CLIENTE
+    public boolean fazerLogin(String usuario, String senha) {
+        return controladorCliente.fazerLogin(usuario, senha);
+    }
 
-	public boolean checkIn(String codigoVoo, String id) {
-		return controladorCliente.checkIn(codigoVoo, id);
-	}
+    public boolean criarConta(Cliente c) {
+        return controladorCliente.criarConta(c);
+    }
 
-	public Cliente buscarConta(String login, String senha) {
-		return controladorCliente.buscarConta(login, senha);
-	}
+    public boolean cadastrarConta(String nome, String cpf, String rg, int telefone, Endereco endereco,
+            LocalDate nascimento, Passagem passagens, String login, String senha) {
+        return controladorCliente.cadastrarConta(nome, cpf, rg, telefone, endereco, nascimento, passagens, login,
+                senha);
+    }
 
-	public void comprarPassagem(Cidades origem, Cidades destino, LocalDate data) {
-		controladorCliente.comprarPassagem(origem, destino, data);
-	}
+    public void excluirConta(Cliente c) {
+        controladorCliente.excluirConta(c);
+    }
 
-	
-	
-	
-	public void criarPassagem(String codigo, Passageiro p, Voo v) {
-		controladorPassagem.criarPassagem(codigo, p, v);
-	}
-	
-	public void excluirPassagem(Passagem p) {
-		controladorPassagem.excluirPassagem(p);
-	}
+    public boolean checkIn(String codigoVoo, String id) {
+        return controladorCliente.checkIn(codigoVoo, id);
+    }
 
-	public void alterarPassagem(Passagem p, String idAssento){
-		controladorPassagem.alterarPassagem(p, idAssento);
-	}
-	
-	public void buscarPassagem(String c) {
-		controladorPassagem.buscarPassagem(c);
-	}
+    public Cliente buscarConta(String login, String senha) {
+        return controladorCliente.buscarConta(login, senha);
+    }
 
-	public List<Passagem> listarPorPassageiro(Passageiro pa) {
-		return controladorPassagem.listarPorPassageiro(pa);
-	}
-	
-	public void promoverFuncionario(Funcionario funcionario)
-	{
-		this.controladorFuncionario.tornarGerente(funcionario);
-                
-	}
+    public void comprarPassagem(Cidades origem, Cidades destino, LocalDate data) {
+        controladorCliente.comprarPassagem(origem, destino, data);
+    }
 
-	
+    public void criarPassagem(String codigo, Passageiro p, Voo v) {
+        controladorPassagem.criarPassagem(codigo, p, v);
+    }
 
-	
-	
+    public void excluirPassagem(Passagem p) {
+        controladorPassagem.excluirPassagem(p);
+    }
+
+    public void alterarPassagem(Passagem p, String idAssento) {
+        controladorPassagem.alterarPassagem(p, idAssento);
+    }
+
+    public void buscarPassagem(String c) {
+        controladorPassagem.buscarPassagem(c);
+    }
+
+    public List<Passagem> listarPorPassageiro(Passageiro pa) {
+        return controladorPassagem.listarPorPassageiro(pa);
+    }
+
+    public void promoverFuncionario(Funcionario funcionario) {
+        this.controladorFuncionario.tornarGerente(funcionario);
+
+    }
+
 }

@@ -26,13 +26,12 @@ public class ControladorVoo {
         return instance;
     }
 
-    public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
-            Funcionario comissario, LocalTime horarioDeSaida,
-            List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
+    public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto, LocalTime horarioDeSaida,
+            List<Passageiro> passageiros, String codigoVoo,LocalDate data) {
         if (rota.getDistancia(cidadeOrigem, cidadeDestino) > 0) {
             Voo voo = new Voo(aeroportos.buscarAeroporto(cidadeOrigem), aeroportos.buscarAeroporto(cidadeDestino),
-                    piloto, coPiloto, comissario, horarioDeSaida, passageiros,
-                    codigoVoo, distancia, data);
+                    piloto, coPiloto, horarioDeSaida, passageiros,
+                    codigoVoo, data);
             this.criarVoo(voo);
         }
     }

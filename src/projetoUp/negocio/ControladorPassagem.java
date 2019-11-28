@@ -28,7 +28,7 @@ public class ControladorPassagem {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) {
                 if (p.getCpf() != null || p.getRg() != null) {
                     Passagem pas = new Passagem(codigo, p, v);
-                    p.setCodigoVoo(pas.getCodigo());
+                    p.setCodigoVoo(pas.getVoo().getcodigoVoo());
                     v.setPassageiro(p);
                     try {
                         repositorioPassagem.criarPassagem(pas);

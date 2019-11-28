@@ -15,7 +15,6 @@ public class Voo implements Serializable{
 	private Aeroporto aeroportoDeDestino;
 	private Funcionario piloto;
 	private Funcionario coPiloto;
-	private Funcionario comissario;
 	private LocalTime horarioDeSaida;
 	private LocalTime horarioDeChegada;
 	private LocalDate data;
@@ -28,15 +27,13 @@ public class Voo implements Serializable{
         
         
 	
-	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalTime horarioDeSaida,
-			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
+	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto, LocalTime horarioDeSaida,
+			List<Passageiro> passageiros, String codigoVoo, LocalDate data) {
 		super();
 		this.aeroportoDeOrigem = aeroportoDeOrigem;
 		this.aeroportoDeDestino = aeroportoDeDestino;
 		this.piloto = piloto;
 		this.coPiloto = coPiloto;
-		this.comissario = comissario;
 		this.horarioDeSaida = horarioDeSaida;
 		this.horarioDeChegada = this.horarioDeSaida.plusHours(this.conexao.tempoViagem(this.aeroportoDeOrigem.getCidade(), 
 				this.aeroportoDeDestino.getCidade(), this.aviao));
@@ -81,14 +78,6 @@ public class Voo implements Serializable{
 
 	public void setCoPiloto(Funcionario coPiloto) {
 		this.coPiloto = coPiloto;
-	}
-
-	public Funcionario getComissario() {
-		return comissario;
-	}
-
-	public void setComissario(Funcionario comissario) {
-		this.comissario = comissario;
 	}
 
 	public LocalTime getHorarioDeSaida() {
