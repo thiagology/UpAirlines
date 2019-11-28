@@ -47,6 +47,10 @@ public class Fachada {
         controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, horarioDeSaida,
                 passageiros, codigoVoo, data);
     }
+    
+    public void criarVoo(Voo v) {
+    	controladorVoo.criarVoo(v);
+    }
 
     public void removerVoo(Voo v) {
         controladorVoo.removerVoo(v);

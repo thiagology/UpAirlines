@@ -1,7 +1,5 @@
 package projetoUp.gui;
 
-import java.time.LocalTime;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,10 +8,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetoUp.model.Aeroporto;
-import projetoUp.model.Cidades;
 import projetoUp.model.Funcionario;
-import projetoUp.model.Piloto;
 import projetoUp.model.Voo;
+import projetoUp.negocio.Fachada;
 
 public class TelaAddVooController {
 
@@ -80,12 +77,12 @@ public class TelaAddVooController {
 						chBoxPiloto.getValue(),
 						chBoxCopiloto.getValue(),
 						null,
-						LocalTime.of(Integer.parseInt(this.txtHoraSaida.getText()), 0),
 						null,
 						this.txtCodigo.getText(),
-						0,
 						this.dtPickerDataVoo.getValue()
 						);
+		
+		Fachada.getInstance().criarVoo(v);
     }
 
 }
