@@ -12,7 +12,7 @@ public class TelaMainController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Pane mainPane =(Pane) FXMLLoader.load(TelaMainController.class.getResource("TelaGerente.fxml"));
+        Pane mainPane =(Pane) FXMLLoader.load(TelaMainController.class.getResource("TelaAddVoo.fxml"));
         
         Scene scene = new Scene(mainPane);
         

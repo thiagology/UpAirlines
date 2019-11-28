@@ -6,8 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public enum Cidades {
-    ARACAJU(0, ""
-            + "Aracaju"), BELEM(1, "Belém"), BELO_HORIZONTE(2, "Belo Horizonte"), BOA_VISTA(3, "Boa Vista"),
+    ARACAJU(0, "Aracaju"), BELEM(1, "Belém"), BELO_HORIZONTE(2, "Belo Horizonte"), BOA_VISTA(3, "Boa Vista"),
     BRASILIA(4, "Brasília"), CAMPO_GRANDE(5, "Campo Grande"), CUIABA(6, "Cauiabá"),
     CURITIBA(7, "Curitiba"), FLORIANOPOLIS(8, "Florianópolis"), FORTALEZA(9, "Fortaleza"), GOIANIA(10, "Goiânia"),
     JOAO_PESSOA(11, "João Pessoa"), MACAPA(12, "Macapá"), MACEIO(13, "Maceió"), MANAUS(14, "Manaus"),
