@@ -27,22 +27,22 @@
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="64.0" text="Nome:" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="64.0" text="CPF:" GridPane.rowIndex="1" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="61.0" text="RG:" GridPane.rowIndex="2" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="63.0" text="Telefone:" GridPane.rowIndex="3" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="Função:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <TextField fx:id="txtMinutoDestino1" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="3" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="123.0" text="ID:" GridPane.columnIndex="2" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="127.0" text="Data da Contratação:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <DatePicker fx:id="dtPickerOrigem" prefHeight="25.0" prefWidth="129.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="125.0" text="Nascimento:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <TextField fx:id="txtMinutoDestino" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <TextField fx:id="txtMinutoDestino11" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" />
-      <TextField fx:id="txtMinutoDestino12" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="63.0" text="Endereço:" GridPane.rowIndex="4" />
-      <TextField fx:id="txtMinutoDestino121" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField fx:id="txtMinutoDestino1211" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <TextField fx:id="txtMinutoDestino1212" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <DatePicker fx:id="dtPickerOrigem1" prefHeight="25.0" prefWidth="129.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Salvar" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Cancelar" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="123.0" text="Telefone:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="124.0" text="Passagem:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="125.0" text="Nascimento:" GridPane.columnIndex="2" />
+      <TextField fx:id="txtPassagem" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <TextField fx:id="txtNome" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" />
+      <TextField fx:id="txtCPF" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="63.0" text="Endereço:" GridPane.rowIndex="3" />
+      <TextField fx:id="txtRG" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="txtTelefone" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <TextField fx:id="txtEndereco" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <DatePicker fx:id="dtPNascimento" prefHeight="25.0" prefWidth="129.0" GridPane.columnIndex="3" />
+      <Button fx:id="btSalvar" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Salvar" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Button fx:id="btCancelar" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Cancelar" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <TextField fx:id="txtLogin" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="63.0" text="Login:" GridPane.rowIndex="4" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Senha:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <TextField fx:id="txtSenha" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="152.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
    </children>
 </GridPane>
