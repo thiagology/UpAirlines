@@ -22,9 +22,9 @@
                               <Image url="@../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/capagit.jpg" />
                            </image>
                         </ImageView>
-                        <Button fx:id="btBuscarVoo" layoutX="23.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Buscar Voo" />
-                        <Button fx:id="btAlterarVoo" layoutX="23.0" layoutY="139.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Alterar Voo" />
-                        <Button fx:id="btRemoverVoo" layoutX="23.0" layoutY="83.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Remover Voo" />
+                        <Button fx:id="btBuscarVoo" layoutX="23.0" layoutY="200.0" mnemonicParsing="false" onAction="#BuscarVoo" prefHeight="40.0" prefWidth="108.0" text="Buscar Voo" />
+                        <Button fx:id="btAlterarVoo" layoutX="23.0" layoutY="139.0" mnemonicParsing="false" onAction="#AlterarVoo" prefHeight="40.0" prefWidth="108.0" text="Alterar Voo" />
+                        <Button fx:id="btRemoverVoo" layoutX="23.0" layoutY="83.0" mnemonicParsing="false" onAction="#RemoverVoo" prefHeight="40.0" prefWidth="108.0" text="Remover Voo" />
                         <Button fx:id="btInserirVoo" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#InserirVoo" prefHeight="40.0" prefWidth="108.0" text="Inserir Voo" />
                      </children>
                   </AnchorPane>
@@ -39,9 +39,9 @@
                               <Image url="@../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/capagit.jpg" />
                            </image>
                         </ImageView>
-                        <Button fx:id="btInserirFunc" layoutX="23.0" layoutY="54.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="Inserir Funcionário" />
-                        <Button fx:id="btBuscarFunc" layoutX="23.0" layoutY="179.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="Buscar Funcionário" />
-                        <Button fx:id="btRemoverFunc" layoutX="23.0" layoutY="119.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="Remover Funcionário" />
+                        <Button fx:id="btInserirFunc" layoutX="23.0" layoutY="54.0" mnemonicParsing="false" onAction="#InserirFuncionario" prefHeight="40.0" prefWidth="142.0" text="Inserir Funcionário" />
+                        <Button fx:id="btBuscarFunc" layoutX="23.0" layoutY="179.0" mnemonicParsing="false" onAction="#BuscarFuncionario" prefHeight="40.0" prefWidth="142.0" text="Buscar Funcionário" />
+                        <Button fx:id="btRemoverFunc" layoutX="23.0" layoutY="119.0" mnemonicParsing="false" onAction="#RemoverFuncionario" prefHeight="40.0" prefWidth="142.0" text="Remover Funcionário" />
                      </children>
                   </AnchorPane>
             </content>

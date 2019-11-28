@@ -36,7 +36,7 @@ public class ControladorVoo {
         }
     }
 
-    private void criarVoo(Voo v) {
+    public void criarVoo(Voo v) {
         if (v != null && this.rota.getDistancia(v.getAeroportoDeOrigem().getCidade(), v.getAeroportoDeDestino().getCidade()) > 0) {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) { //hora de saida nao pode ser antes da de chegada
                 if (!(v.getAeroportoDeDestino().equals(v.getAeroportoDeOrigem()))) {

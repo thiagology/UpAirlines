@@ -1,6 +1,5 @@
 package projetoUp.model;
 
-import java.time.LocalDate;
 
 public class Gerente extends Funcionario implements Login{
 	/**
