@@ -21,16 +21,13 @@
     <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="75.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="54.0" text="Origem:" />
       <ChoiceBox fx:id="chBoxPiloto" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <ChoiceBox fx:id="chBoxCopiloto" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <ChoiceBox fx:id="chBoxComissario" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="48.0" text="Piloto:" GridPane.rowIndex="1" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="61.0" text="Copiloto:" GridPane.rowIndex="2" />
-      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="73.0" text="Comissário:" GridPane.rowIndex="3" />
       <ChoiceBox fx:id="chBoxOrigem" prefWidth="150.0" GridPane.columnIndex="1" />
       <ChoiceBox fx:id="chBoxDestino" prefWidth="150.0" GridPane.columnIndex="3" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="84.0" text="Código:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
@@ -38,7 +35,9 @@
       <DatePicker fx:id="dtPickerDataVoo" prefHeight="25.0" prefWidth="129.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="90.0" text="Destino:" GridPane.columnIndex="2" />
       <TextField fx:id="txtCodigo" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <Button fx:id="btSalvar" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Salvar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Button fx:id="btCancelar" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Cancelar" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onclickSalvar" prefHeight="25.0" prefWidth="88.0" text="Salvar" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button fx:id="btCancelar" mnemonicParsing="false" onAction="#onClickCancelar" prefHeight="25.0" prefWidth="87.0" text="Cancelar" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="84.0" text="Hora de Saída:" GridPane.rowIndex="3" />
+      <TextField fx:id="txtHoraSaida" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
    </children>
 </GridPane>

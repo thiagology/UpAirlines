@@ -45,6 +45,34 @@ public class TelaGerenteController implements Initializable {
     }
 
 
+    @FXML
+    void BuscarVoo(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void RemoverVoo(ActionEvent event) {
+
+    }
+
+    
+    @FXML
+    void BuscarFuncionario(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void InserirFuncionario(ActionEvent event) {
+
+    }
+
+    @FXML
+    void RemoverFuncionario(ActionEvent event) {
+
+    }
+
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
