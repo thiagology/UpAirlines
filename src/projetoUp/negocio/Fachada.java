@@ -40,11 +40,8 @@ public class Fachada {
 
 	//GERENTE
 	
-	public void criarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto,
-			Funcionario comissario, LocalTime horarioDeSaida,
-			List<Passageiro> passageiros, String codigoVoo, int distancia, LocalDate data) {
-		
-		controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, comissario, horarioDeSaida, passageiros, codigoVoo, distancia, data);
+	public void criarVoo(Voo v) {
+		controladorVoo.criarVoo(v);;
 	}
 
 	public void removerVoo(Voo v) {
