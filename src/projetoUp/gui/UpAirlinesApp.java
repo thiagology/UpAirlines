@@ -1,4 +1,4 @@
-package projetoUp;
+package projetoUp.gui;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import projetoUp.gui.TelaMainController;
+import projetoUp.gui.controller.TelaMainController;
 
 public class UpAirlinesApp extends Application{
 	private Stage primaryStage;

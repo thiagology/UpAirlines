@@ -1,4 +1,4 @@
-package projetoUp.gui;
+package projetoUp.gui.controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

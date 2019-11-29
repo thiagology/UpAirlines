@@ -15,8 +15,8 @@
          </image>
       </ImageView>
       <TextField fx:id="txLogin" layoutX="158.0" layoutY="199.0" prefHeight="28.0" prefWidth="271.0" promptText="Login" />
-      <Button fx:id="btLogin" layoutX="249.0" layoutY="288.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Fazer Login" />
-      <Button fx:id="btConta" layoutX="249.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Criar Conta" />
+      <Button fx:id="btLogin" layoutX="249.0" layoutY="288.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="25.0" prefWidth="89.0" text="Fazer Login" />
+      <Button fx:id="btConta" layoutX="249.0" layoutY="332.0" mnemonicParsing="false" onAction="#onClickCriarConta" prefHeight="25.0" prefWidth="89.0" text="Criar Conta" />
       <PasswordField fx:id="txSenha" layoutX="158.0" layoutY="236.0" prefHeight="25.0" prefWidth="271.0" promptText="Senha" />
    </children>
 </AnchorPane>

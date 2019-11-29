@@ -1,4 +1,4 @@
-package projetoUp.gui;
+package projetoUp.gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
