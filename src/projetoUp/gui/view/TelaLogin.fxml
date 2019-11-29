@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="240.0" fitWidth="245.0" layoutX="174.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/up1j.png" />
+            <Image url="@../../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/up1j.png" />
          </image>
       </ImageView>
       <TextField fx:id="txLogin" layoutX="158.0" layoutY="199.0" prefHeight="28.0" prefWidth="271.0" promptText="Login" />

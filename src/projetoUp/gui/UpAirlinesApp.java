@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import projetoUp.gui.controller.TelaMainController;
+import projetoUp.gui.controller.ScreenManager;
 
 public class UpAirlinesApp extends Application{
 	private Stage primaryStage;
@@ -19,7 +19,7 @@ public class UpAirlinesApp extends Application{
 		
         Pane mainPane = null;
 		try {
-			mainPane = (Pane) FXMLLoader.load(TelaMainController.class.getResource("TelaAddVoo.fxml"));
+			mainPane = (Pane) FXMLLoader.load(ScreenManager.class.getResource("TelaAddVoo.fxml"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
