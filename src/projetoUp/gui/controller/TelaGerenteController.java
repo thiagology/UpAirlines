@@ -15,6 +15,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import projetoUp.gui.UpAirlinesApp;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
 
@@ -57,6 +58,12 @@ public class TelaGerenteController implements Initializable {
 
     @FXML
     private TextField txtCodigoBuscar;
+    
+    private UpAirlinesApp upApp;
+    
+    public void setUpApp(UpAirlinesApp app){
+    	this.upApp = app;
+    }
     
 
     @FXML
