@@ -8,9 +8,6 @@ import javafx.scene.control.TextField;
 public class TelaAddClienteController {
 
     @FXML
-    private TextField txtPassagem;
-
-    @FXML
     private TextField txtNome;
 
     @FXML

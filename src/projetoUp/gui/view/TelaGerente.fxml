@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,6 +27,9 @@
                         <Button fx:id="btAlterarVoo" layoutX="23.0" layoutY="139.0" mnemonicParsing="false" onAction="#AlterarVoo" prefHeight="40.0" prefWidth="108.0" text="Alterar Voo" />
                         <Button fx:id="btRemoverVoo" layoutX="23.0" layoutY="83.0" mnemonicParsing="false" onAction="#RemoverVoo" prefHeight="40.0" prefWidth="108.0" text="Remover Voo" />
                         <Button fx:id="btInserirVoo" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#InserirVoo" prefHeight="40.0" prefWidth="108.0" text="Inserir Voo" />
+                        <TextField fx:id="txtCodigoRemove" layoutX="159.0" layoutY="91.0" promptText="Código do voo" />
+                        <TextField fx:id="txtCodigoAlterar" layoutX="159.0" layoutY="147.0" promptText="Código do voo" />
+                        <TextField fx:id="txtCodigoBuscar" layoutX="159.0" layoutY="208.0" promptText="Código do voo" />
                      </children>
                   </AnchorPane>
             </content>

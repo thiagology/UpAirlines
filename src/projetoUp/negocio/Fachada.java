@@ -55,8 +55,8 @@ public class Fachada {
         controladorVoo.listar();
     }
 
-    public void buscarVoo(String codigo) {
-        controladorVoo.buscarVoo(codigo);
+    public Voo buscarVoo(String codigo) {
+        return controladorVoo.buscarVoo(codigo);
     }
 
     public void adicionarFuncionario(String nome, String cpf, String rg,
