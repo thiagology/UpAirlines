@@ -10,8 +10,8 @@ public class Voo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -31560859852008073L;
-	private Aeroporto aeroportoDeOrigem;
-	private Aeroporto aeroportoDeDestino;
+	private Cidades aeroportoDeOrigem;
+	private Cidades aeroportoDeDestino;
 	private Funcionario piloto;
 	private Funcionario coPiloto;
 	private LocalTime horarioDeSaida;
@@ -26,42 +26,50 @@ public class Voo implements Serializable{
         
         
 	
-	public Voo(Aeroporto aeroportoDeOrigem, Aeroporto aeroportoDeDestino, Funcionario piloto, Funcionario coPiloto, LocalTime horarioDeSaida,
+	public Voo(Cidades cidades, Cidades cidades2, Funcionario piloto, Funcionario coPiloto, LocalTime horarioDeSaida,
 			List<Passageiro> passageiros, String codigoVoo, LocalDate data) {
 		super();
-		this.aeroportoDeOrigem = aeroportoDeOrigem;
-		this.aeroportoDeDestino = aeroportoDeDestino;
+		this.aeroportoDeOrigem = cidades;
+		this.aeroportoDeDestino = cidades2;
 		this.piloto = piloto;
 		this.coPiloto = coPiloto;
 		this.horarioDeSaida = horarioDeSaida;
-		this.horarioDeChegada = this.horarioDeSaida.plusHours(this.conexao.tempoViagem(this.aeroportoDeOrigem.getCidade(), 
-				this.aeroportoDeDestino.getCidade(), this.aviao));
+		this.horarioDeChegada = this.horarioDeSaida.plusHours(this.conexao.tempoViagem(this.aeroportoDeOrigem, 
+				this.aeroportoDeDestino, this.aviao));
 		this.passageiros = passageiros;
-		this.aviao = this.aeroportoDeOrigem.getAviao();
 		this.assentos = new Assento[this.aviao.getLin()][this.aviao.getCol()];
 		this.codigoVoo = codigoVoo;
 		this.mapearAssentos();
-		this.setDistancia(conexao.getDistancia(this.aeroportoDeOrigem.getCidade(), this.aeroportoDeDestino.getCidade()));
+		this.setDistancia(conexao.getDistancia(this.aeroportoDeOrigem, this.aeroportoDeDestino));
 		this.setDia(data);
 		
 		
 	}
 
-	public Aeroporto getAeroportoDeOrigem() {
+
+	public Cidades getAeroportoDeOrigem() {
 		return aeroportoDeOrigem;
 	}
 
-	public void setAeroportoDeOrigem(Aeroporto aeroportoDeOrigem) {
+
+
+	public void setAeroportoDeOrigem(Cidades aeroportoDeOrigem) {
 		this.aeroportoDeOrigem = aeroportoDeOrigem;
 	}
 
-	public Aeroporto getAeroportoDeDestino() {
+
+
+	public Cidades getAeroportoDeDestino() {
 		return aeroportoDeDestino;
 	}
 
-	public void setAeroportoDeDestino(Aeroporto aeroportoDeDestino) {
+
+
+	public void setAeroportoDeDestino(Cidades aeroportoDeDestino) {
 		this.aeroportoDeDestino = aeroportoDeDestino;
 	}
+
+
 
 	public Funcionario getPiloto() {
 		return piloto;

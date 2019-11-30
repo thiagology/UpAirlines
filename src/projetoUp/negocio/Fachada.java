@@ -1,7 +1,6 @@
 package projetoUp.negocio;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 import projetoUp.model.Aeroporto;
@@ -39,13 +38,6 @@ public class Fachada {
     }
 
     //GERENTE	
-    public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto,
-            Funcionario coPiloto,
-            Funcionario comissario, LocalTime horarioDeSaida,
-            List<Passageiro> passageiros, String codigoVoo, LocalDate data) {
-        controladorVoo.marcarVoo(cidadeOrigem, cidadeDestino, piloto, coPiloto, horarioDeSaida,
-                passageiros, codigoVoo, data);
-    }
     
     public void criarVoo(Voo v) {
     	controladorVoo.criarVoo(v);

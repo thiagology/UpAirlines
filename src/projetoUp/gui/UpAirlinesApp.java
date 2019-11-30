@@ -15,7 +15,7 @@ public class UpAirlinesApp extends Application{
     @Override
     public void start(Stage stage) {
     	this.primaryStage = stage;
-		this.primaryStage.setTitle("Sistema Bancario");
+		this.primaryStage.setTitle("UP Airlines - United Programmers Airlines ");
 		
         Pane mainPane = null;
 		try {

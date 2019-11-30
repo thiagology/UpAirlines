@@ -115,7 +115,7 @@ public class RepositorioVoo implements IRepositorioVoo, Serializable {
   		public Voo buscarVoo(Cidades origem, Cidades destino, LocalDate data)
   		{
   			for (Voo voo : voos) {
-				if(voo.getAeroportoDeOrigem().getCidade() == origem && voo.getAeroportoDeDestino().getCidade() == destino && voo.getDia() == data)
+				if(voo.getAeroportoDeOrigem() == origem && voo.getAeroportoDeDestino() == destino && voo.getDia() == data)
 				{
 					return voo;
 				}

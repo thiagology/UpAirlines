@@ -7,7 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import projetoUp.model.Aeroporto;
+import projetoUp.model.Cidades;
 import projetoUp.model.Funcionario;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
@@ -21,10 +21,10 @@ public class TelaAddVooController {
     private ChoiceBox<Funcionario> chBoxCopiloto;
 
     @FXML
-    private ChoiceBox<Aeroporto> chBoxOrigem;
+    private ChoiceBox<Cidades> chBoxOrigem;
 
     @FXML
-    private ChoiceBox<Aeroporto> chBoxDestino;
+    private ChoiceBox<Cidades> chBoxDestino;
 
     @FXML
     private DatePicker dtPickerDataVoo;
@@ -43,8 +43,8 @@ public class TelaAddVooController {
     
     @FXML
     public void initialize() {
-        this.chBoxOrigem.getItems().addAll();//adiconar lista de cidades
-        this.chBoxDestino.getItems().addAll();
+        this.chBoxOrigem.getItems().addAll(Cidades.values());
+        this.chBoxDestino.getItems().addAll(Cidades.values());
         
         this.chBoxPiloto.getItems().addAll();//adicionar lista de pilotos
         this.chBoxCopiloto.getItems().addAll();

@@ -5,18 +5,14 @@ import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Conexoes;
-import projetoUp.model.Funcionario;
-import projetoUp.model.Passageiro;
 import projetoUp.model.Voo;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
+
 
 public class ControladorVoo {
 
     private static ControladorVoo instance;
     private RepositorioVoo repositorioVoo;
-    private ControladorAeroporto aeroportos;
     private Conexoes rota;
 
     public static ControladorVoo getInstance() {
@@ -26,18 +22,9 @@ public class ControladorVoo {
         return instance;
     }
 
-    public void marcarVoo(Cidades cidadeOrigem, Cidades cidadeDestino, Funcionario piloto, Funcionario coPiloto, LocalTime horarioDeSaida,
-            List<Passageiro> passageiros, String codigoVoo,LocalDate data) {
-        if (rota.getDistancia(cidadeOrigem, cidadeDestino) > 0) {
-            Voo voo = new Voo(aeroportos.buscarAeroporto(cidadeOrigem), aeroportos.buscarAeroporto(cidadeDestino),
-                    piloto, coPiloto, horarioDeSaida, passageiros,
-                    codigoVoo, data);
-            this.criarVoo(voo);
-        }
-    }
 
     public void criarVoo(Voo v) {
-        if (v != null && this.rota.getDistancia(v.getAeroportoDeOrigem().getCidade(), v.getAeroportoDeDestino().getCidade()) > 0) {
+        if (v != null && this.rota.getDistancia(v.getAeroportoDeOrigem(), v.getAeroportoDeDestino()) > 0) {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) { //hora de saida nao pode ser antes da de chegada
                 if (!(v.getAeroportoDeDestino().equals(v.getAeroportoDeOrigem()))) {
                     try {
@@ -91,11 +78,5 @@ public class ControladorVoo {
 
     }
 
-    public boolean tranferirAviao(Voo voo) {
-        if (voo.getHorarioDeSaida().isBefore(LocalTime.now())) {
-            return voo.getAeroportoDeDestino().addAviao(voo.getAeroportoDeOrigem().getAviao());
-        }
-        return false;
-    }
 
 }
