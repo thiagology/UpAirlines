@@ -2,18 +2,17 @@ package projetoUp.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public enum Cidades {
-    ARACAJU(0, "Aracaju"), BELEM(1, "Belém"), BELO_HORIZONTE(2, "Belo Horizonte"), BOA_VISTA(3, "Boa Vista"),
-    BRASILIA(4, "Brasília"), CAMPO_GRANDE(5, "Campo Grande"), CUIABA(6, "Cauiabá"),
-    CURITIBA(7, "Curitiba"), FLORIANOPOLIS(8, "Florianópolis"), FORTALEZA(9, "Fortaleza"), GOIANIA(10, "Goiânia"),
-    JOAO_PESSOA(11, "João Pessoa"), MACAPA(12, "Macapá"), MACEIO(13, "Maceió"), MANAUS(14, "Manaus"),
+    ARACAJU(0, "Aracaju"), BELEM(1, "BelÃ©m"), BELO_HORIZONTE(2, "Belo Horizonte"), BOA_VISTA(3, "Boa Vista"),
+    BRASILIA(4, "BrasÃ­lia"), CAMPO_GRANDE(5, "Campo Grande"), CUIABA(6, "CauiabÃ¡"),
+    CURITIBA(7, "Curitiba"), FLORIANOPOLIS(8, "Florianï¿½polis"), FORTALEZA(9, "Fortaleza"), GOIANIA(10, "GoiÃ¢nia"),
+    JOAO_PESSOA(11, "Joï¿½o Pessoa"), MACAPA(12, "Macapï¿½"), MACEIO(13, "MaceiÃ³"), MANAUS(14, "Manaus"),
     NATAL(15, "Natal"), PALMAS(16, "Palmas"), PORTO_ALEGRE(17, "Porto Alegre"),
     PORTO_VELHO(18, "Porto Velho"), RECIFE(19, "Recife"), RIO_BRANCO(20, "Rio Branco"), RIO_DE_JANEIRO(21, "Rio de Janeiro"),
-    SAO_LUIS(22, "São Luís"), SAO_PAULO(23, "São Paulo"), SALVADOR(24, "Salvador"),
-    TERERESINA(25, "Teresina"), VITORIA(26, "Vitória");
+    SAO_LUIS(22, "SÃ£o LuÃ­s"), SAO_PAULO(23, "SÃ£o Paulo"), SALVADOR(24, "Salvador"),
+    TERERESINA(25, "Teresina"), VITORIA(26, "VitÃ³ria");
 
     private int ordem;
     private String nome;
