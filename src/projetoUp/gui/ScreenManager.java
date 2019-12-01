@@ -47,7 +47,7 @@ public class ScreenManager  {
     	try {
     	FXMLLoader fxmlLoader = new FXMLLoader();
     	GridPane addClientePane = fxmlLoader.load(getClass()
-                .getResource("TelaAddCliente.fxml").openStream());            
+                .getResource("TelaAddClient.fxml").openStream());            
         this.addClienteScene = new Scene(addClientePane); 
         this.telaAddClienteController = (TelaAddClienteController) fxmlLoader.getController();
         
