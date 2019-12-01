@@ -1,9 +1,20 @@
 package projetoUp.gui.controller;
 
+import java.awt.TextField;
+import java.util.Optional;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import projetoUp.model.Passagem;
+import projetoUp.negocio.Fachada;
 
 public class TelaClienteController {
     @FXML
@@ -26,6 +37,15 @@ public class TelaClienteController {
 
     @FXML
     private Label lbBemVindo;
+    
+    @FXML
+    private TextField txtExcluirPass;
+
+    @FXML
+    private TextField txtAlterarPass;
+
+    @FXML
+    private TextField txtExibirPass;
 
     @FXML
     void onClickAlterarPassagem(ActionEvent event) {
@@ -39,17 +59,61 @@ public class TelaClienteController {
 
     @FXML
     void onClickComprarPassagem(ActionEvent event) {
+        Stage dialog = new Stage();
+
+        dialog.setScene(ScreenManager.getInstance().getPassagemScene());
+        dialog.setResizable(false);
+        dialog.setTitle("Comprar passagem");
+        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.showAndWait();
 
     }
 
     @FXML
     void onClickExcluirPassagem(ActionEvent event) {
-
+    	Passagem p = Fachada.getInstance().buscarPassagem(this.txtExcluirPass.getText());
+    	if(p != null) {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("");
+            alert.setTitle("Excluir Passagem");
+            alert.setContentText("Deseja excluir a passagem a seguir?\n" + p);
+            Optional<ButtonType> btnPressionado = alert.showAndWait();
+            if (btnPressionado.isPresent()
+                    && btnPressionado.get().equals(ButtonType.OK)) {
+                Fachada.getInstance().excluirPassagem(p);
+            }
+    	}
+    	else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe passagem com o código informado.");
+            alert.show();
+    	}
     }
 
     @FXML
     void onClickExibirPassagem(ActionEvent event) {
-
+    	Passagem p = Fachada.getInstance().buscarPassagem(this.txtExcluirPass.getText());
+    	if(p != null) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setHeaderText("Código " + p.getCodigo() + 
+            					"\n:Voo " + p.getVoo().getcodigoVoo() +
+            					"\nPassageiro: " + p.getPassageiro().getNome() +
+            					"\nPreço: " + p.getPreco() );
+            alert.setTitle("Buscar Passagem");
+            alert.setContentText("");
+            alert.show();
+    		
+    	}
+    	else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe passagem com o código informado.");
+            alert.show();
+    	}
     }
 
     @FXML

@@ -59,7 +59,8 @@ public class TelaGerenteController implements Initializable {
     @FXML
     private TextField txtCodigoBuscar;
     
-    private UpAirlinesApp upApp;
+    @SuppressWarnings("unused")
+	private UpAirlinesApp upApp;
     
     public void setUpApp(UpAirlinesApp app){
     	this.upApp = app;
@@ -82,7 +83,7 @@ public class TelaGerenteController implements Initializable {
 
     @FXML
     void BuscarVoo(ActionEvent event) {
-    	Voo v = Fachada.getInstance().buscarVoo(this.txtCodigoRemove.getText());
+    	Voo v = Fachada.getInstance().buscarVoo(this.txtCodigoBuscar.getText());
     	if(v != null) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setHeaderText("Voo " + v.getcodigoVoo() + 
@@ -99,7 +100,7 @@ public class TelaGerenteController implements Initializable {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
-            alert.setContentText("Não existe voo com o código informado");
+            alert.setContentText("Não existe voo com o código informado.");
             alert.show();
     	}
     }
@@ -111,7 +112,7 @@ public class TelaGerenteController implements Initializable {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("");
             alert.setTitle("Remover Voo");
-            alert.setContentText("Deseja remover voo a seguir?\n" + v);
+            alert.setContentText("Deseja remover o voo a seguir?\n" + v);
             Optional<ButtonType> btnPressionado = alert.showAndWait();
             if (btnPressionado.isPresent()
                     && btnPressionado.get().equals(ButtonType.OK)) {
@@ -122,7 +123,7 @@ public class TelaGerenteController implements Initializable {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
-            alert.setContentText("Não existe voo com o código informado");
+            alert.setContentText("Não existe voo com o código informado.");
             alert.show();
     	}
     }

@@ -71,7 +71,7 @@ public class ScreenManager  {
         
         fxmlLoader = new FXMLLoader();
     	AnchorPane gerentePane = fxmlLoader.load(getClass()
-                .getResource("projetoUp/gui/view/TelaGerente.fxml").openStream());            
+                .getResource("view/TelaGerente.fxml").openStream());            
         this.gerenteScene = new Scene(gerentePane); 
         this.telaGerenteController = (TelaGerenteController) fxmlLoader.getController();
         
@@ -146,6 +146,10 @@ public class ScreenManager  {
 
 	public TelaLoginController getTelaLoginController() {
 		return telaLoginController;
+	}
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
 	}
    
     

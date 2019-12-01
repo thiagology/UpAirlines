@@ -134,8 +134,8 @@ public class Fachada {
         controladorPassagem.alterarPassagem(p, idAssento);
     }
 
-    public void buscarPassagem(String c) {
-        controladorPassagem.buscarPassagem(c);
+    public Passagem buscarPassagem(String c) {
+		return controladorPassagem.buscarPassagem(c);
     }
 
     public List<Passagem> listarPorPassageiro(Passageiro pa) {

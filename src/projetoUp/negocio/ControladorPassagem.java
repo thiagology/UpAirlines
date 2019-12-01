@@ -68,10 +68,11 @@ public class ControladorPassagem {
         }
     }
 
-    public void buscarPassagem(String c) {
+    public Passagem buscarPassagem(String c) {
         if (c != null) {
-            repositorioPassagem.buscarPassagem(c);
+           return repositorioPassagem.buscarPassagem(c);
         }
+        return null;
     }
 
     public List<Passagem> listarPorPassageiro(Passageiro pa) {

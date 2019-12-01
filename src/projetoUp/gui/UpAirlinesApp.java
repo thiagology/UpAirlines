@@ -25,22 +25,28 @@ public class UpAirlinesApp extends Application{
 		        stage.setScene(scene);
 		        stage.show(); 
 				
-				try {
-			        FXMLLoader loader = new FXMLLoader();
-			        loader.setLocation(UpAirlinesApp.class.getResource("view/TelaGerente.fxml"));
-			       
-			        AnchorPane gerenteView = (AnchorPane) loader.load();
- 
-			        this.rootScene.setCenter(gerenteView);
-			        
-			        TelaGerenteController gerenteController = loader.getController();
-			        gerenteController.setUpApp(this);
-			        
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+		        carregarTelaGerente();
   
     }
+    
+    public void carregarTelaGerente() {
+
+		try {
+	        FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(UpAirlinesApp.class.getResource("view/TelaGerente.fxml"));
+	       
+	        AnchorPane gerenteView = (AnchorPane) loader.load();
+
+	        this.rootScene.setCenter(gerenteView);
+	        
+	        TelaGerenteController gerenteController = loader.getController();
+	        gerenteController.setUpApp(this);
+	        
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
     
 	public Stage getPrimaryStage() {
 		return primaryStage;

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class TelaAddClienteController {
 
@@ -39,12 +40,27 @@ public class TelaAddClienteController {
 
     @FXML
     void onClickCancelar(ActionEvent event) {
-
+    	((Stage) this.btCancelar.getScene().getWindow()).close();
+    	this.limparCampos();
     }
+    
+    public void limparCampos() {
+        this.txtLogin.setText("");
+        this.txtSenha.setText("");        
+        this.txtEndereco.setText("");
+        this.txtTelefone.setText("");        
+        this.txtRG.setText("");
+        this.txtCPF.setText("");
+        this.txtNome.setText("");
+        
+        this.dtPNascimento.setValue(null);
+		
+	}
 
     @FXML
     void onClickSalvar(ActionEvent event) {
 
     }
+    
 
 }

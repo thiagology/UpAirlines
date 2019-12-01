@@ -72,6 +72,7 @@ public class TelaAddVooController {
 
 	@FXML
     void onclickSalvar(ActionEvent event) {
+		//verificar se os valores sao validos
 		Voo v = new Voo( chBoxOrigem.getValue(),
 						chBoxDestino.getValue(),
 						chBoxPiloto.getValue(),
