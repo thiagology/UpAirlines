@@ -6,7 +6,6 @@ import java.util.List;
 import projetoUp.model.Aeroporto;
 import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
-import projetoUp.model.Endereco;
 import projetoUp.model.Funcionario;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
@@ -60,7 +59,7 @@ public class Fachada {
     }
 
     public void adicionarFuncionario(String nome, String cpf, String rg,
-            int telefone, Endereco endereco,
+            int telefone, String endereco,
             LocalDate nascimento, int id,
             LocalDate contratacao, String funcao, String login, String senha) {
         controladorFuncionario.adicionarFuncionario(nome, cpf, rg, telefone, endereco,
@@ -100,11 +99,6 @@ public class Fachada {
         return controladorCliente.criarConta(c);
     }
 
-    public boolean cadastrarConta(String nome, String cpf, String rg, int telefone, Endereco endereco,
-            LocalDate nascimento, Passagem passagens, String login, String senha) {
-        return controladorCliente.cadastrarConta(nome, cpf, rg, telefone, endereco, nascimento, passagens, login,
-                senha);
-    }
 
     public void excluirConta(Cliente c) {
         controladorCliente.excluirConta(c);

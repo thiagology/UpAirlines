@@ -16,12 +16,12 @@ public class Passageiro extends Cliente {
 			String cpf,
 			String rg,
 			int telefone,
-			Endereco endereco,
+			String endereco,
 			LocalDate nascimento,
-			float renda, float limite,Passagem passagens,
+			float renda, float limite,
 			String login, String senha) {
 		super(nome,cpf,
-				rg, telefone, endereco, nascimento,passagens,
+				rg, telefone, endereco, nascimento,
 				login, senha);
 		// TODO Auto-generated constructor stub
 	}

@@ -16,11 +16,11 @@ public class Cliente extends Pessoa implements Login, Serializable {
 					String cpf,
 					String rg,
 					int telefone,
-					Endereco endereco,
-					LocalDate nascimento, Passagem passagens,
+					String string,
+					LocalDate nascimento,
 					String login, String senha) {
 		
-		super(nome, cpf, rg, telefone, endereco, nascimento, false);
+		super(nome, cpf, rg, telefone, string, nascimento, false);
 		
 		this.login = login;
 		this.senha = senha;

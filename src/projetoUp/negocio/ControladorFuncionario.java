@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import projetoUp.dados.RepositorioFuncionarios;
 import projetoUp.exceptions.NaoExisteException;
-import projetoUp.model.Endereco;
 import projetoUp.model.Funcionario;
 import projetoUp.model.Gerente;
 
@@ -23,7 +22,7 @@ public class ControladorFuncionario {
     }
 
     public void adicionarFuncionario(String nome, String cpf, String rg,
-            int telefone, Endereco endereco,
+            int telefone, String endereco,
             LocalDate nascimento, int id,
             LocalDate contratacao, String funcao, String login, String senha) {
         if (cpf != null || rg != null) { //alguma identificacao nao nula

@@ -2,23 +2,25 @@ package projetoUp.gui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import projetoUp.model.Cidades;
-import projetoUp.model.Funcionario;
+import projetoUp.model.Pilotos;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
 
 public class TelaAddVooController {
 
     @FXML
-    private ChoiceBox<Funcionario> chBoxPiloto;
+    private ChoiceBox<Pilotos> chBoxPiloto;
 
     @FXML
-    private ChoiceBox<Funcionario> chBoxCopiloto;
+    private ChoiceBox<Pilotos> chBoxCopiloto;
 
     @FXML
     private ChoiceBox<Cidades> chBoxOrigem;
@@ -46,8 +48,8 @@ public class TelaAddVooController {
         this.chBoxOrigem.getItems().addAll(Cidades.values());
         this.chBoxDestino.getItems().addAll(Cidades.values());
         
-        this.chBoxPiloto.getItems().addAll();//adicionar lista de pilotos
-        this.chBoxCopiloto.getItems().addAll();
+        this.chBoxPiloto.getItems().addAll(Pilotos.values());
+        this.chBoxCopiloto.getItems().addAll(Pilotos.values());
 
     }
     
@@ -72,18 +74,41 @@ public class TelaAddVooController {
 
 	@FXML
     void onclickSalvar(ActionEvent event) {
-		//verificar se os valores sao validos
-		Voo v = new Voo( chBoxOrigem.getValue(),
-						chBoxDestino.getValue(),
-						chBoxPiloto.getValue(),
-						chBoxCopiloto.getValue(),
-						null,
-						null,
-						this.txtCodigo.getText(),
-						this.dtPickerDataVoo.getValue()
-						);
+		String msgErro = "";
+		if(txtCodigo.getText() == null) {
+			msgErro = "Código Inválido.";
+		}
+		if(chBoxOrigem.getValue() == null || 
+			chBoxDestino.getValue() == null||
+			chBoxCopiloto.getValue() == null ||
+			chBoxCopiloto.getValue() == null ||
+			dtPickerDataVoo.getValue() == null) {
+			msgErro = "Selecione todos os itens.";
+		}
 		
-		Fachada.getInstance().criarVoo(v);
+		if (msgErro.length() == 0) {
+			Voo v = new Voo( chBoxOrigem.getValue(),
+					chBoxDestino.getValue(),
+					chBoxPiloto.getValue(),
+					chBoxCopiloto.getValue(),
+					null,
+					null,
+					this.txtCodigo.getText(),
+					this.dtPickerDataVoo.getValue()
+					);
+	
+			Fachada.getInstance().criarVoo(v);
+            
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(msgErro);
+            alert.setContentText("");
+
+            alert.showAndWait();
+        }
+		
+
     }
 
 }

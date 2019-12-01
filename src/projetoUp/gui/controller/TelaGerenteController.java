@@ -59,6 +59,12 @@ public class TelaGerenteController implements Initializable {
     @FXML
     private TextField txtCodigoBuscar;
     
+    @FXML
+    private TextField txtCodigoRemoveFunc;
+
+    @FXML
+    private TextField txtCodigoBuscaFunc;
+    
     @SuppressWarnings("unused")
 	private UpAirlinesApp upApp;
     
@@ -126,6 +132,11 @@ public class TelaGerenteController implements Initializable {
             alert.setContentText("Não existe voo com o código informado.");
             alert.show();
     	}
+    }
+    
+    @FXML
+    void AlterarVoo(ActionEvent event) {
+
     }
 
     

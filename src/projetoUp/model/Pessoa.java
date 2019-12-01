@@ -7,17 +7,17 @@ public abstract class Pessoa {
 	private String cpf;
 	private String rg;
 	private int telefone;
-	private Endereco endereco;
+	private String endereco;
 	private LocalDate nascimento;
 	private boolean adm = false;
 
-	public Pessoa(String nome, String cpf, String rg, int telefone, Endereco endereco, LocalDate nascimento, boolean adm) {
+	public Pessoa(String nome, String cpf, String rg, int telefone, String string, LocalDate nascimento, boolean adm) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.telefone = telefone;
-		this.endereco = endereco;
+		this.endereco = string;
 		this.nascimento = nascimento;
 		this.adm = adm;
 	}
@@ -50,10 +50,10 @@ public abstract class Pessoa {
 	public void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
-	public Endereco getEndereco() {
+	public String getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(Endereco endereco) {
+	public void String(String endereco) {
 		this.endereco = endereco;
 	}
 	public LocalDate getNascimento() {

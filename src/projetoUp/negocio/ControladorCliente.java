@@ -7,9 +7,7 @@ import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
-import projetoUp.model.Endereco;
 import projetoUp.model.Passageiro;
-import projetoUp.model.Passagem;
 
 public class ControladorCliente {
 
@@ -57,10 +55,10 @@ public class ControladorCliente {
             String cpf,
             String rg,
             int telefone,
-            Endereco endereco,
-            LocalDate nascimento, Passagem passagens,
+            String endereco,
+            LocalDate nascimento,
             String login, String senha) {
-        Cliente conta = new Cliente(nome, cpf, rg, telefone, endereco, nascimento, passagens, login, senha);
+        Cliente conta = new Cliente(nome, cpf, rg, telefone, endereco, nascimento, login, senha);
         return this.criarConta(conta);
     }
 

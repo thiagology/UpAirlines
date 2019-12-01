@@ -46,10 +46,41 @@ public class TelaClienteController {
 
     @FXML
     private TextField txtExibirPass;
+    
+    @FXML
+    private TextField txtNovoAssento;
+    
+    
 
     @FXML
     void onClickAlterarPassagem(ActionEvent event) {
-
+    	Passagem p = Fachada.getInstance().buscarPassagem(this.btExibirPass.getText());
+    	if(p != null) {
+      		Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("");
+            alert.setTitle("Alterar Passagem");
+            alert.setContentText("Deseja alterar o assento da passagem a seguir?\n" + p);
+            Optional<ButtonType> btnPressionado = alert.showAndWait();
+            if (btnPressionado.isPresent()
+                    && btnPressionado.get().equals(ButtonType.OK)) {
+                Fachada.getInstance().alterarPassagem(p, txtNovoAssento.getText());
+            }
+    		
+    	}
+    	else if(txtNovoAssento.getText() == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Informe um assento válido.");
+            alert.show();
+    	}
+    	else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe passagem com o código informado.");
+            alert.show();
+    	}
     }
 
     @FXML
@@ -95,7 +126,7 @@ public class TelaClienteController {
 
     @FXML
     void onClickExibirPassagem(ActionEvent event) {
-    	Passagem p = Fachada.getInstance().buscarPassagem(this.txtExcluirPass.getText());
+    	Passagem p = Fachada.getInstance().buscarPassagem(this.btExibirPass.getText());
     	if(p != null) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setHeaderText("Código " + p.getCodigo() + 

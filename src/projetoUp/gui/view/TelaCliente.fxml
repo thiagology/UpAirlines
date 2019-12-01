@@ -63,5 +63,6 @@
       <TextField fx:id="txtExcluirPass" layoutX="226.0" layoutY="160.0" prefHeight="25.0" prefWidth="192.0" promptText="Código da passagem" />
       <TextField fx:id="txtAlterarPass" layoutX="226.0" layoutY="221.0" prefHeight="25.0" prefWidth="192.0" promptText="Código da passagem" />
       <TextField fx:id="txtExibirPass" layoutX="226.0" layoutY="280.0" prefHeight="25.0" prefWidth="192.0" promptText="Código da passagem" />
+      <TextField fx:id="txtNovoAssento" layoutX="430.0" layoutY="221.0" promptText="Novo Assento" />
    </children>
 </AnchorPane>
