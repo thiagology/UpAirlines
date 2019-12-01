@@ -1,8 +1,13 @@
 package projetoUp.gui;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -55,25 +60,37 @@ public class TelaLoginController {
     		msgErro = "Usuário inexistente";
     	}
     	if (msgErro.length() == 0) {
-    		Stage dialog = new Stage();
     		if(txLogin.getText() == "Gerente" &&
     		   txSenha.getText() == "senha") {
     			
-    	        dialog.setScene(ScreenManager.getInstance().getGerenteScene());
-    	        dialog.setResizable(false);
-    	        dialog.setTitle("Criar Conta");
-    	        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
-    	        dialog.initModality(Modality.APPLICATION_MODAL);
-    	        dialog.showAndWait();
+    			try {
+    		    	Stage s1 = new Stage();
+    		        Parent root;
+    				root = FXMLLoader.load(getClass().getResource("TelaGerente.fxml"));
+    		        Scene scene = new Scene(root);
+
+    		        s1.setScene(scene);
+    		        s1.show();
+    		        
+    			} catch (IOException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
     		}
     		else {
-    	        dialog.setScene(ScreenManager.getInstance().getClienteScene());
-    	        
-    	        dialog.setResizable(false);
-    	        dialog.setTitle("Criar Conta");
-    	        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
-    	        dialog.initModality(Modality.APPLICATION_MODAL);
-    	        dialog.showAndWait();
+    			try {
+    		    	Stage s1 = new Stage();
+    		        Parent root;
+    				root = FXMLLoader.load(getClass().getResource("TelaCliente.fxml"));
+    		        Scene scene = new Scene(root);
+
+    		        s1.setScene(scene);
+    		        s1.show();
+    		        
+    			} catch (IOException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
     		}
     		
     	}else {

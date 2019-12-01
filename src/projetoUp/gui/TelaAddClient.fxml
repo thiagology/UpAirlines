@@ -28,18 +28,18 @@
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="61.0" text="RG:" GridPane.rowIndex="2" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="123.0" text="Telefone:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="125.0" text="Nascimento:" GridPane.columnIndex="2" />
-      <TextField fx:id="txtNome" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" />
-      <TextField fx:id="txtCPF" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="txtNome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" />
+      <TextField fx:id="txtCPF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="123.0" text="Endereço:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <TextField fx:id="txtRG" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField fx:id="txtTelefone" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <TextField fx:id="txtEndereco" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <TextField fx:id="txtRG" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="txtTelefone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <TextField fx:id="txtEndereco" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="161.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
       <DatePicker fx:id="dtPNascimento" prefHeight="25.0" prefWidth="129.0" GridPane.columnIndex="3" />
       <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onClickSalvar" prefHeight="25.0" prefWidth="102.0" text="Salvar" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <Button fx:id="btCancelar" mnemonicParsing="false" onAction="#onClickCancelar" prefHeight="25.0" prefWidth="112.0" text="Cancelar" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <TextField fx:id="txtLogin" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="txtLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="63.0" text="Login:" GridPane.rowIndex="3" />
       <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="119.0" text="Senha:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <TextField fx:id="txtSenha" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="152.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <TextField fx:id="txtSenha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="152.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
    </children>
 </GridPane>
