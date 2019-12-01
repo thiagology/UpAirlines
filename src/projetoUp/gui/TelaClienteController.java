@@ -11,12 +11,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import projetoUp.model.Passagem;
 import projetoUp.negocio.Fachada;
 
 public class TelaClienteController {
+	
+    @FXML
+    private ImageView imgFundo;
+    
     @FXML
     private Button btRemoverConta;
 

@@ -18,7 +18,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="317.0" fitWidth="555.0" layoutX="126.0" layoutY="1.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgFundo2" fitHeight="317.0" fitWidth="555.0" layoutX="126.0" layoutY="1.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@up1j.png" />
                            </image>
@@ -38,9 +38,9 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="317.0" fitWidth="555.0" layoutX="126.0" layoutY="1.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgFundo1" fitHeight="317.0" fitWidth="555.0" layoutX="126.0" layoutY="1.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/up1j.png" />
+                              <Image url="@up1j.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="btInserirFunc" layoutX="23.0" layoutY="54.0" mnemonicParsing="false" onAction="#InserirFuncionario" prefHeight="40.0" prefWidth="142.0" text="Inserir Funcionário" />
@@ -54,7 +54,7 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Text layoutX="132.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo Gerenciador!" wrappingWidth="369.25">
+      <Text fx:id="lbBemVIndoG" layoutX="130.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo Gerenciador!" wrappingWidth="369.25">
          <font>
             <Font name="Franklin Gothic Medium" size="32.0" />
          </font>

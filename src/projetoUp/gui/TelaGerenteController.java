@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,11 +22,18 @@ import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
 
 public class TelaGerenteController implements Initializable {
-
-	
+    @FXML
+    private Text lbBemVIndoG;
 	
     @FXML
     private Tab tbVoos;
+    
+    @FXML
+    private ImageView imgFundo1;
+    
+
+    @FXML
+    private ImageView imgFundo2;
 
     @FXML
     private Button btBuscarVoo;
