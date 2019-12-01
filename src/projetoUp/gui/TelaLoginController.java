@@ -1,4 +1,4 @@
-package projetoUp.gui.controller;
+package projetoUp.gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,6 +64,7 @@ public class TelaLoginController {
     		}
     		else {
     	        dialog.setScene(ScreenManager.getInstance().getClienteScene());
+    	        
     	        dialog.setResizable(false);
     	        dialog.setTitle("Criar Conta");
     	        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
@@ -81,4 +82,7 @@ public class TelaLoginController {
         }
     	
     }
+
+
+    
 }

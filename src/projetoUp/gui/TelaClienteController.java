@@ -1,4 +1,4 @@
-package projetoUp.gui.controller;
+package projetoUp.gui;
 
 import java.awt.TextField;
 import java.util.Optional;
@@ -49,7 +49,6 @@ public class TelaClienteController {
     
     @FXML
     private TextField txtNovoAssento;
-    
     
 
     @FXML

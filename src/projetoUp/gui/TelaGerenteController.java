@@ -1,6 +1,6 @@
-package projetoUp.gui.controller;
+package projetoUp.gui;
 
-import java.awt.TextField;
+
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -12,10 +12,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import projetoUp.gui.UpAirlinesApp;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
 

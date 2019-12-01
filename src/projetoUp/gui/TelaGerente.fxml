@@ -20,7 +20,7 @@
                      <children>
                         <ImageView fitHeight="317.0" fitWidth="555.0" layoutX="126.0" layoutY="1.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/up1j.png" />
+                              <Image url="@up1j.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="btBuscarVoo" layoutX="23.0" layoutY="200.0" mnemonicParsing="false" onAction="#BuscarVoo" prefHeight="40.0" prefWidth="108.0" text="Buscar Voo" />
