@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoUp.gui.TelaClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="btRemoverConta" layoutX="404.0" layoutY="334.0" mnemonicParsing="false" onAction="#onClickRemoverConta" prefHeight="41.0" prefWidth="161.0" text="Remover conta UP">
          <font>
@@ -25,9 +25,9 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <ImageView fx:id="imgFundo" fitHeight="363.0" fitWidth="367.0" layoutX="119.0" layoutY="12.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="363.0" fitWidth="367.0" layoutX="119.0" layoutY="12.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@up1j.png" />
+            <Image url="@../../../../../../../Desktop/Thiago/UFRPE/3%20periodo/Prog%20II/projeto/up1j.png" />
          </image>
       </ImageView>
       <Button fx:id="btCriarPass" layoutX="46.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickComprarPassagem" prefHeight="41.0" prefWidth="161.0" text="Comprar Passagem">
@@ -55,18 +55,10 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Label fx:id="lbBemVindo" layoutX="242.0" layoutY="12.0" prefHeight="49.0" prefWidth="161.0" text="Bem vindo">
+      <Label fx:id="lbBemVindo" layoutX="182.0" layoutY="14.0" prefHeight="41.0" prefWidth="363.0" text="Bem vindo">
          <font>
-            <Font size="33.0" />
+            <Font size="28.0" />
          </font>
-         <textFill>
-            <LinearGradient endX="0.6523809523809524">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#eeaaaa" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
       </Label>
       <TextField fx:id="txtExcluirPass" layoutX="226.0" layoutY="160.0" prefHeight="25.0" prefWidth="192.0" promptText="Código da passagem" />
       <TextField fx:id="txtAlterarPass" layoutX="226.0" layoutY="221.0" prefHeight="25.0" prefWidth="192.0" promptText="Código da passagem" />
