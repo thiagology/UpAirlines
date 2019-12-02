@@ -76,7 +76,7 @@ public class TelaAddVooController {
     void onclickSalvar(ActionEvent event) {
 		String msgErro = "";
 		if(txtCodigo.getText() == null) {
-			msgErro = "Codigo Invalido.";
+			msgErro = "Código Inválido.";
 		}
 		if(chBoxOrigem.getValue() == null || 
 			chBoxDestino.getValue() == null||

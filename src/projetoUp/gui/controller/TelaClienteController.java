@@ -71,14 +71,14 @@ public class TelaClienteController {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
-            alert.setContentText("Informe um assento valido.");
+            alert.setContentText("Informe um assento válido.");
             alert.show();
     	}
     	else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
-            alert.setContentText("Nao existe passagem com o codigo informado.");
+            alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
     	}
     }
@@ -119,7 +119,7 @@ public class TelaClienteController {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
-            alert.setContentText("Nao existe passagem com o codigo informado.");
+            alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
     	}
     }
@@ -129,10 +129,10 @@ public class TelaClienteController {
     	Passagem p = Fachada.getInstance().buscarPassagem(this.btExibirPass.getText());
     	if(p != null) {
             Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setHeaderText("Codigo " + p.getCodigo() + 
+            alert.setHeaderText("Código " + p.getCodigo() + 
             					"\n:Voo " + p.getVoo().getcodigoVoo() +
             					"\nPassageiro: " + p.getPassageiro().getNome() +
-            					"\nPreco: " + p.getPreco() );
+            					"\nPreço: " + p.getPreco() );
             alert.setTitle("Buscar Passagem");
             alert.setContentText("");
             alert.show();
@@ -142,7 +142,7 @@ public class TelaClienteController {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
-            alert.setContentText("Nao existe passagem com o codigo informado.");
+            alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
     	}
     }
