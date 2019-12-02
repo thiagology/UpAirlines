@@ -1,4 +1,4 @@
-package projetoUp.gui;
+package projetoUp.gui.controller;
 
 import java.io.IOException;
 
@@ -47,38 +47,38 @@ public class ScreenManager  {
     	try {
     	FXMLLoader fxmlLoader = new FXMLLoader();
     	GridPane addClientePane = fxmlLoader.load(getClass()
-                .getResource("TelaAddClient.fxml").openStream());            
+                .getResource("projetoUp/gui/view/TelaAddCliente.fxml").openStream());            
         this.addClienteScene = new Scene(addClientePane); 
         this.telaAddClienteController = (TelaAddClienteController) fxmlLoader.getController();
         
         fxmlLoader = new FXMLLoader();
     	GridPane addVooPane = fxmlLoader.load(getClass()
-                .getResource("TelaAddVoo.fxml").openStream());            
+                .getResource("projetoUp/gui/view/TelaAddVoo.fxml").openStream());            
         this.addVooScene = new Scene(addVooPane); 
         this.telaAddVooController = (TelaAddVooController) fxmlLoader.getController(); 
         
         fxmlLoader = new FXMLLoader();
     	GridPane comprarPassagemPane = fxmlLoader.load(getClass()
-                .getResource("TelaComprarPassagem.fxml").openStream());            
+                .getResource("projetoUp/gui/view/TelaComprarPassagem.fxml").openStream());            
         this.passagemScene = new Scene(comprarPassagemPane); 
         this.telaComprarPassagemController = (TelaComprarPassagemController) fxmlLoader.getController();
         
         fxmlLoader = new FXMLLoader();
     	AnchorPane clientePane = fxmlLoader.load(getClass()
-                .getResource("TelaCliente.fxml").openStream());            
+                .getResource("projetoUp/gui/view/TelaCliente.fxml").openStream());            
         this.clienteScene = new Scene(clientePane); 
         this.telaClienteController = (TelaClienteController) fxmlLoader.getController();
         
         fxmlLoader = new FXMLLoader();
     	AnchorPane gerentePane = fxmlLoader.load(getClass()
-                .getResource("TelaGerente.fxml").openStream());            
+                .getResource("view/TelaGerente.fxml").openStream());            
         this.gerenteScene = new Scene(gerentePane); 
         this.telaGerenteController = (TelaGerenteController) fxmlLoader.getController();
         
         
         fxmlLoader = new FXMLLoader();
     	AnchorPane loginPane = fxmlLoader.load(getClass()
-                .getResource("TelaLogin.fxml").openStream());            
+                .getResource("projetoUp/gui/view/TelaLogin.fxml").openStream());            
         this.loginScene = new Scene(loginPane); 
         this.telaLoginController = (TelaLoginController) fxmlLoader.getController();
         

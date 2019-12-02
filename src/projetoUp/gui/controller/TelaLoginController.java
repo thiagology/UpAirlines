@@ -1,18 +1,12 @@
-package projetoUp.gui;
-
-import java.io.IOException;
+package projetoUp.gui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,9 +16,6 @@ public class TelaLoginController {
 
     @FXML
     private TextField txLogin;
-    
-    @FXML
-    private ImageView imgUP;
 
     @FXML
     private Button btLogin;
@@ -60,37 +51,24 @@ public class TelaLoginController {
     		msgErro = "Usuário inexistente";
     	}
     	if (msgErro.length() == 0) {
+    		Stage dialog = new Stage();
     		if(txLogin.getText() == "Gerente" &&
     		   txSenha.getText() == "senha") {
     			
-    			try {
-    		    	Stage s1 = new Stage();
-    		        Parent root;
-    				root = FXMLLoader.load(getClass().getResource("TelaGerente.fxml"));
-    		        Scene scene = new Scene(root);
-
-    		        s1.setScene(scene);
-    		        s1.show();
-    		        
-    			} catch (IOException e) {
-    				// TODO Auto-generated catch block
-    				e.printStackTrace();
-    			}
+    	        dialog.setScene(ScreenManager.getInstance().getGerenteScene());
+    	        dialog.setResizable(false);
+    	        dialog.setTitle("Criar Conta");
+    	        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
+    	        dialog.initModality(Modality.APPLICATION_MODAL);
+    	        dialog.showAndWait();
     		}
     		else {
-    			try {
-    		    	Stage s1 = new Stage();
-    		        Parent root;
-    				root = FXMLLoader.load(getClass().getResource("TelaCliente.fxml"));
-    		        Scene scene = new Scene(root);
-
-    		        s1.setScene(scene);
-    		        s1.show();
-    		        
-    			} catch (IOException e) {
-    				// TODO Auto-generated catch block
-    				e.printStackTrace();
-    			}
+    	        dialog.setScene(ScreenManager.getInstance().getClienteScene());
+    	        dialog.setResizable(false);
+    	        dialog.setTitle("Criar Conta");
+    	        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
+    	        dialog.initModality(Modality.APPLICATION_MODAL);
+    	        dialog.showAndWait();
     		}
     		
     	}else {
@@ -103,7 +81,4 @@ public class TelaLoginController {
         }
     	
     }
-
-
-    
 }

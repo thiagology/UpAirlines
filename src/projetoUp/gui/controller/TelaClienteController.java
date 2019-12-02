@@ -1,30 +1,22 @@
-package projetoUp.gui;
+package projetoUp.gui.controller;
 
-
-import java.io.IOException;
+import java.awt.TextField;
 import java.util.Optional;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import projetoUp.model.Passagem;
 import projetoUp.negocio.Fachada;
 
 public class TelaClienteController {
-	
-    @FXML
-    private ImageView imgFundo;
-    
     @FXML
     private Button btRemoverConta;
 
@@ -57,6 +49,7 @@ public class TelaClienteController {
     
     @FXML
     private TextField txtNovoAssento;
+    
     
 
     @FXML
@@ -97,21 +90,14 @@ public class TelaClienteController {
 
     @FXML
     void onClickComprarPassagem(ActionEvent event) {
+        Stage dialog = new Stage();
 
-		try {
-	    	Stage s1 = new Stage();
-	        Parent root;
-			root = FXMLLoader.load(getClass().getResource("TelaComprarPassagem.fxml"));
-	        Scene scene = new Scene(root);
-
-	        s1.setScene(scene);
-	        s1.show();
-	        
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
- 
+        dialog.setScene(ScreenManager.getInstance().getPassagemScene());
+        dialog.setResizable(false);
+        dialog.setTitle("Comprar passagem");
+        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.showAndWait();
 
     }
 

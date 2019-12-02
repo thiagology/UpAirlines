@@ -1,4 +1,4 @@
-package projetoUp.gui;
+package projetoUp.gui.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,8 +11,6 @@ import projetoUp.model.Cliente;
 import projetoUp.negocio.Fachada;
 
 public class TelaAddClienteController {
-	
-
 
     @FXML
     private TextField txtNome;
