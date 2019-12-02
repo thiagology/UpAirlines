@@ -58,10 +58,12 @@ public class TelaClienteController {
     @FXML
     private TextField txtNovoAssento;
     
+    private Fachada fachada = Fachada.getInstance();
+    
 
     @FXML
     void onClickAlterarPassagem(ActionEvent event) {
-    	Passagem p = Fachada.getInstance().buscarPassagem(this.btExibirPass.getText());
+    	Passagem p = fachada.buscarPassagem(this.btAlterarPass.getText());
     	if(p != null) {
       		Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("");
@@ -70,7 +72,7 @@ public class TelaClienteController {
             Optional<ButtonType> btnPressionado = alert.showAndWait();
             if (btnPressionado.isPresent()
                     && btnPressionado.get().equals(ButtonType.OK)) {
-                Fachada.getInstance().alterarPassagem(p, txtNovoAssento.getText());
+            	fachada.alterarPassagem(p, txtNovoAssento.getText());
             }
     		
     	}
@@ -117,7 +119,7 @@ public class TelaClienteController {
 
     @FXML
     void onClickExcluirPassagem(ActionEvent event) {
-    	Passagem p = Fachada.getInstance().buscarPassagem(this.txtExcluirPass.getText());
+    	Passagem p = fachada.buscarPassagem(this.txtExcluirPass.getText());
     	if(p != null) {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("");
@@ -126,7 +128,7 @@ public class TelaClienteController {
             Optional<ButtonType> btnPressionado = alert.showAndWait();
             if (btnPressionado.isPresent()
                     && btnPressionado.get().equals(ButtonType.OK)) {
-                Fachada.getInstance().excluirPassagem(p);
+            	fachada.excluirPassagem(p);
             }
     	}
     	else {
@@ -140,7 +142,7 @@ public class TelaClienteController {
 
     @FXML
     void onClickExibirPassagem(ActionEvent event) {
-    	Passagem p = Fachada.getInstance().buscarPassagem(this.btExibirPass.getText());
+    	Passagem p = fachada.buscarPassagem(this.btExibirPass.getText());
     	if(p != null) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setHeaderText("Código " + p.getCodigo() + 

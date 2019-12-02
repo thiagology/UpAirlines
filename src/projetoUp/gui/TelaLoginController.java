@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import projetoUp.negocio.Fachada;
 
 public class TelaLoginController {
 
@@ -54,14 +53,10 @@ public class TelaLoginController {
 			txSenha.getText() == null) {
 			msgErro = "Login ou senha inválidos";
 		}
-		boolean isLog = Fachada.getInstance().fazerLogin(txLogin.getText(),
-														 txSenha.getText());
-    	if(isLog == false) {
-    		msgErro = "Usuário inexistente";
-    	}
+
     	if (msgErro.length() == 0) {
-    		if(txLogin.getText() == "Gerente" &&
-    		   txSenha.getText() == "senha") {
+    		if(txLogin.getText().equals("Gerente") &&
+    		   txSenha.getText().equals("senha")) {
     			
     			try {
     		    	Stage s1 = new Stage();

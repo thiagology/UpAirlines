@@ -43,6 +43,8 @@ public class TelaAddClienteController {
 
     @FXML
     private TextField txtSenha;
+    
+    private Fachada fachada = Fachada.getInstance();
 
     @FXML
     void onClickCancelar(ActionEvent event) {
@@ -87,7 +89,7 @@ public class TelaAddClienteController {
     					txtLogin.getText(),
     					txtSenha.getText());
     		
-    		Fachada.getInstance().criarConta(c);
+    		fachada.criarConta(c);
     		
     	}else {
             Alert alert = new Alert(AlertType.ERROR);

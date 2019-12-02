@@ -27,7 +27,7 @@ public class RepositorioVoo implements IRepositorioVoo, Serializable {
 	private static RepositorioVoo instance;
 	
 	
-	 public static IRepositorioVoo getInstance() {
+	 public static RepositorioVoo getInstance() {
 		    if (instance == null) {
 		      instance = lerDoArquivo();
 		    }

@@ -76,6 +76,8 @@ public class TelaGerenteController implements Initializable {
     @FXML
     private TextField txtCodigoBuscaFunc;
     
+    private Fachada fachada = Fachada.getInstance();
+    
     @SuppressWarnings("unused")
 	private UpAirlinesApp upApp;
     
@@ -106,7 +108,7 @@ public class TelaGerenteController implements Initializable {
 
     @FXML
     void BuscarVoo(ActionEvent event) {
-    	Voo v = Fachada.getInstance().buscarVoo(this.txtCodigoBuscar.getText());
+    	Voo v = fachada.buscarVoo(this.txtCodigoBuscar.getText());
     	if(v != null) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setHeaderText("Voo " + v.getcodigoVoo() + 
@@ -130,7 +132,7 @@ public class TelaGerenteController implements Initializable {
     
     @FXML
     void RemoverVoo(ActionEvent event) {
-    	Voo v = Fachada.getInstance().buscarVoo(this.txtCodigoRemove.getText());
+    	Voo v = fachada.buscarVoo(this.txtCodigoRemove.getText());
     	if(v != null) {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("");
@@ -139,7 +141,7 @@ public class TelaGerenteController implements Initializable {
             Optional<ButtonType> btnPressionado = alert.showAndWait();
             if (btnPressionado.isPresent()
                     && btnPressionado.get().equals(ButtonType.OK)) {
-                Fachada.getInstance().removerVoo(v);
+            	fachada.removerVoo(v);
             }
     	}
     	else {

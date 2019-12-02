@@ -43,6 +43,8 @@ public class TelaAddVooController {
     @FXML
     private TextField txtHoraSaida;
     
+    private Fachada fachada = Fachada.getInstance();
+    
     @FXML
     public void initialize() {
         this.chBoxOrigem.getItems().addAll(Cidades.values());
@@ -96,8 +98,8 @@ public class TelaAddVooController {
 					this.txtCodigo.getText(),
 					this.dtPickerDataVoo.getValue()
 					);
-	
-			Fachada.getInstance().criarVoo(v);
+			
+			fachada.criarVoo(v);
             
         } else {
             Alert alert = new Alert(AlertType.ERROR);

@@ -25,7 +25,7 @@ public class RepositorioPassagem implements IRepositorioPassagem, Serializable {
 	private static RepositorioPassagem instance;
 	
 	
-	 public static IRepositorioPassagem getInstance() {
+	 public static RepositorioPassagem getInstance() {
 		    if (instance == null) {
 		      instance = lerDoArquivo();
 		    }
