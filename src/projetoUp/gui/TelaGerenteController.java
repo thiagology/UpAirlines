@@ -1,30 +1,41 @@
-package projetoUp.gui.controller;
+package projetoUp.gui;
 
-import java.awt.TextField;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tab;
-import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Modality;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import projetoUp.gui.UpAirlinesApp;
+import javafx.scene.control.Alert.AlertType;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
 
 public class TelaGerenteController implements Initializable {
-
-	
+    @FXML
+    private Text lbBemVIndoG;
 	
     @FXML
     private Tab tbVoos;
+    
+    @FXML
+    private ImageView imgFundo1;
+    
+
+    @FXML
+    private ImageView imgFundo2;
 
     @FXML
     private Button btBuscarVoo;
@@ -75,14 +86,20 @@ public class TelaGerenteController implements Initializable {
 
     @FXML
     void InserirVoo(ActionEvent event) {
-        Stage dialog = new Stage();
+        
+        try {
+        	
+        	Stage s1 = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("TelaAddVoo.fxml"));
+            Scene scene = new Scene(root);
 
-        dialog.setScene(ScreenManager.getInstance().getAddVooScene());
-        dialog.setResizable(false);
-        dialog.setTitle("Adicionar novo voo");
-        dialog.initOwner(((Node) event.getSource()).getScene().getWindow());
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.showAndWait();
+            s1.setScene(scene);
+            s1.show(); 
+		    
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
     }
 

@@ -1,4 +1,4 @@
-package projetoUp.gui.controller;
+package projetoUp.gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
