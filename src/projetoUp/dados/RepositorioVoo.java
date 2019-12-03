@@ -94,21 +94,21 @@ public class RepositorioVoo implements Serializable {
     }
     
     	//adiciona um voo ao repositorio
-  		public void criarVoo(Voo v) throws JaExisteException{		
+  		public void criarVoo(Voo v) throws JaExisteException, NaoExisteException{		
   			 if (codigoExiste(v.getcodigoVoo()) != true) {
   				 this.voos.add(v);
   			 }
   		}
   		
   		//remove um voo do repositorio
-  		public void removerVoo(Voo v) {	
+  		public void removerVoo(Voo v) throws NaoExisteException {	
   		    if (codigoExiste(v.getcodigoVoo()) == true) {
   			   this.voos.remove(v);
   			}
   		}
   		
   		//retorna se um voo ja existe
-  		public boolean codigoExiste(String codigo) {
+  		public boolean codigoExiste(String codigo) throws NaoExisteException {
   			return buscarVoo(codigo) != null;
   		}
   		
@@ -124,7 +124,7 @@ public class RepositorioVoo implements Serializable {
   		}
   		
   		//busca um voo pelo codigo
-  		public Voo buscarVoo(String codigo) {
+  		public Voo buscarVoo(String codigo) throws NaoExisteException {
   			for(Voo v: this.voos) {
   				if(v.getcodigoVoo() == codigo) {
   					return v;

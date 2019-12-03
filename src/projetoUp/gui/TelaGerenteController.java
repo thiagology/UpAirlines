@@ -20,6 +20,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
+import projetoUp.exceptions.NaoExisteException;
+import projetoUp.model.Funcionario;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
 
@@ -99,8 +101,11 @@ public class TelaGerenteController implements Initializable {
             s1.show(); 
 		    
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não foi possivel completar a ação.");
+            alert.show();
 		}
 
     }
@@ -108,8 +113,9 @@ public class TelaGerenteController implements Initializable {
 
     @FXML
     void BuscarVoo(ActionEvent event) {
-    	Voo v = fachada.buscarVoo(this.txtCodigoBuscar.getText());
-    	if(v != null) {
+    	Voo v;
+		try {
+			v = fachada.buscarVoo(this.txtCodigoBuscar.getText());
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setHeaderText("Voo " + v.getcodigoVoo() + 
             					"\nOrigem: " + v.getAeroportoDeOrigem().getNome() +
@@ -119,21 +125,21 @@ public class TelaGerenteController implements Initializable {
             alert.setTitle("Buscar Voo");
             alert.setContentText("");
             alert.show();
-    		
-    	}
-    	else {
+            
+		} catch (NaoExisteException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
             alert.setContentText("Não existe voo com o código informado.");
             alert.show();
-    	}
+		}
     }
     
     @FXML
     void RemoverVoo(ActionEvent event) {
-    	Voo v = fachada.buscarVoo(this.txtCodigoRemove.getText());
-    	if(v != null) {
+    	Voo v;
+		try {
+			v = fachada.buscarVoo(this.txtCodigoRemove.getText());
     		Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("");
             alert.setTitle("Remover Voo");
@@ -143,35 +149,74 @@ public class TelaGerenteController implements Initializable {
                     && btnPressionado.get().equals(ButtonType.OK)) {
             	fachada.removerVoo(v);
             }
-    	}
-    	else {
+		} catch (NaoExisteException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
             alert.setContentText("Não existe voo com o código informado.");
             alert.show();
-    	}
+		}
     }
     
     @FXML
     void AlterarVoo(ActionEvent event) {
-
+   
     }
 
     
     @FXML
     void BuscarFuncionario(ActionEvent event) {
-
+    	Funcionario f = null;
+		try {
+			f = fachada.buscarFuncionario(this.txtCodigoBuscaFunc.getText());
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setHeaderText("Nome " + f.getNome() + 
+            					"\nFunção: " + f.getFuncao() +
+            					"\nEndereço: " + f.getEndereco() +
+            					"\nRG: " + f.getRg() +
+            					"\nID: "+ f.getId());
+            alert.setTitle("Buscar Funcionario");
+            alert.setContentText("");
+            alert.show();
+            
+		} catch (NaoExisteException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe funcionario com o cpf informado.");
+            alert.show();
+		}
+  	
     }
     
     @FXML
     void InserirFuncionario(ActionEvent event) {
-
+    	//criar tela
+    	//implementar
     }
 
     @FXML
     void RemoverFuncionario(ActionEvent event) {
-
+    	Funcionario f = null;
+		try {
+			f = fachada.buscarFuncionario(this.txtCodigoRemoveFunc.getText());
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("");
+            alert.setTitle("Remover funcionario");
+            alert.setContentText("Deseja remover o funcionario a seguir?\n" + f);
+            Optional<ButtonType> btnPressionado = alert.showAndWait();
+            if (btnPressionado.isPresent()
+                    && btnPressionado.get().equals(ButtonType.OK)) {
+            	fachada.removerFuncionario(f);
+            }
+            
+		} catch (NaoExisteException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe funcionario com o cpf informado.");
+            alert.show();
+		}
     }
 
 

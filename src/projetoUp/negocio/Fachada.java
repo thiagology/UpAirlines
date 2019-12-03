@@ -37,15 +37,15 @@ public class Fachada {
 
     //GERENTE	
     
-    public void criarVoo(Voo v) {
+    public void criarVoo(Voo v) throws NaoExisteException, JaExisteException {
     	controladorVoo.criarVoo(v);
     }
 
-    public void removerVoo(Voo v) {
+    public void removerVoo(Voo v) throws NaoExisteException {
         controladorVoo.removerVoo(v);
     }
 
-    public void alterarVoo(Voo v) {
+    public void alterarVoo(Voo v) throws NaoExisteException {
         controladorVoo.alterarVoo(v);
     }
 
@@ -53,7 +53,7 @@ public class Fachada {
         controladorVoo.listar();
     }
 
-    public Voo buscarVoo(String codigo) {
+    public Voo buscarVoo(String codigo) throws NaoExisteException {
         return controladorVoo.buscarVoo(codigo);
     }
 
@@ -69,8 +69,8 @@ public class Fachada {
         controladorFuncionario.removerFuncionario(f);
     }
 
-    public void buscarFuncionario(Funcionario f) {
-        controladorFuncionario.buscarFuncionario(f);
+    public Funcionario buscarFuncionario(String cpf) throws NaoExisteException {
+        return controladorFuncionario.buscarFuncionario(cpf);
     }
 
     //CLIENTE

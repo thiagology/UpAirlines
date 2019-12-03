@@ -9,6 +9,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
@@ -83,7 +85,24 @@ public class TelaAddVooController {
 					this.dtPickerDataVoo.getValue()
 					);
 			
-			fachada.criarVoo(v);
+			try {
+				fachada.criarVoo(v);
+				 Alert alert = new Alert(AlertType.ERROR);
+		            alert.setTitle("Erro");
+		            alert.setHeaderText("Voo cadastrado com sucesso!");
+		            alert.setContentText("");
+
+		            alert.showAndWait();
+			} catch (NaoExisteException e) {
+	           //faz nada
+			} catch (JaExisteException e) {
+	            Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Erro");
+	            alert.setHeaderText("Já existe esse voo cadastrado.");
+	            alert.setContentText("");
+
+	            alert.showAndWait();
+			}
             
         } else {
             Alert alert = new Alert(AlertType.ERROR);

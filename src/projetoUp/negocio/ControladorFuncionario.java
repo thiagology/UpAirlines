@@ -57,15 +57,11 @@ public class ControladorFuncionario {
         }
     }
 
-    public void buscarFuncionario(Funcionario f) {
-        if (f != null) {
-            try {
-                repositorioFuncionario.buscarFuncionario(f);
-            } catch (NaoExisteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+    public Funcionario buscarFuncionario(String CPF) throws NaoExisteException {
+        if(CPF != null) {
+               return repositorioFuncionario.buscarFuncionario(CPF);
         }
+        return null;
     }
 
     public boolean tornarGerente(Funcionario funcionario) {

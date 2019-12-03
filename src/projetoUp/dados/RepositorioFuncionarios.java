@@ -85,10 +85,10 @@ public class RepositorioFuncionarios implements Serializable {
 		
 	}
 	
-	public Funcionario buscarFuncionario(Funcionario funcionario) throws NaoExisteException
+	public Funcionario buscarFuncionario(String CPF) throws NaoExisteException
 	{
 		for (Funcionario f : funcionarios) {
-			if(f.equals(funcionario))
+			if(f.getCpf().equals(CPF))
 			{
 				return f;
 			}
@@ -99,7 +99,7 @@ public class RepositorioFuncionarios implements Serializable {
 	
 	public boolean funcionarioExiste(Funcionario funcionario) throws NaoExisteException
 	{
-		if(this.buscarFuncionario(funcionario) != null)
+		if(this.buscarFuncionario(funcionario.getCpf()) != null)
 		{
 			return true;
 		}

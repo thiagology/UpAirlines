@@ -28,23 +28,18 @@ public class ControladorVoo {
 	}
 
 
-	public void criarVoo(Voo v) {
+	public void criarVoo(Voo v) throws NaoExisteException, JaExisteException {
         if (v != null && this.rota.getDistancia(v.getAeroportoDeOrigem(), v.getAeroportoDeDestino()) > 0) {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) { //hora de saida nao pode ser antes da de chegada
                 if (!(v.getAeroportoDeDestino().equals(v.getAeroportoDeOrigem()))) {
-                    try {
                         this.repositorioVoo.criarVoo(v);
                         this.repositorioVoo.salvarArquivo();
-                    } catch (JaExisteException e) {
-
-                        e.printStackTrace();
-                    }
                 }
             }
         }
     }
 
-    public void removerVoo(Voo v) {
+    public void removerVoo(Voo v) throws NaoExisteException {
         if (v != null) {
             if (v.getPassageiros() == null) {
                 //se nao houver passagens vendidas
@@ -54,16 +49,11 @@ public class ControladorVoo {
         }
     }
 
-    public void alterarVoo(Voo v) {
+    public void alterarVoo(Voo v) throws NaoExisteException {
         if (v != null) {
             //atualiza s� a hora de chegada e s� se ela for depois da de saida
-            try {
                 this.repositorioVoo.alterarVoo(v);
                 this.repositorioVoo.salvarArquivo();
-            } catch (NaoExisteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
         }
     }
 
@@ -71,7 +61,7 @@ public class ControladorVoo {
         repositorioVoo.listar();
     }
 
-    public Voo buscarVoo(String codigo) {
+    public Voo buscarVoo(String codigo) throws NaoExisteException {
         if (codigo != null) {
             return repositorioVoo.buscarVoo(codigo);
         }
