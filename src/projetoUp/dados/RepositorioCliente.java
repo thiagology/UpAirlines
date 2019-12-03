@@ -52,7 +52,7 @@ public class RepositorioCliente implements Serializable {
 			}
 
 			//METODO PARA LER O ARQUIVO DOS CLIENTES
-			@SuppressWarnings("unchecked")
+			
 			public void lerLista(){		
 				try {
 					FileInputStream arqL2 = new FileInputStream("src/clientes.dat");

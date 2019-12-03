@@ -38,7 +38,7 @@ public class RepositorioVoo implements Serializable {
 	private static RepositorioVoo lerDoArquivo() {
 	 RepositorioVoo instanciaLocal = null;
 
-	    File in = new File("voos.dat");
+	    File in = new File("src/voos.dat");
 	    FileInputStream fis = null;
 	    ObjectInputStream ois = null;
 	    ArrayList<Voo> v = new ArrayList<>();
@@ -66,7 +66,7 @@ public class RepositorioVoo implements Serializable {
 		if (instance == null) {
 		      return;
 		    }
-		    File out = new File("voos.dat");
+		    File out = new File("src/voos.dat");
 		    FileOutputStream fos = null;
 		    ObjectOutputStream oos = null;
 
