@@ -5,6 +5,7 @@ import java.util.List;
 
 import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
+import projetoUp.exceptions.RotaNaoExiste;
 import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
 import projetoUp.model.Funcionario;
@@ -37,7 +38,7 @@ public class Fachada {
 
     //GERENTE	
     
-    public void criarVoo(Voo v) throws NaoExisteException, JaExisteException {
+    public void criarVoo(Voo v) throws NaoExisteException, JaExisteException, RotaNaoExiste {
     	controladorVoo.criarVoo(v);
     }
 

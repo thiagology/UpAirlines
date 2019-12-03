@@ -11,6 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
+import projetoUp.exceptions.RotaNaoExiste;
 import projetoUp.model.Cidades;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
@@ -102,6 +103,11 @@ public class TelaAddVooController {
 	            alert.setContentText("");
 
 	            alert.showAndWait();
+			} catch (RotaNaoExiste e) {
+				Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Erro");
+	            alert.setHeaderText(e.toString());
+	            alert.setContentText("");
 			}
             
         } else {
