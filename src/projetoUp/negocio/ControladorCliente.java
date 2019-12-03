@@ -38,10 +38,9 @@ public class ControladorCliente {
             if (c.getCpf() != null) {
                 try {
                     this.repositorioCliente.criarConta(c);
-                    this.repositorioCliente.salvarArquivo();
                     this.clienteLog = c;
                     return true;
-                } catch (JaExisteException | NaoExisteException e) {
+                } catch (JaExisteException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -66,7 +65,6 @@ public class ControladorCliente {
         if (c != null) {
             try {
                 this.repositorioCliente.excluirConta(c);
-                this.repositorioCliente.salvarArquivo();
             } catch (NaoExisteException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

@@ -13,108 +13,79 @@ import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cliente;
 
-public class RepositorioCliente implements IRepositorioCliente, Serializable {
+public class RepositorioCliente implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 523021474381236478L;
 
 
-	
+
 	ArrayList <Cliente> clientes;
-	
-	private static RepositorioCliente instance;
-	
-	
-	 public static IRepositorioCliente getInstance() {
-		    if (instance == null) {
-		      instance = lerDoArquivo();
-		    }
-		    return instance;
-		  }
+
+
+
 	
 
-	public RepositorioCliente(ArrayList<Cliente> clientes) {
-		super();
-		this.clientes = clientes;
+	public RepositorioCliente() {
+		
+		this.lerLista();
 	}
-	
 
-	private static RepositorioCliente lerDoArquivo() {
-		 RepositorioCliente instanciaLocal = null;
 
-		    File in = new File("clientes.dat");
-		    FileInputStream fis = null;
-		    ObjectInputStream ois = null;
-		    ArrayList<Cliente> clien = new ArrayList<>();
-		    try {
-		      fis = new FileInputStream(in);
-		      ois = new ObjectInputStream(fis);
-		      Object o = ois.readObject();
-		      instanciaLocal = (RepositorioCliente) o;
-		    } catch (Exception e) {
-		      instanciaLocal = new RepositorioCliente(clien);
-		    } finally {
-		      if (ois != null) {
-		        try {
-		          ois.close();
-		        } catch (IOException e) {/* Silent exception */
-		        }
-		      }
-		    }
+	//METODO PARA GRAVAR CLIENTES NO ARQUIVO
+			public void gravaLista(){
+				try{
+					FileOutputStream arqG2 = new FileOutputStream("clientes.dat");
+					ObjectOutputStream objG2 = new ObjectOutputStream(arqG2);
+					objG2.writeObject(clientes);
+					arqG2.flush();
+					objG2.flush();
+					arqG2.close();
+					objG2.close();
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
 
-		    return instanciaLocal;
-		  }
-	
-	public void salvarArquivo() {
-	    if (instance == null) {
-	      return;
-	    }
-	    File out = new File("clientes.dat");
-	    FileOutputStream fos = null;
-	    ObjectOutputStream oos = null;
+			//METODO PARA LER O ARQUIVO DOS CLIENTES
+			public void lerLista(){		
+				try {
+					FileInputStream arqL2 = new FileInputStream("clientes.dat");
+					ObjectInputStream objL2 = new ObjectInputStream(arqL2);
+					clientes = (ArrayList<Cliente>) objL2.readObject();
+					arqL2.close();
+					objL2.close();
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+				
+				
+			}
 
-	    try {
-	      fos = new FileOutputStream(out);
-	      oos = new ObjectOutputStream(fos);
-	      oos.writeObject(instance);
-	    } catch (Exception e) {
-	      e.printStackTrace();
-	    } finally {
-	      if (oos != null) {
-	        try {
-	          oos.close();
-	        } catch (IOException e) {
-	          /* Silent */}
-	      }
-	    }
-	  }
 
-	
 	//adiciona uma conta de cliente ao repositorio
-	public boolean criarConta(Cliente c) throws JaExisteException, NaoExisteException {		
-		 if (this.loginExiste(c.getEmail(), c.getSenha()) != true)  {
-			 this.clientes.add(c);
-			 return true;
-		 }
-		return false;
+	public void criarConta(Cliente c) throws JaExisteException {		
+		this.lerLista();
+			this.clientes.add(c);
+		this.gravaLista();
 	}
 	
 	//remove uma conta do repositorio
-	public boolean excluirConta(Cliente c) throws NaoExisteException {	
-	    if (this.loginExiste(c.getEmail(), c.getSenha()) == true) {
-		   this.clientes.remove(c);
-		   return true;
-		}
-	   return false;
+	public void excluirConta(Cliente c) throws NaoExisteException{	
+		this.lerLista();
+			this.clientes.remove(c);
+		this.gravaLista();
 	}
-	
+
 	//retorna se um email existe
 	public boolean loginExiste(String login, String senha) throws NaoExisteException {
 		return buscarCliente(login, senha) != null;
 	}
-	
+
 	//busca um cliente pelo email
 	public Cliente buscarCliente(String login, String senha) throws NaoExisteException{
 		for(Cliente c: this.clientes) {
@@ -122,17 +93,17 @@ public class RepositorioCliente implements IRepositorioCliente, Serializable {
 				return c;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	public Cliente buscarCliente(Cliente cliente) {
 		for(Cliente c: this.clientes) {
 			if(c.equals(cliente)) {
 				return c;
 			}
 		}
-		
+
 		return null;
 	}
 }
