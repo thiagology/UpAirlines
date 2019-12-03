@@ -108,6 +108,8 @@ public class TelaAddClienteController {
 	            alert.setContentText("");
 
 	            alert.showAndWait();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
     		
     	}else {

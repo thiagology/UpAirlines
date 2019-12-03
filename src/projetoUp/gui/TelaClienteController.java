@@ -89,6 +89,8 @@ public class TelaClienteController {
             alert.setTitle("Erro");
             alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
     }
 
@@ -132,6 +134,8 @@ public class TelaClienteController {
             alert.setTitle("Erro");
             alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
     }
 
@@ -154,6 +158,8 @@ public class TelaClienteController {
             alert.setTitle("Erro");
             alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
     }
 

@@ -116,6 +116,7 @@ public class Conexoes {
 	public long tempoViagem(Cidades origem, Cidades destino,Aviao aviao)
 	{
 		try{
+			
 			int tempo = (this.conexoes[origem.getOrdem()][destino.getOrdem()]/aviao.getVelM());
 			return (long)tempo;
 		}

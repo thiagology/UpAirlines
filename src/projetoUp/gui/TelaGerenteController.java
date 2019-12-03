@@ -155,6 +155,8 @@ public class TelaGerenteController implements Initializable {
             alert.setTitle("Erro");
             alert.setContentText("Não existe voo com o código informado.");
             alert.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
     }
     
@@ -185,6 +187,8 @@ public class TelaGerenteController implements Initializable {
             alert.setTitle("Erro");
             alert.setContentText("Não existe funcionario com o cpf informado.");
             alert.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
   	
     }
@@ -216,6 +220,8 @@ public class TelaGerenteController implements Initializable {
             alert.setTitle("Erro");
             alert.setContentText("Não existe funcionario com o cpf informado.");
             alert.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
     }
 

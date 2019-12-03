@@ -108,6 +108,8 @@ public class TelaAddVooController {
 	            alert.setTitle("Erro");
 	            alert.setHeaderText(e.toString());
 	            alert.setContentText("");
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
             
         } else {
