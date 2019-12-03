@@ -3,6 +3,8 @@ package projetoUp.negocio;
 import java.time.LocalDate;
 import java.util.List;
 
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Aeroporto;
 import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
@@ -95,7 +97,7 @@ public class Fachada {
         return controladorCliente.fazerLogin(usuario, senha);
     }
 
-    public boolean criarConta(Cliente c) {
+    public boolean criarConta(Cliente c) throws JaExisteException, NaoExisteException {
         return controladorCliente.criarConta(c);
     }
 
