@@ -21,7 +21,7 @@ public abstract class Pessoa {
 		this.nascimento = nascimento;
 		this.adm = adm;
 	}
-	
+
 	public Pessoa() {
 		super();
 	}
@@ -70,6 +70,6 @@ public abstract class Pessoa {
 	public void setAdm(boolean adm) {
 		this.adm = adm;
 	}
-	
-	
+
+
 }

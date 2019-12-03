@@ -3,7 +3,7 @@ package projetoUp.model;
 import java.time.LocalDate;
 
 public class Passageiro extends Cliente {
-	
+
 	/**
 	 * 
 	 */
@@ -50,16 +50,20 @@ public class Passageiro extends Cliente {
 		this.codigoVoo = codigoVoo;
 	}
 
-	
+
 	public boolean equals(Passageiro pass){
-		if(this.getCpf().equals(pass.getCpf()) && this.getNome().equals(pass.getNome()))
-		{
-			return true;
+		if(pass != null) {
+
+			if(this.getCpf().equals(pass.getCpf()) && this.getNome().equals(pass.getNome()))
+			{
+				return true;
+			}
+
+			else {
+				return false;
+			}
 		}
-		
-		else {
-			return false;
-		}
+		else return false;
 	}
-	
+
 }

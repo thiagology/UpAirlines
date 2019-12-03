@@ -8,25 +8,25 @@ public class Cliente extends Pessoa implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6542277849222379451L;
-	
+
 	private String login;
 	private String senha;
-	
+
 	public Cliente(String nome,
-					String cpf,
-					String rg,
-					int telefone,
-					String string,
-					LocalDate nascimento,
-					String login, String senha) {
-		
+			String cpf,
+			String rg,
+			int telefone,
+			String string,
+			LocalDate nascimento,
+			String login, String senha) {
+
 		super(nome, cpf, rg, telefone, string, nascimento, false);
-		
+
 		this.login = login;
 		this.senha = senha;
 	}
 
-		
+
 
 	public String getEmail() {
 		return login;
@@ -45,9 +45,14 @@ public class Cliente extends Pessoa implements Serializable {
 	}
 
 	public boolean equals(Cliente cliente) {
-		if(this.getNome().equals(cliente.getNome()) && this.getCpf().equals(cliente.getCpf()))
-		{
-			return true;
+		if(cliente != null) {
+			if(this.getNome().equals(cliente.getNome()) && this.getCpf().equals(cliente.getCpf()))
+			{
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 		else {
 			return false;

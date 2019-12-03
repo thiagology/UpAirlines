@@ -21,12 +21,12 @@ public class Funcionario extends Pessoa implements Serializable {
 		this.contratacao = contratacao;
 		this.funcao = funcao;
 	}
-	
+
 	public Funcionario()
 	{
-		
+
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -45,7 +45,7 @@ public class Funcionario extends Pessoa implements Serializable {
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
 	}
-	
+
 	public String getUsuario() {
 		return usuario;
 	}
@@ -58,15 +58,21 @@ public class Funcionario extends Pessoa implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	public boolean equals(Funcionario func)
 	{
-		if(this.id == func.id && this.getNome().equals(func.getNome()))
+		if(func != null)
 		{
-			return true;
+			if(this.id == func.id && this.getNome().equals(func.getNome()))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
-		else
-		{
+		else {
 			return false;
 		}
 	}
