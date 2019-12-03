@@ -7,6 +7,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import projetoUp.exceptions.JaExisteException;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cliente;
 import projetoUp.negocio.Fachada;
 
@@ -89,7 +91,24 @@ public class TelaAddClienteController {
     					txtLogin.getText(),
     					txtSenha.getText());
     		
-    		fachada.criarConta(c);
+    		try {
+				fachada.criarConta(c);
+			} catch (JaExisteException e) {
+	            Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Erro");
+	            alert.setHeaderText("Esta conta já existe.");
+	            alert.setContentText("");
+
+	            alert.showAndWait();
+				
+			} catch (NaoExisteException e) {
+	            Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Erro");
+	            alert.setHeaderText("Esta conta não existe.");
+	            alert.setContentText("");
+
+	            alert.showAndWait();
+			}
     		
     	}else {
             Alert alert = new Alert(AlertType.ERROR);
