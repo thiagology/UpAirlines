@@ -24,8 +24,16 @@ public class ControladorCliente {
         }
         return instance;
     }
+    
 
-    public boolean fazerLogin(String usuario, String senha) {
+    private ControladorCliente() {
+		super();
+		this.repositorioCliente = RepositorioCliente.getInstance();
+	}
+
+
+
+	public boolean fazerLogin(String usuario, String senha) {
         if (this.buscarConta(usuario, senha) != null) {
             this.clienteLog = this.buscarConta(usuario, senha);
             return true;

@@ -18,8 +18,15 @@ public class ControladorAeroporto {
         }
         return instance;
     }
+    
 
-    public void novoAeroporto(String nome, String sigla, Cidades cidade) {
+    private ControladorAeroporto() {
+		super();
+		this.repositorioAeroporto = RepositorioAeroporto.getInstance();
+	}
+
+
+	public void novoAeroporto(String nome, String sigla, Cidades cidade) {
         try {
 
             this.adicionarAeroporto(new Aeroporto(nome, sigla, cidade));

@@ -15,7 +15,7 @@ import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Passageiro;
 import projetoUp.model.Passagem;
 
-public class RepositorioPassagem implements IRepositorioPassagem, Serializable {
+public class RepositorioPassagem implements  Serializable {
 	/**
 	 * 
 	 */
@@ -115,7 +115,7 @@ public class RepositorioPassagem implements IRepositorioPassagem, Serializable {
 		}
 
 
-		@Override
+		
 		public void salvarArquivo() {
 			if (instance == null) {
 			      return;

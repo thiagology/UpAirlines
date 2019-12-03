@@ -16,7 +16,7 @@ import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Voo;
 
-public class RepositorioVoo implements IRepositorioVoo, Serializable {
+public class RepositorioVoo implements Serializable {
     /**
 	 * 
 	 */

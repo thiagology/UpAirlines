@@ -22,8 +22,17 @@ public class ControladorPassagem {
         }
         return instance;
     }
+    
+    
 
-    public void criarPassagem(String codigo, Passageiro p, Voo v) {
+    public ControladorPassagem() {
+		super();
+		this.repositorioPassagem = RepositorioPassagem.getInstance();
+	}
+
+
+
+	public void criarPassagem(String codigo, Passageiro p, Voo v) {
         if (p != null) {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) {
                 if (p.getCpf() != null || p.getRg() != null) {

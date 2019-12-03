@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 
-public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable{
+public class RepositorioAeroporto implements Serializable{
 
 	
 	/**
@@ -37,7 +37,7 @@ public class RepositorioAeroporto implements IRepositorioAeroporto ,Serializable
 	}
 	
 	
-	 public static IRepositorioAeroporto getInstance() {
+	 public static RepositorioAeroporto getInstance() {
 		    if (instance == null) {
 		      instance = lerDoArquivo();
 		    }

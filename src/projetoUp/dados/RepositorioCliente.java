@@ -1,10 +1,8 @@
 package projetoUp.dados;
 
 import java.util.ArrayList;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -13,16 +11,20 @@ import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Cliente;
 
+
 public class RepositorioCliente implements Serializable {
 
 	
 	private static final long serialVersionUID = 523021474381236478L;
-
-
-
-	ArrayList <Cliente> clientes;
-
-
+	private ArrayList <Cliente> clientes;
+	private static RepositorioCliente instance;
+	
+    public static RepositorioCliente getInstance() {
+        if (instance == null) {
+            instance = new RepositorioCliente();
+        }
+        return instance;
+    }
 
 	
 

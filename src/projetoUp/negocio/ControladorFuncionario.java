@@ -20,8 +20,17 @@ public class ControladorFuncionario {
         }
         return instance;
     }
+    
+    
 
-    public void adicionarFuncionario(String nome, String cpf, String rg,
+    public ControladorFuncionario() {
+		super();
+		this.repositorioFuncionario = RepositorioFuncionarios.getInstance();
+	}
+
+
+
+	public void adicionarFuncionario(String nome, String cpf, String rg,
             int telefone, String endereco,
             LocalDate nascimento, int id,
             LocalDate contratacao, String funcao, String login, String senha) {
@@ -65,7 +74,7 @@ public class ControladorFuncionario {
 
     public boolean logInGerente(String login, String senha) {
         try {
-            this.usuario = this.repositorioFuncionario.logIn(login, senha);
+            this.usuario = this.repositorioFuncionario.login(login, senha);
             return true;
         } catch (NaoExisteException e) {
             e.printStackTrace();

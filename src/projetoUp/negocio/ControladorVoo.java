@@ -21,9 +21,14 @@ public class ControladorVoo {
         }
         return instance;
     }
+    
+    public ControladorVoo() {
+		super();
+		this.repositorioVoo = RepositorioVoo.getInstance();
+	}
 
 
-    public void criarVoo(Voo v) {
+	public void criarVoo(Voo v) {
         if (v != null && this.rota.getDistancia(v.getAeroportoDeOrigem(), v.getAeroportoDeDestino()) > 0) {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) { //hora de saida nao pode ser antes da de chegada
                 if (!(v.getAeroportoDeDestino().equals(v.getAeroportoDeOrigem()))) {

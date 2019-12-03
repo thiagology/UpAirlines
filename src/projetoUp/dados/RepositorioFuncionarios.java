@@ -13,7 +13,7 @@ import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Funcionario;
 import projetoUp.model.Gerente;
 
-public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serializable {
+public class RepositorioFuncionarios implements Serializable {
 	
 	private static final long serialVersionUID = -3139706214755251108L;
 	private ArrayList<Funcionario> funcionarios = new ArrayList<>();
@@ -21,7 +21,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 	private static RepositorioFuncionarios instance;
 	
 	
-	 public static IRepositorioFuncionarios getInstance() {
+	 public static RepositorioFuncionarios getInstance() {
 		    if (instance == null) {
 		      instance = lerDoArquivo();
 		    }
@@ -54,7 +54,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		    return instanciaLocal;
 		  }
 	
-        @Override
+       
 	public void salvarArquivo() {
 	    if (instance == null) {
 	      return;
@@ -127,7 +127,7 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		return this.addFuncionario(gerente);
 	}
 	
-        @Override
+       
 	public void removerFuncionario(Funcionario funcionario) throws NaoExisteException
 	{
 		if(this.funcionarioExiste(funcionario) == true) {
@@ -135,8 +135,8 @@ public class RepositorioFuncionarios implements IRepositorioFuncionarios, Serial
 		}
 	}
 	
-        @Override
-	public Gerente logIn(String login, String senha)throws NaoExisteException
+      
+	public Gerente login(String login, String senha)throws NaoExisteException
 	{
 		for (Funcionario funcionario : funcionarios) {
 			if(funcionario.isAdm() && funcionario.getUsuario().equals(login)  && funcionario.getSenha().equals(senha))
