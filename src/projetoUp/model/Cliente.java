@@ -3,7 +3,7 @@ package projetoUp.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Cliente extends Pessoa implements Login, Serializable {
+public class Cliente extends Pessoa implements Serializable {
 	/**
 	 * 
 	 */
@@ -42,11 +42,6 @@ public class Cliente extends Pessoa implements Login, Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	
-	public void fazerLogin() {
-		//funcao de login
 	}
 
 	public boolean equals(Cliente cliente) {

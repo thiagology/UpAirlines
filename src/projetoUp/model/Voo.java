@@ -29,8 +29,6 @@ public class Voo implements Serializable{
 		super();
 		this.aeroportoDeOrigem = cidades;
 		this.aeroportoDeDestino = cidades2;
-		this.piloto = pilotos;
-		this.coPiloto = pilotos2;
 		this.horarioDeSaida = horarioDeSaida;
 		this.horarioDeChegada = this.horarioDeSaida.plusHours(this.conexao.tempoViagem(this.aeroportoDeOrigem, 
 				this.aeroportoDeDestino, this.aviao));

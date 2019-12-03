@@ -49,12 +49,7 @@ public class Passageiro extends Cliente {
 	public void setCodigoVoo(String codigoVoo) {
 		this.codigoVoo = codigoVoo;
 	}
-	
-	public void checkIn(Assento assento)
-	{
-		this.setCheckIn(true);
-		this.setAssento(assento);
-	}
+
 	
 	public boolean equals(Passageiro pass){
 		if(this.getCpf().equals(pass.getCpf()) && this.getNome().equals(pass.getNome()))

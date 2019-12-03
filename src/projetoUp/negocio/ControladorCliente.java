@@ -75,16 +75,6 @@ public class ControladorCliente {
         }
     }
 
-    public boolean checkIn(String codigoVoo, String id) {
-        if (codigoVoo != null && id != null) {
-            this.voo.buscarVoo(codigoVoo).buscarPassageiro(
-                    (Passageiro) this.clienteLog).checkIn(
-                            this.voo.buscarVoo(codigoVoo).buscarAssento(id));
-            return true;
-        }
-        return false;
-    }
-
     public Cliente buscarConta(String login, String senha) {
         if (login != null && senha != null) {
             try {

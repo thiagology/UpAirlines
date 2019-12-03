@@ -104,10 +104,6 @@ public class Fachada {
         controladorCliente.excluirConta(c);
     }
 
-    public boolean checkIn(String codigoVoo, String id) {
-        return controladorCliente.checkIn(codigoVoo, id);
-    }
-
     public Cliente buscarConta(String login, String senha) {
         return controladorCliente.buscarConta(login, senha);
     }

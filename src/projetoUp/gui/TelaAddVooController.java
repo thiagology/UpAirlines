@@ -10,17 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import projetoUp.model.Cidades;
-import projetoUp.model.Pilotos;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
 
 public class TelaAddVooController {
-
-    @FXML
-    private ChoiceBox<Pilotos> chBoxPiloto;
-
-    @FXML
-    private ChoiceBox<Pilotos> chBoxCopiloto;
 
     @FXML
     private ChoiceBox<Cidades> chBoxOrigem;
@@ -49,9 +42,6 @@ public class TelaAddVooController {
     public void initialize() {
         this.chBoxOrigem.getItems().addAll(Cidades.values());
         this.chBoxDestino.getItems().addAll(Cidades.values());
-        
-        this.chBoxPiloto.getItems().addAll(Pilotos.values());
-        this.chBoxCopiloto.getItems().addAll(Pilotos.values());
 
     }
     
@@ -65,8 +55,6 @@ public class TelaAddVooController {
     public void limparCampos() {
         this.chBoxOrigem.getSelectionModel().clearSelection();
         this.chBoxDestino.getSelectionModel().clearSelection();
-        this.chBoxPiloto.getSelectionModel().clearSelection();
-        this.chBoxCopiloto.getSelectionModel().clearSelection();
         
         this.txtCodigo.setText("");
         this.txtHoraSaida.setText("");
@@ -82,8 +70,6 @@ public class TelaAddVooController {
 		}
 		if(chBoxOrigem.getValue() == null || 
 			chBoxDestino.getValue() == null||
-			chBoxCopiloto.getValue() == null ||
-			chBoxCopiloto.getValue() == null ||
 			dtPickerDataVoo.getValue() == null) {
 			msgErro = "Selecione todos os itens.";
 		}
@@ -91,8 +77,6 @@ public class TelaAddVooController {
 		if (msgErro.length() == 0) {
 			Voo v = new Voo( chBoxOrigem.getValue(),
 					chBoxDestino.getValue(),
-					chBoxPiloto.getValue(),
-					chBoxCopiloto.getValue(),
 					null,
 					null,
 					this.txtCodigo.getText(),
