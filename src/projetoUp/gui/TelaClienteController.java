@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Passagem;
 import projetoUp.negocio.Fachada;
 
@@ -60,33 +61,34 @@ public class TelaClienteController {
 
     @FXML
     void onClickAlterarPassagem(ActionEvent event) {
-    	Passagem p = fachada.buscarPassagem(this.btAlterarPass.getText());
-    	if(p != null) {
-      		Alert alert = new Alert(AlertType.CONFIRMATION);
-            alert.setHeaderText("");
-            alert.setTitle("Alterar Passagem");
-            alert.setContentText("Deseja alterar o assento da passagem a seguir?\n" + p);
-            Optional<ButtonType> btnPressionado = alert.showAndWait();
-            if (btnPressionado.isPresent()
-                    && btnPressionado.get().equals(ButtonType.OK)) {
-            	fachada.alterarPassagem(p, txtNovoAssento.getText());
-            }
-    		
-    	}
-    	else if(txtNovoAssento.getText() == null) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText("");
-            alert.setTitle("Erro");
-            alert.setContentText("Informe um assento válido.");
-            alert.show();
-    	}
-    	else {
+    	Passagem p;
+		try {
+			p = fachada.buscarPassagem(this.btAlterarPass.getText());
+			 if(txtNovoAssento.getText() == null) {
+		            Alert alert = new Alert(AlertType.ERROR);
+		            alert.setHeaderText("");
+		            alert.setTitle("Erro");
+		            alert.setContentText("Informe um assento válido.");
+		            alert.show();
+		    	}
+			 else {
+	      		Alert alert = new Alert(AlertType.CONFIRMATION);
+	            alert.setHeaderText("");
+	            alert.setTitle("Alterar Passagem");
+	            alert.setContentText("Deseja alterar o assento da passagem a seguir?\n" + p);
+	            Optional<ButtonType> btnPressionado = alert.showAndWait();
+	            if (btnPressionado.isPresent()
+	                    && btnPressionado.get().equals(ButtonType.OK)) {
+	            	fachada.alterarPassagem(p, txtNovoAssento.getText());
+	            }
+			 }
+		} catch (NaoExisteException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
             alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
-    	}
+		}
     }
 
     @FXML
@@ -111,8 +113,9 @@ public class TelaClienteController {
 
     @FXML
     void onClickExcluirPassagem(ActionEvent event) {
-    	Passagem p = fachada.buscarPassagem(this.txtExcluirPass.getText());
-    	if(p != null) {
+    	Passagem p;
+		try {
+			p = fachada.buscarPassagem(this.txtExcluirPass.getText());
     		Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("");
             alert.setTitle("Excluir Passagem");
@@ -122,20 +125,20 @@ public class TelaClienteController {
                     && btnPressionado.get().equals(ButtonType.OK)) {
             	fachada.excluirPassagem(p);
             }
-    	}
-    	else {
+		} catch (NaoExisteException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
             alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
-    	}
+		}
     }
 
     @FXML
     void onClickExibirPassagem(ActionEvent event) {
-    	Passagem p = fachada.buscarPassagem(this.btExibirPass.getText());
-    	if(p != null) {
+    	Passagem p;
+		try {
+			p = fachada.buscarPassagem(this.btExibirPass.getText());
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setHeaderText("Código " + p.getCodigo() + 
             					"\n:Voo " + p.getVoo().getcodigoVoo() +
@@ -144,15 +147,13 @@ public class TelaClienteController {
             alert.setTitle("Buscar Passagem");
             alert.setContentText("");
             alert.show();
-    		
-    	}
-    	else {
+		} catch (NaoExisteException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
             alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
-    	}
+		}
     }
 
     @FXML

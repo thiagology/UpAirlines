@@ -5,15 +5,12 @@ import java.time.LocalDate;
 import projetoUp.dados.RepositorioFuncionarios;
 import projetoUp.exceptions.NaoExisteException;
 import projetoUp.model.Funcionario;
-import projetoUp.model.Gerente;
 
 public class ControladorFuncionario {
 
     private RepositorioFuncionarios repositorioFuncionario;
     private static ControladorFuncionario instance;
-    @SuppressWarnings("unused")
-	private Gerente usuario;
-
+    
     public static ControladorFuncionario getInstance() {
         if (instance == null) {
             instance = new ControladorFuncionario();
@@ -33,7 +30,7 @@ public class ControladorFuncionario {
 	public void adicionarFuncionario(String nome, String cpf, String rg,
             int telefone, String endereco,
             LocalDate nascimento, int id,
-            LocalDate contratacao, String funcao, String login, String senha) {
+            LocalDate contratacao, String funcao, String login, String senha) throws NaoExisteException {
         if (cpf != null || rg != null) { //alguma identificacao nao nula
             if (contratacao.isBefore(LocalDate.now())) { //contratacao antes da data atual
                 Funcionario novo = new Funcionario(nome, cpf, rg, telefone, endereco,
@@ -44,16 +41,10 @@ public class ControladorFuncionario {
         }
     }
 
-    public void removerFuncionario(Funcionario f) {
+    public void removerFuncionario(Funcionario f) throws NaoExisteException {
         if (!f.isAdm()) {
-            try {
                 this.repositorioFuncionario.removerFuncionario(f);
                 this.repositorioFuncionario.salvarArquivo();
-            } catch (NaoExisteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
         }
     }
 
@@ -64,17 +55,5 @@ public class ControladorFuncionario {
         return null;
     }
 
-    public boolean tornarGerente(Funcionario funcionario) {
-        return this.repositorioFuncionario.addGerente(funcionario);
-    }
 
-    public boolean logInGerente(String login, String senha) {
-        try {
-            this.usuario = this.repositorioFuncionario.login(login, senha);
-            return true;
-        } catch (NaoExisteException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 }

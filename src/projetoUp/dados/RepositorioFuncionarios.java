@@ -107,25 +107,17 @@ public class RepositorioFuncionarios implements Serializable {
 		return false;
 	}
 	
-	public boolean addFuncionario(Funcionario fun)
+	public boolean addFuncionario(Funcionario fun) throws NaoExisteException
 	{
-		try {
 			if(this.funcionarioExiste(fun) != true)
 			{
 				this.funcionarios.add(fun);
 				return true;
 			}
-		} catch (NaoExisteException e) {
-		}
 		
 		return false;	
 	}
 	
-	public boolean addGerente(Funcionario funcionario)
-	{
-		Gerente gerente = (Gerente) funcionario;
-		return this.addFuncionario(gerente);
-	}
 	
        
 	public void removerFuncionario(Funcionario funcionario) throws NaoExisteException

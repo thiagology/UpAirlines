@@ -88,9 +88,12 @@ public class RepositorioCliente implements Serializable {
 
 
 	//adiciona uma conta de cliente ao repositorio
-	public boolean criarConta(Cliente c) {		
+	public boolean criarConta(Cliente c) throws NaoExisteException, JaExisteException{
+		if(buscarCliente(c) == null) {
 			 this.clientes.add(c);
-		return true;
+				return true;
+		}
+		return false;
 	}
 	
 	//remove uma conta do repositorio
@@ -118,7 +121,7 @@ public class RepositorioCliente implements Serializable {
 		return null;
 	}
 
-	public Cliente buscarCliente(Cliente cliente) {
+	public Cliente buscarCliente(Cliente cliente) throws NaoExisteException{
 		for(Cliente c: clientes) {
 			if(c.equals(cliente)) {
 				return c;

@@ -60,12 +60,12 @@ public class Fachada {
     public void adicionarFuncionario(String nome, String cpf, String rg,
             int telefone, String endereco,
             LocalDate nascimento, int id,
-            LocalDate contratacao, String funcao, String login, String senha) {
+            LocalDate contratacao, String funcao, String login, String senha) throws NaoExisteException {
         controladorFuncionario.adicionarFuncionario(nome, cpf, rg, telefone, endereco,
                 nascimento, id, contratacao, funcao, login, senha);
     }
 
-    public void removerFuncionario(Funcionario f) {
+    public void removerFuncionario(Funcionario f) throws NaoExisteException {
         controladorFuncionario.removerFuncionario(f);
     }
 
@@ -74,7 +74,7 @@ public class Fachada {
     }
 
     //CLIENTE
-    public boolean fazerLogin(String usuario, String senha) {
+    public boolean fazerLogin(String usuario, String senha) throws NaoExisteException {
         return controladorCliente.fazerLogin(usuario, senha);
     }
 
@@ -83,31 +83,31 @@ public class Fachada {
     }
 
 
-    public void excluirConta(Cliente c) {
+    public void excluirConta(Cliente c) throws NaoExisteException {
         controladorCliente.excluirConta(c);
     }
 
-    public Cliente buscarConta(String login, String senha) {
+    public Cliente buscarConta(String login, String senha) throws NaoExisteException {
         return controladorCliente.buscarConta(login, senha);
     }
 
-    public void comprarPassagem(Cidades origem, Cidades destino, LocalDate data) {
+    public void comprarPassagem(Cidades origem, Cidades destino, LocalDate data) throws JaExisteException, NaoExisteException {
         controladorCliente.comprarPassagem(origem, destino, data);
     }
 
-    public void criarPassagem(String codigo, Passageiro p, Voo v) {
+    public void criarPassagem(String codigo, Passageiro p, Voo v) throws JaExisteException, NaoExisteException {
         controladorPassagem.criarPassagem(codigo, p, v);
     }
 
-    public void excluirPassagem(Passagem p) {
+    public void excluirPassagem(Passagem p) throws NaoExisteException {
         controladorPassagem.excluirPassagem(p);
     }
 
-    public void alterarPassagem(Passagem p, String idAssento) {
+    public void alterarPassagem(Passagem p, String idAssento) throws NaoExisteException {
         controladorPassagem.alterarPassagem(p, idAssento);
     }
 
-    public Passagem buscarPassagem(String c) {
+    public Passagem buscarPassagem(String c) throws NaoExisteException {
 		return controladorPassagem.buscarPassagem(c);
     }
 
@@ -115,8 +115,4 @@ public class Fachada {
         return controladorPassagem.listarPorPassageiro(pa);
     }
 
-    public void promoverFuncionario(Funcionario funcionario) {
-        this.controladorFuncionario.tornarGerente(funcionario);
-
-    }
 }

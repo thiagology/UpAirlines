@@ -32,26 +32,21 @@ public class ControladorPassagem {
 
 
 
-	public void criarPassagem(String codigo, Passageiro p, Voo v) {
+	public void criarPassagem(String codigo, Passageiro p, Voo v) throws JaExisteException, NaoExisteException {
         if (p != null) {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) {
                 if (p.getCpf() != null || p.getRg() != null) {
                     Passagem pas = new Passagem(codigo, p, v);
                     p.setCodigoVoo(pas.getVoo().getcodigoVoo());
                     v.setPassageiro(p);
-                    try {
                         repositorioPassagem.criarPassagem(pas);
                         repositorioPassagem.salvarArquivo();
-                    } catch (JaExisteException e) {
-                        e.printStackTrace();
-                    }
-
                 }
             }
         }
     }
 
-    public void excluirPassagem(Passagem p) {
+    public void excluirPassagem(Passagem p) throws NaoExisteException {
         if (p != null) {
             if (p.getVoo().getHorarioDeSaida().isAfter(LocalTime.now())); //se o voo j� partiu
             p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());//libera o assento de volta no voo
@@ -60,24 +55,21 @@ public class ControladorPassagem {
         }
     }
 
-    public void alterarPassagem(Passagem p, String idAssento) {
+    public void alterarPassagem(Passagem p, String idAssento) throws NaoExisteException {
         if (p != null) {
             //verificar disponibilidade do assento
             if (p.getVoo().buscarAssento(idAssento).getOcupado() == false) {
                 p.getVoo().liberarAssento(p.getPassageiro().getAssento().getId());//libera o assento antigo
             }
             p.getPassageiro().setAssento(p.getVoo().reservarAssento(idAssento));//muda assento	
-            try {
+
                 repositorioPassagem.alterarPassagem(p);
                 repositorioPassagem.salvarArquivo();
-            } catch (NaoExisteException e) {
-                e.printStackTrace();
-            }
 
         }
     }
 
-    public Passagem buscarPassagem(String c) {
+    public Passagem buscarPassagem(String c) throws NaoExisteException{
         if (c != null) {
            return repositorioPassagem.buscarPassagem(c);
         }
