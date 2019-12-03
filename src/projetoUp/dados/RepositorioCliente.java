@@ -16,7 +16,7 @@ public class RepositorioCliente implements Serializable {
 
 	
 	private static final long serialVersionUID = 523021474381236478L;
-	private ArrayList <Cliente> clientes;
+	private static ArrayList <Cliente> clientes;
 	private static RepositorioCliente instance;
 	
     public static RepositorioCliente getInstance() {
@@ -30,14 +30,14 @@ public class RepositorioCliente implements Serializable {
 
 	public RepositorioCliente() {
 		
-		this.lerLista();
+		lerLista();
 	}
 
 
 	//METODO PARA GRAVAR CLIENTES NO ARQUIVO
 			public void gravaLista(){
 				try{
-					FileOutputStream arqG2 = new FileOutputStream("clientes.dat");
+					FileOutputStream arqG2 = new FileOutputStream("src/clientes.dat");
 					ObjectOutputStream objG2 = new ObjectOutputStream(arqG2);
 					objG2.writeObject(clientes);
 					arqG2.flush();
@@ -52,9 +52,10 @@ public class RepositorioCliente implements Serializable {
 			}
 
 			//METODO PARA LER O ARQUIVO DOS CLIENTES
+			@SuppressWarnings("unchecked")
 			public void lerLista(){		
 				try {
-					FileInputStream arqL2 = new FileInputStream("clientes.dat");
+					FileInputStream arqL2 = new FileInputStream("src/clientes.dat");
 					ObjectInputStream objL2 = new ObjectInputStream(arqL2);
 					clientes = (ArrayList<Cliente>) objL2.readObject();
 					arqL2.close();
@@ -71,16 +72,18 @@ public class RepositorioCliente implements Serializable {
 
 	//adiciona uma conta de cliente ao repositorio
 	public void criarConta(Cliente c) throws JaExisteException {		
-		this.lerLista();
-			this.clientes.add(c);
-		this.gravaLista();
+		lerLista();
+		
+		clientes.add(c);
+		
+		gravaLista();
 	}
 	
 	//remove uma conta do repositorio
 	public void excluirConta(Cliente c) throws NaoExisteException{	
-		this.lerLista();
-			this.clientes.remove(c);
-		this.gravaLista();
+		lerLista();
+		clientes.remove(c);
+		gravaLista();
 	}
 
 	//retorna se um email existe
@@ -90,7 +93,7 @@ public class RepositorioCliente implements Serializable {
 
 	//busca um cliente pelo email
 	public Cliente buscarCliente(String login, String senha) throws NaoExisteException{
-		for(Cliente c: this.clientes) {
+		for(Cliente c: clientes) {
 			if(c.getEmail().equals(login) && c.getSenha().equals(senha)) {
 				return c;
 			}
@@ -100,7 +103,7 @@ public class RepositorioCliente implements Serializable {
 	}
 
 	public Cliente buscarCliente(Cliente cliente) {
-		for(Cliente c: this.clientes) {
+		for(Cliente c: clientes) {
 			if(c.equals(cliente)) {
 				return c;
 			}
