@@ -95,7 +95,7 @@ public class RepositorioVoo implements Serializable {
     
     	//adiciona um voo ao repositorio
   		public void criarVoo(Voo v) throws JaExisteException, NaoExisteException{		
-  			 if (codigoExiste(v.getcodigoVoo()) != true) {
+  			 if (codigoExiste(v.getcodigoVoo()) != true && v.getDistancia() > 0) {
   				 this.voos.add(v);
   			 }
   		}
