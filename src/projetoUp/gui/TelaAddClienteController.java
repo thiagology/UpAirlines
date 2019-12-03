@@ -108,6 +108,12 @@ public class TelaAddClienteController {
 	            alert.setContentText("");
 
 	            alert.showAndWait();
+			} catch (NullPointerException e) {
+	            Alert alert = new Alert(AlertType.ERROR);
+	            alert.setHeaderText("");
+	            alert.setTitle("Erro");
+	            alert.setContentText("Não foi possível cadastrar cliente.");
+	            alert.show();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

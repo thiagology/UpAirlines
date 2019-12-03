@@ -132,6 +132,12 @@ public class TelaGerenteController implements Initializable {
             alert.setTitle("Erro");
             alert.setContentText("Não existe voo com o código informado.");
             alert.show();
+		}catch (NullPointerException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe voo com o código informado.");
+            alert.show();
 		}
     }
     
@@ -155,7 +161,13 @@ public class TelaGerenteController implements Initializable {
             alert.setTitle("Erro");
             alert.setContentText("Não existe voo com o código informado.");
             alert.show();
-		} catch (Exception e) {
+		}  catch (NullPointerException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe voo com o código informado.");
+            alert.show();
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
     }
@@ -182,6 +194,12 @@ public class TelaGerenteController implements Initializable {
             alert.show();
             
 		} catch (NaoExisteException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe funcionario com o cpf informado.");
+            alert.show();
+		} catch (NullPointerException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");
@@ -215,6 +233,12 @@ public class TelaGerenteController implements Initializable {
             }
             
 		} catch (NaoExisteException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("");
+            alert.setTitle("Erro");
+            alert.setContentText("Não existe funcionario com o cpf informado.");
+            alert.show();
+		} catch (NullPointerException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("");
             alert.setTitle("Erro");

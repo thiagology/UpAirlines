@@ -66,6 +66,8 @@ public class TelaLoginController {
 			 fachada.fazerLogin(txLogin.getText(), txSenha.getText());
 		} catch (NaoExisteException e1) {
 			msgErro = "Login ou senha incorretos.";
+		}catch (NullPointerException e) {
+			msgErro = "Login ou senha incorretos.";
 		}
 
     	if (msgErro.length() == 0) {

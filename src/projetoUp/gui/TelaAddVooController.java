@@ -108,7 +108,13 @@ public class TelaAddVooController {
 	            alert.setTitle("Erro");
 	            alert.setHeaderText(e.toString());
 	            alert.setContentText("");
-			} catch (Exception e) {
+			}catch (NullPointerException e) {
+	            Alert alert = new Alert(AlertType.ERROR);
+	            alert.setHeaderText("");
+	            alert.setTitle("Erro");
+	            alert.setContentText("Não foi possível cadastrar voo.");
+	            alert.show();
+			}  catch (Exception e) {
 				e.printStackTrace();
 			}
             
