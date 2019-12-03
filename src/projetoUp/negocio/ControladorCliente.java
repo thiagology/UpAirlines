@@ -33,7 +33,7 @@ public class ControladorCliente {
 
 
 
-	public boolean fazerLogin(String usuario, String senha) {
+	public boolean fazerLogin(String usuario, String senha) throws NaoExisteException {
         if (this.buscarConta(usuario, senha) != null) {
             this.clienteLog = this.buscarConta(usuario, senha);
             return true;
@@ -66,32 +66,21 @@ public class ControladorCliente {
         return this.criarConta(conta);
     }
 
-    public void excluirConta(Cliente c) {
+    public void excluirConta(Cliente c) throws NaoExisteException {
         if (c != null) {
-            try {
                 this.repositorioCliente.excluirConta(c);
                 this.repositorioCliente.salvarArquivo();
-            } catch (NaoExisteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
         }
     }
 
-    public Cliente buscarConta(String login, String senha) {
+    public Cliente buscarConta(String login, String senha) throws NaoExisteException {
         if (login != null && senha != null) {
-            try {
                 return repositorioCliente.buscarCliente(login, senha);
-            } catch (NaoExisteException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
         }
         return null;
     }
 
-    public void comprarPassagem(Cidades origem, Cidades destino, LocalDate data) {
+    public void comprarPassagem(Cidades origem, Cidades destino, LocalDate data) throws JaExisteException, NaoExisteException {
         if (this.voo.buscarVoo(origem, destino, data) != null) {
             this.passagens.criarPassagem(this.voo.buscarVoo(origem, destino, data).getcodigoVoo() + "3366",
                     (Passageiro) this.clienteLog,

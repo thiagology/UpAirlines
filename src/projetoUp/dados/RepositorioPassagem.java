@@ -68,26 +68,26 @@ public class RepositorioPassagem implements  Serializable {
 	}
 	
 		//adiciona uma passagem ao repositorio
-		public void criarPassagem(Passagem p) throws JaExisteException {		
+		public void criarPassagem(Passagem p) throws JaExisteException, NaoExisteException {		
 			 if (codigoExiste(p.getCodigo()) != true) {
 				 this.passagens.add(p);
 			 }
 		}
 		
 		//remove uma passagem do repositorio
-		public void excluirPassagem(Passagem p) {	
+		public void excluirPassagem(Passagem p) throws NaoExisteException {	
 		    if (codigoExiste(p.getCodigo()) == true) {
 			   this.passagens.remove(p);
 			}
 		}
 		
 		//retorna se uma passagem ja existe
-		public boolean codigoExiste(String codigo) {
+		public boolean codigoExiste(String codigo) throws NaoExisteException {
 			return buscarPassagem(codigo) != null;
 		}
 		
 		//busca uma passagem pelo codigo
-		public Passagem buscarPassagem(String codigo) {
+		public Passagem buscarPassagem(String codigo) throws NaoExisteException {
 			for(Passagem p: this.passagens) {
 				if(p.getCodigo() == codigo) {
 					return p;
