@@ -47,7 +47,7 @@ public class RepositorioAeroporto implements Serializable{
 	private static RepositorioAeroporto lerDoArquivo() {
 		 RepositorioAeroporto instanciaLocal = null;
 
-		    File in = new File("aeroportos.dat");
+		    File in = new File("src/aeroportos.dat");
 		    FileInputStream fis = null;
 		    ObjectInputStream ois = null;
 		    Map<Cidades, Aeroporto> aero = null;
@@ -76,7 +76,7 @@ public class RepositorioAeroporto implements Serializable{
 	    if (instance == null) {
 	      return;
 	    }
-	    File out = new File("aeroportos.dat");
+	    File out = new File("src/aeroportos.dat");
 	    FileOutputStream fos = null;
 	    ObjectOutputStream oos = null;
 

@@ -31,7 +31,7 @@ public class RepositorioFuncionarios implements Serializable {
 	 private static RepositorioFuncionarios lerDoArquivo() {
 		 RepositorioFuncionarios instanciaLocal = null;
 
-		    File in = new File("funcionarios.dat");
+		    File in = new File("src/funcionarios.dat");
 		    FileInputStream fis = null;
 		    ObjectInputStream ois = null;
 		    ArrayList<Funcionario> func = new ArrayList<>();
@@ -59,7 +59,7 @@ public class RepositorioFuncionarios implements Serializable {
 	    if (instance == null) {
 	      return;
 	    }
-	    File out = new File("funcionarios.dat");
+	    File out = new File("src/funcionarios.dat");
 	    FileOutputStream fos = null;
 	    ObjectOutputStream oos = null;
 

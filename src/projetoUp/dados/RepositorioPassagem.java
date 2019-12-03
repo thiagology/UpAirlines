@@ -35,7 +35,7 @@ public class RepositorioPassagem implements  Serializable {
 	 private static RepositorioPassagem lerDoArquivo() {
 		 RepositorioPassagem instanciaLocal = null;
 
-		    File in = new File("passagens.dat");
+		    File in = new File("src/passagens.dat");
 		    FileInputStream fis = null;
 		    ObjectInputStream ois = null;
 		    ArrayList<Passagem> pass = new ArrayList<>();
@@ -120,7 +120,7 @@ public class RepositorioPassagem implements  Serializable {
 			if (instance == null) {
 			      return;
 			    }
-			    File out = new File("passagens.dat");
+			    File out = new File("src/passagens.dat");
 			    FileOutputStream fos = null;
 			    ObjectOutputStream oos = null;
 
