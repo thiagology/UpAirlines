@@ -1,8 +1,10 @@
 package projetoUp.dados;
 
 import java.util.ArrayList;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -16,74 +18,88 @@ public class RepositorioCliente implements Serializable {
 
 	
 	private static final long serialVersionUID = 523021474381236478L;
-	private static ArrayList <Cliente> clientes;
+	private ArrayList <Cliente> clientes;
 	private static RepositorioCliente instance;
 	
-    public static RepositorioCliente getInstance() {
-        if (instance == null) {
-            instance = new RepositorioCliente();
-        }
-        return instance;
-    }
+	 public static RepositorioCliente getInstance() {
+		    if (instance == null) {
+		      instance = lerDoArquivo();
+		    }
+		    return instance;
+		  }
 
 	
 
-	public RepositorioCliente() {
-		
-		lerLista();
+	 public RepositorioCliente(ArrayList<Cliente> clientes) {
+			super();
+			this.clientes = clientes;
 	}
 
 
-	//METODO PARA GRAVAR CLIENTES NO ARQUIVO
-			public void gravaLista(){
-				try{
-					FileOutputStream arqG2 = new FileOutputStream("src/clientes.dat");
-					ObjectOutputStream objG2 = new ObjectOutputStream(arqG2);
-					objG2.writeObject(clientes);
-					arqG2.flush();
-					objG2.flush();
-					arqG2.close();
-					objG2.close();
-				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
+	 private static RepositorioCliente lerDoArquivo() {
+		 RepositorioCliente instanciaLocal = null;
 
-			//METODO PARA LER O ARQUIVO DOS CLIENTES
-			
-			public void lerLista(){		
-				try {
-					FileInputStream arqL2 = new FileInputStream("src/clientes.dat");
-					ObjectInputStream objL2 = new ObjectInputStream(arqL2);
-					clientes = (ArrayList<Cliente>) objL2.readObject();
-					arqL2.close();
-					objL2.close();
-				}
-				catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-				
-				
-			}
+		    File in = new File("src/clientes.dat");
+		    FileInputStream fis = null;
+		    ObjectInputStream ois = null;
+		    ArrayList<Cliente> clien = new ArrayList<>();
+		    try {
+		      fis = new FileInputStream(in);
+		      ois = new ObjectInputStream(fis);
+		      Object o = ois.readObject();
+		      instanciaLocal = (RepositorioCliente) o;
+		    } catch (Exception e) {
+		      instanciaLocal = new RepositorioCliente(clien);
+		    } finally {
+		      if (ois != null) {
+		        try {
+		          ois.close();
+		        } catch (IOException e) {/* Silent exception */
+		        }
+		      }
+		    }
+
+		    return instanciaLocal;
+		  }
+	
+	public void salvarArquivo() {
+	    if (instance == null) {
+	      return;
+	    }
+	    File out = new File("src/clientes.dat");
+	    FileOutputStream fos = null;
+	    ObjectOutputStream oos = null;
+
+	    try {
+	      fos = new FileOutputStream(out);
+	      oos = new ObjectOutputStream(fos);
+	      oos.writeObject(instance);
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    } finally {
+	      if (oos != null) {
+	        try {
+	          oos.close();
+	        } catch (IOException e) {
+	          /* Silent */}
+	      }
+	    }
+	  }
 
 
 	//adiciona uma conta de cliente ao repositorio
-	public void criarConta(Cliente c) throws JaExisteException {		
-		lerLista();
-		
-		clientes.add(c);
-		
-		gravaLista();
+	public boolean criarConta(Cliente c) {		
+			 this.clientes.add(c);
+		return true;
 	}
 	
 	//remove uma conta do repositorio
-	public void excluirConta(Cliente c) throws NaoExisteException{	
-		lerLista();
-		clientes.remove(c);
-		gravaLista();
+	public boolean excluirConta(Cliente c) throws NaoExisteException {	
+	    if (this.loginExiste(c.getEmail(), c.getSenha()) == true) {
+		   this.clientes.remove(c);
+		   return true;
+		}
+	   return false;
 	}
 
 	//retorna se um email existe

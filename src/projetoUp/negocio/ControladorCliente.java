@@ -41,17 +41,14 @@ public class ControladorCliente {
         return false;
     }
 
-    public boolean criarConta(Cliente c) {
+    public boolean criarConta(Cliente c) throws JaExisteException, NaoExisteException {
         if (c != null) {
-            if (c.getCpf() != null) {
-                try {
+            if (c.getCpf() != null && this.repositorioCliente.loginExiste(c.getEmail(), c.getSenha())) {
+                
                     this.repositorioCliente.criarConta(c);
+                    this.repositorioCliente.salvarArquivo();
                     this.clienteLog = c;
-                    return true;
-                } catch (JaExisteException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                    return true; 
             }
             return false;
         }
@@ -64,7 +61,7 @@ public class ControladorCliente {
             int telefone,
             String endereco,
             LocalDate nascimento,
-            String login, String senha) {
+            String login, String senha) throws JaExisteException, NaoExisteException {
         Cliente conta = new Cliente(nome, cpf, rg, telefone, endereco, nascimento, login, senha);
         return this.criarConta(conta);
     }
@@ -73,6 +70,7 @@ public class ControladorCliente {
         if (c != null) {
             try {
                 this.repositorioCliente.excluirConta(c);
+                this.repositorioCliente.salvarArquivo();
             } catch (NaoExisteException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
