@@ -11,7 +11,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
-import projetoUp.exceptions.RotaNaoExisteException;
 import projetoUp.model.Cidades;
 import projetoUp.model.Voo;
 import projetoUp.negocio.Fachada;
