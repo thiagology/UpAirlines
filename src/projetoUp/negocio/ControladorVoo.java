@@ -3,6 +3,7 @@ package projetoUp.negocio;
 import projetoUp.dados.RepositorioVoo;
 import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
+import projetoUp.exceptions.RotaNaoExiste;
 import projetoUp.model.Cidades;
 import projetoUp.model.Conexoes;
 import projetoUp.model.Voo;
@@ -28,7 +29,7 @@ public class ControladorVoo {
 	}
 
 
-	public void criarVoo(Voo v) throws NaoExisteException, JaExisteException {
+	public void criarVoo(Voo v) throws NaoExisteException, JaExisteException, RotaNaoExiste {
         if (v != null && this.rota.getDistancia(v.getAeroportoDeOrigem(), v.getAeroportoDeDestino()) > 0) {
             if (v.getHorarioDeSaida().isAfter(v.getHorarioDeChegada())) { //hora de saida nao pode ser antes da de chegada
                 if (!(v.getAeroportoDeDestino().equals(v.getAeroportoDeOrigem()))) {

@@ -2,6 +2,8 @@ package projetoUp.exceptions;
 
 public class JaExisteException extends Exception {
 	
+	
+
 	private static final long serialVersionUID = 1L;
 	private Object objeto;
     
@@ -18,6 +20,9 @@ public class JaExisteException extends Exception {
 		this.objeto = objeto;
 	}
     
-    
+	@Override
+	public String toString() {
+		return "JaExisteException [objeto=" + objeto + "]";
+	}
 
 }
