@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import projetoUp.exceptions.NaoExisteException;
+import projetoUp.negocio.Fachada;
+
 
 public class TelaLoginController {
 
@@ -31,6 +34,8 @@ public class TelaLoginController {
 
     @FXML
     private PasswordField txSenha;
+    
+    private Fachada fachada = Fachada.getInstance();
 
     @FXML
     void onClickCriarConta(ActionEvent event) {
@@ -55,6 +60,12 @@ public class TelaLoginController {
 		if(txLogin.getText() == null ||
 			txSenha.getText() == null) {
 			msgErro = "Login ou senha inválidos";
+		}
+		
+		try {
+			 fachada.fazerLogin(txLogin.getText(), txSenha.getText());
+		} catch (NaoExisteException e1) {
+			msgErro = "Login ou senha incorretos.";
 		}
 
     	if (msgErro.length() == 0) {
