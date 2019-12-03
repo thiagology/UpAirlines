@@ -96,7 +96,7 @@ public class RepositorioVoo implements Serializable {
     
     	//adiciona um voo ao repositorio
   		public void criarVoo(Voo v) throws JaExisteException, NaoExisteException, RotaNaoExiste{		
-  			try { 
+  		
   			if (codigoExiste(v.getcodigoVoo()) != true) {
   				 if(v.getDistancia() > 0) {
   					 this.voos.add(v);
@@ -110,15 +110,15 @@ public class RepositorioVoo implements Serializable {
   			else {
   				throw new JaExisteException(v);
   			}
-  			}catch(RotaNaoExiste e){
-  				e.printStackTrace();
-  			}
+
   		}
   		
   		//remove um voo do repositorio
   		public void removerVoo(Voo v) throws NaoExisteException {	
   		    if (codigoExiste(v.getcodigoVoo()) == true) {
   			   this.voos.remove(v);
+  			}else{
+  				throw new NaoExisteException(v);
   			}
   		}
   		
@@ -143,7 +143,9 @@ public class RepositorioVoo implements Serializable {
   			for(Voo v: this.voos) {
   				if(v.getcodigoVoo() == codigo) {
   					return v;
-  				}
+  				}else{
+  	  				throw new NaoExisteException(v);
+  	  			}
   			}
   			
   			return null;
@@ -153,6 +155,8 @@ public class RepositorioVoo implements Serializable {
   			if(voos.contains(v)) {
   				int indice = this.voos.indexOf(v);
   				this.voos.set(indice, v);
+  			}else{
+  				throw new NaoExisteException(v);
   			}
   		}
   		

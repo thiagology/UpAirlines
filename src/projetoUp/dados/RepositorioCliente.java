@@ -92,8 +92,9 @@ public class RepositorioCliente implements Serializable {
 		if(buscarCliente(c) == null) {
 			 this.clientes.add(c);
 				return true;
+		}else{
+	    	throw new JaExisteException(c);		
 		}
-		return false;
 	}
 	
 	//remove uma conta do repositorio
@@ -102,7 +103,10 @@ public class RepositorioCliente implements Serializable {
 		   this.clientes.remove(c);
 		   return true;
 		}
-	   return false;
+	    else{
+	    	throw new NaoExisteException(c);		
+		}
+	    
 	}
 
 	//retorna se um email existe
@@ -115,7 +119,9 @@ public class RepositorioCliente implements Serializable {
 		for(Cliente c: clientes) {
 			if(c.getEmail().equals(login) && c.getSenha().equals(senha)) {
 				return c;
-			}
+			}else{
+  				throw new NaoExisteException(c);
+  			}
 		}
 
 		return null;
@@ -125,7 +131,9 @@ public class RepositorioCliente implements Serializable {
 		for(Cliente c: clientes) {
 			if(c.equals(cliente)) {
 				return c;
-			}
+			}else{
+  				throw new NaoExisteException(cliente);
+  			}
 		}
 
 		return null;

@@ -22,7 +22,7 @@ public class UpAirlinesApp extends Application{
 		    	
 				primaryStage.setTitle("UP Airlines - United Programmers Airlines ");
 				
-				Pane rootScene = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
+				Pane rootScene = FXMLLoader.load(getClass().getResource("TelaGerente.fxml"));
 				
 				Scene scene = new Scene(rootScene, 597, 396);
 				primaryStage.setScene(scene);

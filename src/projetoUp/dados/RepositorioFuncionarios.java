@@ -91,9 +91,10 @@ public class RepositorioFuncionarios implements Serializable {
 			if(f.getCpf().equals(CPF))
 			{
 				return f;
+			}else{
+		    	throw new NaoExisteException(f);		
 			}
 		}
-		
 		return null;
 	}
 	
@@ -102,9 +103,9 @@ public class RepositorioFuncionarios implements Serializable {
 		if(this.buscarFuncionario(funcionario.getCpf()) != null)
 		{
 			return true;
+		}else{
+	    	throw new NaoExisteException(funcionario);		
 		}
-		
-		return false;
 	}
 	
 	public boolean addFuncionario(Funcionario fun) throws NaoExisteException
@@ -113,9 +114,10 @@ public class RepositorioFuncionarios implements Serializable {
 			{
 				this.funcionarios.add(fun);
 				return true;
+			}else{
+		    	throw new NaoExisteException(fun);		
 			}
-		
-		return false;	
+	
 	}
 	
 	
@@ -124,6 +126,8 @@ public class RepositorioFuncionarios implements Serializable {
 	{
 		if(this.funcionarioExiste(funcionario) == true) {
 			this.funcionarios.remove(funcionario);
+		}else{
+	    	throw new NaoExisteException(funcionario);		
 		}
 	}
 	
@@ -134,6 +138,8 @@ public class RepositorioFuncionarios implements Serializable {
 			if(funcionario.isAdm() && funcionario.getUsuario().equals(login)  && funcionario.getSenha().equals(senha))
 			{
 				return (Gerente)funcionario;
+			}else{
+		    	throw new NaoExisteException(funcionario);		
 			}
 		}
 		

@@ -71,13 +71,17 @@ public class RepositorioPassagem implements  Serializable {
 		public void criarPassagem(Passagem p) throws JaExisteException, NaoExisteException {		
 			 if (codigoExiste(p.getCodigo()) != true) {
 				 this.passagens.add(p);
-			 }
+			 }else{
+			    	throw new NaoExisteException(p);		
+				}
 		}
 		
 		//remove uma passagem do repositorio
 		public void excluirPassagem(Passagem p) throws NaoExisteException {	
 		    if (codigoExiste(p.getCodigo()) == true) {
 			   this.passagens.remove(p);
+			}else{
+		    	throw new NaoExisteException(p);		
 			}
 		}
 		
@@ -91,6 +95,8 @@ public class RepositorioPassagem implements  Serializable {
 			for(Passagem p: this.passagens) {
 				if(p.getCodigo() == codigo) {
 					return p;
+				}else{
+			    	throw new NaoExisteException(p);		
 				}
 			}
 			
@@ -101,6 +107,8 @@ public class RepositorioPassagem implements  Serializable {
 			if(passagens.contains(p)) {
 				int i = this.passagens.indexOf(p);
 				this.passagens.set(i, p);
+			}else{
+		    	throw new NaoExisteException(p);		
 			}
 		}
 		
