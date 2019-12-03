@@ -62,5 +62,6 @@ public class Aviao {
 		this.velM = velM;
 	}
 	
+	
 		
 }

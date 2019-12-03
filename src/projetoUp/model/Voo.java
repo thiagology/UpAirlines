@@ -12,8 +12,6 @@ public class Voo implements Serializable{
 	private static final long serialVersionUID = -31560859852008073L;
 	private Cidades aeroportoDeOrigem;
 	private Cidades aeroportoDeDestino;
-	private Pilotos piloto;
-	private Pilotos coPiloto;
 	private LocalTime horarioDeSaida;
 	private LocalTime horarioDeChegada;
 	private LocalDate data;
@@ -26,7 +24,7 @@ public class Voo implements Serializable{
         
         
 	
-	public Voo(Cidades cidades, Cidades cidades2, Pilotos pilotos, Pilotos pilotos2, LocalTime horarioDeSaida,
+	public Voo(Cidades cidades, Cidades cidades2, LocalTime horarioDeSaida,
 			List<Passageiro> passageiros, String codigoVoo, LocalDate data) {
 		super();
 		this.aeroportoDeOrigem = cidades;
@@ -67,24 +65,6 @@ public class Voo implements Serializable{
 
 	public void setAeroportoDeDestino(Cidades aeroportoDeDestino) {
 		this.aeroportoDeDestino = aeroportoDeDestino;
-	}
-
-
-
-	public Pilotos getPiloto() {
-		return piloto;
-	}
-
-	public void setPiloto(Pilotos piloto) {
-		this.piloto = piloto;
-	}
-
-	public Pilotos getCoPiloto() {
-		return coPiloto;
-	}
-
-	public void setCoPiloto(Pilotos coPiloto) {
-		this.coPiloto = coPiloto;
 	}
 
 	public LocalTime getHorarioDeSaida() {
@@ -252,6 +232,18 @@ public class Voo implements Serializable{
 
 	public void setDia(LocalDate dia) {
 		this.data = dia;
+	}
+	
+	public boolean equals(Voo voo)
+	{
+		if(this.aeroportoDeOrigem.equals(voo.aeroportoDeOrigem) && this.aeroportoDeDestino.equals(voo.aeroportoDeDestino) &&
+				this.data.equals(voo.data) && this.horarioDeSaida.equals(voo.getHorarioDeSaida()))
+				{
+					return true;
+				}
+		else {
+			return false;
+		}
 	}
     
     

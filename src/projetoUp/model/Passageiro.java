@@ -56,4 +56,15 @@ public class Passageiro extends Cliente {
 		this.setAssento(assento);
 	}
 	
+	public boolean equals(Passageiro pass){
+		if(this.getCpf().equals(pass.getCpf()) && this.getNome().equals(pass.getNome()))
+		{
+			return true;
+		}
+		
+		else {
+			return false;
+		}
+	}
+	
 }

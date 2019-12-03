@@ -59,5 +59,15 @@ public class Funcionario extends Pessoa implements Serializable {
 		this.senha = senha;
 	}
 	
-	
+	public boolean equals(Funcionario func)
+	{
+		if(this.id == func.id && this.getNome().equals(func.getNome()))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

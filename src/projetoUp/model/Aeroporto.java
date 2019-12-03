@@ -97,28 +97,15 @@ public class Aeroporto implements Serializable {
 
 	
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(Aeroporto obj) {
+		if(this.cidade == obj.cidade && this.nome == obj.nome )
+		{
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aeroporto other = (Aeroporto) obj;
-		if (cidade != other.cidade)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (sigla == null) {
-			if (other.sigla != null)
-				return false;
-		} else if (!sigla.equals(other.sigla))
-			return false;
-		return true;
+		}
+		else
+		{
+			return false; 
+		}
 	}
 	
 	

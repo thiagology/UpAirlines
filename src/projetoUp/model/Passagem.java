@@ -85,5 +85,15 @@ public class Passagem {
 		return this.preco;
 	}
 	
+	public boolean equals(Passagem pa)
+	{
+		if(this.passageiro.equals(pa.passageiro) && this.preco == pa.preco)
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 }

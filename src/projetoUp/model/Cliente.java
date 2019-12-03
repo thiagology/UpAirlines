@@ -49,6 +49,14 @@ public class Cliente extends Pessoa implements Login, Serializable {
 		//funcao de login
 	}
 
-	
+	public boolean equals(Cliente cliente) {
+		if(this.getNome().equals(cliente.getNome()) && this.getCpf().equals(cliente.getCpf()))
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }

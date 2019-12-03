@@ -37,5 +37,16 @@ public class Assento{
     	return this.ocupado;
     }
     
+    public boolean equals(Assento assento)
+    {
+    	if(this.id.equals(assento.id))
+    	{
+    		return true;
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    }
     
 }
