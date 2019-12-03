@@ -5,7 +5,6 @@ import java.util.List;
 
 import projetoUp.exceptions.JaExisteException;
 import projetoUp.exceptions.NaoExisteException;
-import projetoUp.model.Aeroporto;
 import projetoUp.model.Cidades;
 import projetoUp.model.Cliente;
 import projetoUp.model.Funcionario;
@@ -20,14 +19,12 @@ public class Fachada {
     private ControladorVoo controladorVoo;
     private ControladorPassagem controladorPassagem;
     private ControladorCliente controladorCliente;
-    private ControladorAeroporto controladorAeroporto;
     private ControladorFuncionario controladorFuncionario;
 
     private Fachada() {
         this.controladorVoo = ControladorVoo.getInstance();
         this.controladorCliente = ControladorCliente.getInstance();
         this.controladorPassagem = ControladorPassagem.getInstance();
-        this.controladorAeroporto = ControladorAeroporto.getInstance();
         this.controladorFuncionario = ControladorFuncionario.getInstance();
     }
 
@@ -74,22 +71,6 @@ public class Fachada {
 
     public void buscarFuncionario(Funcionario f) {
         controladorFuncionario.buscarFuncionario(f);
-    }
-
-    public void novoAeroporto(String nome, String sigla, Cidades cidade) {
-        controladorAeroporto.novoAeroporto(nome, sigla, cidade);
-    }
-
-    public void adicionarAeroporto(Aeroporto a) {
-        controladorAeroporto.adicionarAeroporto(a);
-    }
-
-    public void removerAeroporto(Aeroporto a) {
-        controladorAeroporto.removerAeroporto(a);
-    }
-
-    public void buscarAeroporto(Cidades cidade) {
-        controladorAeroporto.buscarAeroporto(cidade);
     }
 
     //CLIENTE

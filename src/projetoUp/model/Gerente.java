@@ -1,7 +1,7 @@
 package projetoUp.model;
 
 
-public class Gerente extends Funcionario implements Login{
+public class Gerente extends Funcionario {
 	/**
 	 * 
 	 */
@@ -10,10 +10,6 @@ public class Gerente extends Funcionario implements Login{
 	public Gerente() {
 		super();
 		this.setAdm(true);
-	}
-	
-	@Override
-	public void fazerLogin() {
 	}
 	
 	
