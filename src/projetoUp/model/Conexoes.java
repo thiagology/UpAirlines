@@ -3,18 +3,18 @@ package projetoUp.model;
 
 
 public class Conexoes {
-	
+
 	private int nCidades = 27;
 	private int conexoes[][] = new int[nCidades][nCidades];
-	
-	
-	
-	
-	
+
+
+
+
+
 	public Conexoes()
 	{
-		
-		
+
+
 		this.inserirDistancia( Cidades.RECIFE , Cidades.FORTALEZA , 628);
 		this.inserirDistancia( Cidades.RECIFE , Cidades.MACEIO , 200);
 		this.inserirDistancia( Cidades.RECIFE , Cidades.NATAL , 254);
@@ -68,29 +68,29 @@ public class Conexoes {
 		this.inserirDistancia( Cidades.TERERESINA , Cidades.SAO_LUIS , 328);
 		this.inserirDistancia( Cidades.TERERESINA , Cidades.SAO_PAULO , 2655);
 		this.inserirDistancia( Cidades.TERERESINA , Cidades.BRASILIA , 1313);
-		
+
 		this.espelhar();
-									
+
 	}
-	
+
 	public void inserirDistancia(Cidades cidade1, Cidades cidade2, double distancia)
 	{
 		conexoes[cidade1.getOrdem()][cidade2.getOrdem()] = (int)distancia;
 	}
-	
+
 	public int getDistancia(Cidades cidade1, Cidades cidade2)
 	{
 		if(this.conexoes[cidade1.getOrdem()][cidade2.getOrdem()] > 0)
 		{
 			return this.conexoes[cidade1.getOrdem()][cidade2.getOrdem()];
 		}
-		
+
 		else
 		{
 			return 0;
 		}
 	}
-	
+
 	public void espelhar()
 	{
 		for(int i = 0; i < nCidades; i++)
@@ -110,14 +110,20 @@ public class Conexoes {
 				}
 			}
 		}
-		
+
 	}
-	
+
 	public long tempoViagem(Cidades origem, Cidades destino,Aviao aviao)
 	{
-		int tempo = (this.conexoes[origem.getOrdem()][destino.getOrdem()]/aviao.getVelM());
-		return (long)tempo;
+		try{
+			int tempo = (this.conexoes[origem.getOrdem()][destino.getOrdem()]/aviao.getVelM());
+			return (long)tempo;
+		}
+		catch (ArithmeticException e) {
+			e.printStackTrace();
+			return 0;
+		}
+
 	}
 }
-	
-	
+
