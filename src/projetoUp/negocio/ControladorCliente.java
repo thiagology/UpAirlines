@@ -89,4 +89,10 @@ public class ControladorCliente {
         }
     }
 
+
+	public Cliente getClienteLog() {
+		return clienteLog;
+	}    
+    
+
 }

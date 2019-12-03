@@ -115,4 +115,10 @@ public class Fachada {
         return controladorPassagem.listarPorPassageiro(pa);
     }
 
+	public Cliente getClienteLog() {
+		return controladorCliente.getClienteLog();
+	}
+    
+    
+
 }

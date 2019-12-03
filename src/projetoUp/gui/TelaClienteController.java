@@ -18,6 +18,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import projetoUp.exceptions.NaoExisteException;
+import projetoUp.model.Cliente;
 import projetoUp.model.Passagem;
 import projetoUp.negocio.Fachada;
 
@@ -157,7 +158,16 @@ public class TelaClienteController {
     }
 
     @FXML
-    void onClickRemoverConta(ActionEvent event) {
-
+    void onClickRemoverConta(ActionEvent event) throws NaoExisteException {
+    	Cliente c = fachada.getClienteLog();
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setHeaderText("");
+        alert.setTitle("Excluir conta UP");
+        alert.setContentText("Deseja excluir sua conta UP?\n");
+        Optional<ButtonType> btnPressionado = alert.showAndWait();
+        if (btnPressionado.isPresent()
+                && btnPressionado.get().equals(ButtonType.OK)) {
+        	fachada.excluirConta(c);
+        }
     }
 }
