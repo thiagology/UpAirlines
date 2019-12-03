@@ -41,9 +41,6 @@ public class TelaClienteController {
     private Button btExibirPass;
 
     @FXML
-    private Button btCheckin;
-
-    @FXML
     private Label lbBemVindo;
     
     @FXML
@@ -90,11 +87,6 @@ public class TelaClienteController {
             alert.setContentText("Não existe passagem com o código informado.");
             alert.show();
     	}
-    }
-
-    @FXML
-    void onClickCheckin(ActionEvent event) {
-
     }
 
     @FXML
